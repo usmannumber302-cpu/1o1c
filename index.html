@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1O1C | Ultimate Minecraft Anarchy - Lifesteal</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .glow-text {
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+        }
+        .glow-border:hover {
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+            border-color: #ff0000;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white">
+
+    <header class="text-center py-16 px-4 max-w-4xl mx-auto">
+        <h1 class="text-6xl md:text-8xl font-black text-white tracking-wider glow-text mb-2">1O1C</h1>
+        <p class="text-red-500 font-semibold uppercase tracking-widest text-sm md:text-base mb-6">One Owner One Chunk • Anarchy Lifesteal Hybrid</p>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
+            Zero rules. Total freedom. Every kill steals a heart, every death costs one. 
+            Building on a brutal legacy established in 2025, 1O1C is the ultimate survival gauntlet. Duping enabled. Zero lag.
+        </p>
+
+        <div onclick="copyIP()" class="inline-flex flex-col md:flex-row items-center bg-[#1f2833] border border-gray-700 p-4 rounded-xl cursor-pointer transition-all duration-300 glow-border group mx-auto">
+            <div class="flex items-center space-x-3 px-4">
+                <i class="fa-solid fa-server text-red-500 text-2xl group-hover:animate-pulse"></i>
+                <span id="ip-text" class="text-xl md:text-2xl font-mono font-bold text-white">1o1c.org</span>
+            </div>
+            <div class="bg-red-600 group-hover:bg-red-700 text-white font-bold uppercase text-xs tracking-wider px-4 py-2 rounded-lg mt-3 md:mt-0 md:ml-4 transition-all" id="copy-btn">
+                Click to Copy
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 w-full">
+        <div class="bg-[#1f2833]/50 border border-gray-800 p-6 rounded-xl text-center">
+            <i class="fa-solid fa-skull-crossbones text-red-500 text-4xl mb-4"></i>
+            <h3 class="text-xl font-bold text-white mb-2">Pure Anarchy</h3>
+            <p class="text-gray-400 text-sm">No rules, no bans, no chat moderation. Use hack clients, build massive duping setups, and survive spawn by any means necessary.</p>
+        </div>
+        <div class="bg-[#1f2833]/50 border border-gray-800 p-6 rounded-xl text-center">
+            <i class="fa-solid fa-heart text-red-500 text-4xl mb-4"></i>
+            <h3 class="text-xl font-bold text-white mb-2">Lifesteal Mechanics</h3>
+            <p class="text-gray-400 text-sm">Every player you hunt down grants you a permanent heart container. Lose a fight, and your maximum health bar shrinks down to zero.</p>
+        </div>
+        <div class="bg-[#1f2833]/50 border border-gray-800 p-6 rounded-xl text-center">
+            <i class="fa-solid fa-bolt text-red-500 text-4xl mb-4"></i>
+            <h3 class="text-xl font-bold text-white mb-2">High Performance</h3>
+            <p class="text-gray-400 text-sm">Optimized hardware layout designed to handle severe automation, large obsidian builds, and active chunks smoothly without rubberbanding.</p>
+        </div>
+    </main>
+
+    <section class="bg-[#12141c] border-t border-gray-900 py-12 w-full">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">Server Documentation & Community</h2>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
+                <a href="https://1o1c.fandom.com/wiki/1O1C_Wiki" target="_blank" class="w-full sm:w-auto bg-[#1f2833] border border-gray-700 hover:border-red-500 text-white font-medium px-6 py-3 rounded-xl transition-all flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-book text-red-500"></i>
+                    <span>Read Fandom Wiki</span>
+                </a>
+                <a href="https://discord.gg/your-invite-link" target="_blank" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-xl transition-all flex items-center justify-center space-x-2">
+                    <i class="fa-brands fa-discord"></i>
+                    <span>Join Our Discord</span>
+                </a>
+            </div>
+
+            <div class="bg-[#1f2833]/30 border border-gray-800/80 rounded-xl p-4 max-w-2xl mx-auto overflow-hidden">
+                <div class="grid grid-cols-3 gap-4 text-center">
+                    <div class="border-r border-gray-800">
+                        <span class="block text-gray-500 text-xs uppercase font-bold tracking-wider">Version</span>
+                        <span class="text-white font-semibold text-sm">1.21.10 (1.8.8+)</span>
+                    </div>
+                    <div class="border-r border-gray-800">
+                        <span class="block text-gray-500 text-xs uppercase font-bold tracking-wider">Unique Joins</span>
+                        <span class="text-red-500 font-bold text-sm">2,238+</span>
+                    </div>
+                    <div>
+                        <span class="block text-gray-500 text-xs uppercase font-bold tracking-wider">Status</span>
+                        <span class="text-green-500 font-bold text-sm flex items-center justify-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-green-500 inline-block animate-ping"></span> Online
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-6 border-t border-gray-900 bg-[#0b0c10] text-gray-600 text-xs w-full">
+        &copy; 2026 1O1C Network. Not affiliated with Mojang Studios. Hosted on optimized self-hosted hardware nodes.
+    </footer>
+
+    <script>
+        function copyIP() {
+            const ip = "1o1c.org";
+            navigator.clipboard.writeText(ip).then(() => {
+                const btn = document.getElementById("copy-btn");
+                const ipText = document.getElementById("ip-text");
+                
+                btn.innerText = "COPIED!";
+                btn.classList.remove("bg-red-600");
+                btn.classList.add("bg-green-600");
+                
+                setTimeout(() => {
+                    btn.innerText = "Click to Copy";
+                    btn.classList.remove("bg-green-600");
+                    btn.classList.add("bg-red-600");
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
