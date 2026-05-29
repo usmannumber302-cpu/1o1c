@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1O1C | Feature Shop</title>
+    <style>
+        body {
+            background-color: #0d0d11;
+            color: #e2e8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #16161f;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #2ecc71;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #2ecc71;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2ecc71;
+        }
+        .subtitle {
+            text-align: center;
+            color: #a0aec0;
+            margin-bottom: 40px;
+        }
+        .exchange-rate {
+            background: #16161f;
+            padding: 15px;
+            text-align: center;
+            border-radius: 6px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: 1px solid #2ecc71;
+            margin-bottom: 30px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .section-box {
+            background: #111116;
+            border: 1px solid #23232f;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .section-box h2 {
+            color: #ffffff;
+            border-bottom: 2px solid #23232f;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #16161f;
+        }
+        .item-name {
+            font-weight: bold;
+        }
+        .item-price {
+            background: #2ecc71;
+            color: #0d0d11;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="rules.html">Server Rules</a>
+        <a href="store.html" style="color: #2ecc71;">Feature Shop</a>
+    </nav>
+
+    <div class="container">
+        <h1>🛒 1O1C Feature Shop</h1>
+        <p class="subtitle">Support network operations and keep the system online at 20 TPS.</p>
+
+        <div class="exchange-rate">
+            📊 Official Conversion Rate: €1 Euro = 1 Shop Point
+        </div>
+
+        <div class="grid">
+            <div class="section-box">
+                <h2>✨ Cosmetics & Identity</h2>
+                
+                <div class="item-row">
+                    <span class="item-name">Custom Name Color</span>
+                    <span class="item-price">1 Point / €1</span>
+                </div>
+                <div class="item-row">
+                    <span class="item-name">Custom Chat Prefix</span>
+                    <span class="item-price">2 Points / €2</span>
+                </div>
+                <div class="item-row">
+                    <span class="item-name">In-game /nick Identity</span>
+                    <span class="item-price">2 Points / €2</span>
+                </div>
+                <div class="item-row">
+                    <span class="item-name">Custom Broadcast Messages<br><small style="color:#718096">(Join/Quit/Death)</small></span>
+                    <span class="item-price">2 Points / €2</span>
+                </div>
+                <div class="item-row">
+                    <span class="item-name">Discord [VIP] Role</span>
+                    <span class="item-price">3 Points / €3</span>
+                </div>
+                <div class="item-row">
+                    <span class="item-name">Animated Prefix+</span>
+                    <span class="item-price">4 Points / €4</span>
+                </div>
+            </div>
+
+            <div class="section-box">
+                <h2>⚡ Convenience & Quality of Life</h2>
+                
+                <div class="item-row">
+                    <span class="item-name">Extra /home Profile Slot</span>
+                    <span class="item-price">1 Point / €1</span>
+                </div>
+                <div class="item-row">
+                    <span class="item-name">Virtual Stonecutter (`/stonecutter`)</span>
+                    <span class="item-price">1 Point / €1</span>
+                </div>
+                <div class="item-row">
+                    <span class="item-name">Virtual Grindstone (`/grindstone`)</span>
+                    <span class="item-price">1 Point / €1</span>
+                </div>
+                <div class="item-row">
+                    <span class="item-name">Virtual Smithing Table (`/smith`)</span>
+                    <span class="item-price">1 Point / €1</span>
+                </div>
+                <div class="item-row">
+                    <span class="item-name">Virtual Loom (`/loom`)</span>
+                    <span class="item-price">1 Point / €1</span>
+                </div>
+                <div class="item-row">
+                    <span class="item-name">Virtual Cartography Table (`/cartography`)</span>
+                    <span class="item-price">1 Point / €1</span>
+                </div>
+                <div class="item-row">
+                    <span class="item-name">Virtual Crafting Bench (`/craft`)</span>
+                    <span class="item-price">2 Points / €2</span>
+                </div>
+                <div class="item-row">
+                    <span class="item-name">Virtual Enderchest access (`/ec`)</span>
+                    <span class="item-price">2 Points / €2</span>
+                </div>
+                <div class="item-row">
+                    <span class="item-name">Virtual Anvil repair (`/anvil`)</span>
+                    <span class="item-price">2 Points / €2</span>
+                </div>
+                <div class="item-row">
+                    <span class="item-name">Virtual Brewing Stand (`/brew`)</span>
+                    <span class="item-price">2 Points / €2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
