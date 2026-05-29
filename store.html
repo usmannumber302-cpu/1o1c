@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1O1C | Feature Shop</title>
+    <title>1O1C Network | Feature Shop</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             background-color: #0d0d11;
@@ -39,7 +41,7 @@
         .subtitle {
             text-align: center;
             color: #a0aec0;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         .exchange-rate {
             background: #16161f;
@@ -49,7 +51,25 @@
             font-size: 1.2em;
             font-weight: bold;
             border: 1px solid #2ecc71;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+        }
+        .discord-btn {
+            background-color: #5865F2;
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        }
+        .discord-btn:hover {
+            background-color: #4752C4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
         }
         .grid {
             display: grid;
@@ -61,12 +81,17 @@
             border: 1px solid #23232f;
             border-radius: 8px;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .section-box h2 {
             color: #ffffff;
             border-bottom: 2px solid #23232f;
             padding-bottom: 10px;
             margin-top: 0;
+            font-size: 1.5em;
+            font-weight: bold;
         }
         .item-row {
             display: flex;
@@ -86,6 +111,24 @@
             font-weight: bold;
             font-size: 0.9em;
         }
+        .buy-link {
+            display: block;
+            text-align: center;
+            background: #1f2833;
+            color: #2ecc71;
+            border: 1px dashed #2ecc71;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .buy-link:hover {
+            background: #2ecc71;
+            color: #0d0d11;
+            border-style: solid;
+        }
     </style>
 </head>
 <body>
@@ -104,79 +147,81 @@
             📊 Official Conversion Rate: €1 Euro = 1 Shop Point
         </div>
 
+        <div class="text-center mb-10">
+            <a href="https://discord.gg/REUwffmEGg" target="_blank" rel="noopener" class="discord-btn">
+                <i class="fa-brands fa-discord text-xl"></i>
+                <span>Open Official Discord Shop Channel</span>
+            </a>
+            <p class="text-xs text-gray-500 mt-2">All feature points, orders, and custom ranking configurations are claimed securely via tickets inside our Discord backend.</p>
+        </div>
+
         <div class="grid">
             <div class="section-box">
-                <h2>✨ Cosmetics & Identity</h2>
-                
-                <div class="item-row">
-                    <span class="item-name">Custom Name Color</span>
-                    <span class="item-price">1 Point / €1</span>
+                <div>
+                    <h2>✨ Cosmetics & Identity</h2>
+                    
+                    <div class="item-row">
+                        <span class="item-name">Custom Name Color</span>
+                        <span class="item-price">1 Point / €1</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">Custom Chat Prefix</span>
+                        <span class="item-price">2 Points / €2</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">In-game /nick Identity</span>
+                        <span class="item-price">2 Points / €2</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">Custom Broadcast Messages<br><small style="color:#718096">(Join/Quit/Death)</small></span>
+                        <span class="item-price">2 Points / €2</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">Discord [VIP] Role</span>
+                        <span class="item-price">3 Points / €3</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">Animated Prefix+</span>
+                        <span class="item-price">4 Points / €4</span>
+                    </div>
                 </div>
-                <div class="item-row">
-                    <span class="item-name">Custom Chat Prefix</span>
-                    <span class="item-price">2 Points / €2</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-name">In-game /nick Identity</span>
-                    <span class="item-price">2 Points / €2</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-name">Custom Broadcast Messages<br><small style="color:#718096">(Join/Quit/Death)</small></span>
-                    <span class="item-price">2 Points / €2</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-name">Discord [VIP] Role</span>
-                    <span class="item-price">3 Points / €3</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-name">Animated Prefix+</span>
-                    <span class="item-price">4 Points / €4</span>
-                </div>
+                <a href="https://discord.gg/REUwffmEGg" target="_blank" rel="noopener" class="buy-link">
+                    <i class="fa-solid fa-cart-shopping mr-1"></i> Purchase Identity Upgrades
+                </a>
             </div>
 
             <div class="section-box">
-                <h2>⚡ Convenience & Quality of Life</h2>
-                
-                <div class="item-row">
-                    <span class="item-name">Extra /home Profile Slot</span>
-                    <span class="item-price">1 Point / €1</span>
+                <div>
+                    <h2>⚡ Convenience & Quality of Life</h2>
+                    
+                    <div class="item-row">
+                        <span class="item-name">Extra /home Profile Slot</span>
+                        <span class="item-price">1 Point / €1</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">Virtual Utilities <small style="color:#718096">(/stonecutter, /grindstone, etc)</small></span>
+                        <span class="item-price">1 Point / €1 each</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">Virtual Crafting Bench (`/craft`)</span>
+                        <span class="item-price">2 Points / €2</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">Virtual Enderchest access (`/ec`)</span>
+                        <span class="item-price">2 Points / €2</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">Virtual Anvil repair (`/anvil`)</span>
+                        <span class="item-price">2 Points / €2</span>
+                    </div>
+                    <div class="item-row">
+                        <span class="item-name">Virtual Brewing Stand (`/brew`)</span>
+                        <span class="item-price">2 Points / €2</span>
+                    </div>
                 </div>
-                <div class="item-row">
-                    <span class="item-name">Virtual Stonecutter (`/stonecutter`)</span>
-                    <span class="item-price">1 Point / €1</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-name">Virtual Grindstone (`/grindstone`)</span>
-                    <span class="item-price">1 Point / €1</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-name">Virtual Smithing Table (`/smith`)</span>
-                    <span class="item-price">1 Point / €1</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-name">Virtual Loom (`/loom`)</span>
-                    <span class="item-price">1 Point / €1</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-name">Virtual Cartography Table (`/cartography`)</span>
-                    <span class="item-price">1 Point / €1</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-name">Virtual Crafting Bench (`/craft`)</span>
-                    <span class="item-price">2 Points / €2</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-name">Virtual Enderchest access (`/ec`)</span>
-                    <span class="item-price">2 Points / €2</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-name">Virtual Anvil repair (`/anvil`)</span>
-                    <span class="item-price">2 Points / €2</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-name">Virtual Brewing Stand (`/brew`)</span>
-                    <span class="item-price">2 Points / €2</span>
-                </div>
+                <a href="https://discord.gg/REUwffmEGg" target="_blank" rel="noopener" class="buy-link">
+                    <i class="fa-solid fa-bolt mr-1"></i> Unlock Command Privileges
+                </a>
             </div>
         </div>
     </div>
