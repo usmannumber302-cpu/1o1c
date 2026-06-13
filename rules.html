@@ -3,160 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1O1C Network | Server Rules</title>
+    <link rel="icon" type="image/png" href="https://1o1c.org/logo.png">
+    <title>Server Rules | 1O1C Anarchy Lifesteal</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            background-color: #0d0d11;
-            color: #e2e8f0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        nav {
-            background-color: #16161f;
-            padding: 15px;
-            text-align: center;
-            border-bottom: 2px solid #ff4757;
-        }
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #ff4757;
-        }
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #111116;
-            border-radius: 8px;
-            border: 1px solid #23232f;
-        }
-        h1, h2, h3 {
-            color: #ff4757;
-        }
-        .rule-card {
-            background: #16161f;
-            padding: 15px;
-            margin-bottom: 12px;
-            border-left: 4px solid #ff4757;
-            border-radius: 4px;
-        }
-        .rule-title {
-            font-weight: bold;
-            font-size: 1.1em;
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-        .enforcement {
-            background: #221314;
-            border: 1px solid #ff4757;
-            padding: 20px;
-            border-radius: 6px;
-            margin-top: 30px;
-        }
-        .staff-directives {
-            background: #111827;
-            border: 1px solid #3b82f6;
-            padding: 20px;
-            border-radius: 6px;
-            margin-top: 30px;
-        }
-        .staff-directives h2 {
-            color: #3b82f6;
-        }
-        .staff-list {
-            list-style-type: square;
-            line-height: 1.6;
-        }
+        body { background-color: #0b0c10; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        .glow-text { text-shadow: 0 0 15px rgba(255, 0, 0, 0.6); }
+        .rule-card:hover { border-color: #dc2626; transform: translateX(4px); }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between antialiased text-gray-200">
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="rules.html" style="color: #ff4757;">Server Rules</a>
-        <a href="store.html">Feature Shop</a>
+    <nav class="sticky top-0 z-50 bg-[#0b0c10]/95 backdrop-blur-md border-b border-gray-900 px-4 py-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between">
+            <div class="flex items-center justify-between w-full md:w-auto">
+                <a href="index.html" class="text-2xl font-black text-white tracking-wider hover:text-red-500 transition-colors">1O1C</a>
+                <button onclick="toggleMenu()" class="text-gray-300 hover:text-white focus:outline-none md:hidden text-xl">
+                    <i id="menuIcon" class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <div id="navLinks" class="hidden md:flex flex-col md:flex-row items-left md:items-center space-y-3 md:space-y-0 space-x-0 md:space-x-6 font-semibold tracking-wide text-sm md:text-base mt-4 md:mt-0 pt-3 md:pt-0 border-t border-gray-900 md:border-none">
+                <a href="index.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Home</a>
+                <a href="rules.html" class="text-red-500 border-b-2 border-red-500 pb-1 w-max">Rules</a>
+                <a href="store.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Feature Shop</a>
+                <a href="board.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Message Boards</a>
+                <a href="support.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Support</a>
+            </div>
+        </div>
     </nav>
 
-    <div class="container">
-        <h1>📜 1O1C Rules</h1>
-        <p>By participating in this server, you agree to follow all rules laid out below. Let's keep the community functional and welcoming for everyone.</p>
+    <header class="text-center pt-16 px-4 max-w-4xl mx-auto w-full">
+        <h1 class="text-5xl md:text-6xl font-black text-white tracking-wider glow-text mb-2">1O1C NETWORK RULES</h1>
+        <p class="text-red-500 font-semibold uppercase tracking-widest text-sm md:text-base mb-12">Core Regulations & Administration Directives</p>
+    </header>
 
-        <div class="rule-card">
-            <div class="rule-title">1. Use Appropriate Channels</div>
-            <div>Keep discussions relevant to their designated channels. If a game does not have its own channel, notify staff instead of posting elsewhere.</div>
+    <main class="max-w-4xl mx-auto px-4 mb-24 w-full space-y-4">
+        
+        <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-[#12141c]/60 border border-gray-900 rounded-xl p-5 rule-card transition-all duration-200">
+                <h3 class="text-white font-mono font-bold text-base mb-2 flex items-center gap-2">
+                    <span class="text-red-500">01.</span> Use Appropriate Channels
+                </h3>
+                <p class="text-sm text-gray-400 leading-relaxed">Keep discussions relevant to their designated channels. If a game does not have its own section, notify administration instead of posting elsewhere.</p>
+            </div>
+
+            <div class="bg-[#12141c]/60 border border-gray-900 rounded-xl p-5 rule-card transition-all duration-200">
+                <h3 class="text-white font-mono font-bold text-base mb-2 flex items-center gap-2">
+                    <span class="text-red-500">02.</span> No Harassment
+                </h3>
+                <p class="text-sm text-gray-400 leading-relaxed">Any form of harassment, targeted cyberbullying, or intentional server-wide toxicity directed against others will not be tolerated.</p>
+            </div>
+
+            <div class="bg-[#12141c]/60 border border-gray-900 rounded-xl p-5 rule-card transition-all duration-200">
+                <h3 class="text-white font-mono font-bold text-base mb-2 flex items-center gap-2">
+                    <span class="text-red-500">03.</span> No Spamming
+                </h3>
+                <p class="text-sm text-gray-400 leading-relaxed">Avoid excessive messages, including wall-text blocks, emoji floods, caps lock spam, or repeating media loops inside chat systems.</p>
+            </div>
+
+            <div class="bg-[#12141c]/60 border border-gray-900 rounded-xl p-5 rule-card transition-all duration-200">
+                <h3 class="text-white font-mono font-bold text-base mb-2 flex items-center gap-2">
+                    <span class="text-red-500">04.</span> Respect Decisions
+                </h3>
+                <p class="text-sm text-gray-400 leading-relaxed">Follow instructions from core administration staff. Arguing over moderation rulings or wasting processing resources is strictly restricted.</p>
+            </div>
+
+            <div class="bg-[#12141c]/60 border border-gray-900 rounded-xl p-5 rule-card transition-all duration-200">
+                <h3 class="text-white font-mono font-bold text-base mb-2 flex items-center gap-2">
+                    <span class="text-red-500">05.</span> Zero Doxxing Protocol
+                </h3>
+                <p class="text-sm text-gray-400 leading-relaxed">Sharing or threatening to reveal personal real-life data, locations, or identities will result in an immediate network-wide blacklist execution.</p>
+            </div>
+
+            <div class="bg-[#12141c]/60 border border-gray-900 rounded-xl p-5 rule-card transition-all duration-200">
+                <h3 class="text-white font-mono font-bold text-base mb-2 flex items-center gap-2">
+                    <span class="text-red-500">06.</span> Profile Restrictions
+                </h3>
+                <p class="text-sm text-gray-400 leading-relaxed">User profile assets, badges, and server nicknames must remain clean, functional, and free of explicit or suggestive materials.</p>
+            </div>
         </div>
 
-        <div class="rule-card">
-            <div class="rule-title">2. No Harassment</div>
-            <div>Any form of harassment, bullying, or targeted toxicity against others will not be tolerated.</div>
-        </div>
+        <div class="grid md:grid-cols-2 gap-6 pt-6">
+            <div class="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
+                <h3 class="text-red-500 font-mono font-bold text-lg mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-gavel"></i> Enforcement Matrices
+                </h3>
+                <ul class="text-sm space-y-2 font-mono text-gray-300">
+                    <li><strong class="text-white">1st Level:</strong> Formal Structural Warning</li>
+                    <li><strong class="text-white">2nd Level:</strong> Temporary System Communications Mute</li>
+                    <li><strong class="text-white">3rd Level:</strong> Temporary Network Session Suspension</li>
+                    <li><strong class="text-white">Severe Breach:</strong> Immediate, Permanent Hardware Blacklist</li>
+                </ul>
+            </div>
 
-        <div class="rule-card">
-            <div class="rule-title">3. No Spamming</div>
-            <div>Avoid excessive or repetitive messages, including text, emojis, capital letters, or media files in discord or in-game chats.</div>
+            <div class="bg-slate-900/30 border border-gray-900 rounded-xl p-6">
+                <h3 class="text-white font-mono font-bold text-lg mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-gray-400"></i> Core Directives (Staff)
+                </h3>
+                <ul class="text-xs space-y-2 text-gray-400 list-disc list-inside">
+                    <li><strong class="text-gray-200">OP LOCK:</strong> Default root operator commands are fully contained.</li>
+                    <li><strong class="text-gray-200">NO GOD MODE:</strong> Server physics and threat variables apply equally.</li>
+                    <li><strong class="text-gray-200">NETWORK BOUND:</strong> Admins shall not link with untrusted indices.</li>
+                </ul>
+            </div>
         </div>
+    </main>
 
-        <div class="rule-card">
-            <div class="rule-title">4. Respect Staff and Rules</div>
-            <div>Follow all instructions from staff members. Arguing, wasting time, or ignoring moderation decisions is strictly prohibited.</div>
-        </div>
+    <footer class="text-center py-6 border-t border-gray-900 bg-[#0b0c10] text-gray-600 text-xs w-full px-4">
+        &copy; 2026 1O1C. Not affiliated with Mojang Studios. Hosted on optimized self-hosted hardware nodes.
+    </footer>
 
-        <div class="rule-card">
-            <div class="rule-title">5. No Doxxing</div>
-            <div>Sharing or threatening to share personal or private real-life information about anyone will result in an immediate blacklisting.</div>
-        </div>
-
-        <div class="rule-card">
-            <div class="rule-title">6. Profile Restrictions</div>
-            <div>Profile pictures and usernames/nicknames must remain appropriate, clean, and free of explicit or sexually suggestive material.</div>
-        </div>
-
-        <div class="rule-card">
-            <div class="rule-title">7. No Rule Exploitation</div>
-            <div>Attempting to bypass or exploit technical loopholes in these rules is not allowed. Report any system issues directly to staff.</div>
-        </div>
-
-        <div class="rule-card">
-            <div class="rule-title">8. No NSFW Content</div>
-            <div>Posting or sharing any Not Safe For Work material is completely forbidden.</div>
-        </div>
-
-        <div class="rule-card">
-            <div class="rule-title">9. No Racism or Discrimination</div>
-            <div>Hate speech or discrimination based on race, identity, ethnicity, gender, or religion will be met with immediate expulsion.</div>
-        </div>
-
-        <div class="rule-card">
-            <div class="rule-title">10. No Self-Promotion</div>
-            <div>Advertising external Discord links, servers, or unapproved media content is strictly banned.</div>
-        </div>
-
-        <div class="enforcement">
-            <h2>⚖️ Enforcement & Punishments</h2>
-            <ul>
-                <li><strong>1st Offense:</strong> Formal Warning</li>
-                <li><strong>2nd Offense:</strong> Temporary System Mute</li>
-                <li><strong>3rd Offense:</strong> Temporary Network Ban</li>
-                <li><strong>Severe Violations:</strong> Immediate, permanent ban (Doxxing, Hate Speech, Explicit/NSFW content).</li>
-            </ul>
-            <p><em>Note: Punishments escalate automatically based on severity. Staff decisions are final.</em></p>
-        </div>
-
-        <div class="staff-directives">
-            <h2>⚙️ System Security Core (Staff Directives)</h2>
-            <ul class="staff-list">
-                <li><strong>NO /op:</strong> Default operator assignments are locked down.</li>
-                <li><strong>NO GOD MODE IN-GAME:</strong> Survival mechanics apply universally across standard parameters.</li>
-                <li><strong>EXTERNAL NETWORK RESTRICTION:</strong> No admin or staff member will connect to an external server unless it is explicitly designated on our trusted verification index.</li>
-                <li><strong>COMMAND PROTOCOL:</strong> Do not execute actions you have been explicitly told not to perform. Integrity is mandatory.</li>
-            </ul>
-        </div>
-    </div>
-
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuIcon = document.getElementById('menuIcon');
+            if (navLinks.classList.contains('hidden')) {
+                navLinks.classList.remove('hidden'); navLinks.classList.add('flex');
+                menuIcon.classList.replace('fa-bars', 'fa-xmark');
+            } else {
+                navLinks.classList.add('hidden'); navLinks.classList.remove('flex');
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        }
+    </script>
 </body>
 </html>
