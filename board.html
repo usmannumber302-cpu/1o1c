@@ -9,7 +9,6 @@
     <style>
         body { background-color: #0b0c10; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
         .glow-text { text-shadow: 0 0 15px rgba(255, 0, 0, 0.6); }
-        .board-input:focus { border-color: #ff0000; box-shadow: 0 0 10px rgba(255, 0, 0, 0.2); outline: none; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between antialiased text-gray-200">
@@ -29,201 +28,18 @@
     <main class="max-w-3xl mx-auto w-full px-4 py-12 flex-grow">
         <div class="text-center mb-10">
             <h1 class="text-4xl font-black text-white uppercase tracking-wider glow-text mb-2">Network Message Board</h1>
-            <p class="text-gray-400 text-sm">Anonymous public discussion framework. Drop logs, trade coords, or talk strategy.</p>
+            <p class="text-gray-400 text-sm">Drop logs, trade coords, or talk strategy with anyone globally.</p>
         </div>
 
-        <div class="bg-[#1f2833]/40 border border-gray-800 p-6 rounded-2xl mb-8">
-            <div id="loginPrompt" class="text-center py-4">
-                <p class="text-gray-400 mb-4 text-sm">You must enter a Board Session Profile to publish statements.</p>
-                <div class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-                    <input type="text" id="usernameInput" placeholder="Username" class="bg-[#0b0c10] border border-gray-700 text-sm rounded-xl px-4 py-2.5 text-white board-input w-full">
-                    <input type="password" id="passwordInput" placeholder="Password" class="bg-[#0b0c10] border border-gray-700 text-sm rounded-xl px-4 py-2.5 text-white board-input w-full">
-                    <button onclick="handleLogin()" class="bg-red-600 hover:bg-red-700 text-white text-sm font-bold uppercase tracking-wider px-6 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap">Join</button>
-                </div>
-            </div>
-
-            <div id="messageForm" class="hidden">
-                <div class="flex items-center justify-between mb-3 text-xs text-gray-400">
-                    <div>Posting as: <span id="currentUserDisplay" class="text-red-500 font-bold font-mono"></span></div>
-                    <button onclick="handleLogout()" class="text-gray-500 hover:text-white transition-colors underline">Change Profile</button>
-                </div>
-                <div class="space-y-3">
-                    <textarea id="mainMessageText" rows="3" placeholder="Type an open transmission message..." class="w-full bg-[#0b0c10] border border-gray-800 rounded-xl p-4 text-white text-sm board-input resize-none"></textarea>
-                    <div class="flex justify-end">
-                        <button onclick="submitMainMessage()" class="bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-all cursor-pointer flex items-center space-x-2">
-                            <span>Send Message</span>
-                            <i class="fa-solid fa-paper-plane text-[10px]"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="border-b border-gray-900 pb-3 mb-6 flex items-center justify-between">
-            <h2 class="text-sm font-bold uppercase tracking-wider text-gray-400">Live Transmissions</h2>
-            <span class="text-xs font-mono text-gray-600" id="totalMessageCounter">0 posts</span>
-        </div>
-        
-        <div id="boardFeed" class="space-y-4">
-            </div>
+        <iframe src="https://www.htmlcommentbox.com/static/html/cb/index.html?page=1o1c_global_board" 
+                style="width:100%; min-height:600px; border:1px solid #1f2833; border-radius:12px; background:#12141c;" 
+                frameborder="0" scrolling="auto">
+        </iframe>
     </main>
 
     <footer class="text-center py-6 border-t border-gray-900 bg-[#0b0c10] text-gray-600 text-xs w-full px-4">
-        &copy; 2026 1O1C. Not affiliated with Mojang Studios.
+        &copy; 2026 1O1C. Not affiliated with Mojang Studios. Hosted on optimized self-hosted hardware nodes.
     </footer>
 
-    <script>
-        // Client-side data storage matrix state
-        let posts = JSON.parse(localStorage.getItem('1o1c_board_posts')) || [];
-        let sessionUser = localStorage.getItem('1o1c_board_user') || null;
-
-        document.addEventListener("DOMContentLoaded", () => {
-            checkSession();
-            renderFeed();
-        });
-
-        function checkSession() {
-            const prompt = document.getElementById('loginPrompt');
-            const form = document.getElementById('messageForm');
-            const userDisplay = document.getElementById('currentUserDisplay');
-
-            if(sessionUser) {
-                prompt.classList.add('hidden');
-                form.classList.remove('hidden');
-                userDisplay.innerText = sessionUser;
-            } else {
-                prompt.classList.remove('hidden');
-                form.classList.add('hidden');
-            }
-        }
-
-        function handleLogin() {
-            const user = document.getElementById('usernameInput').value.trim();
-            const pass = document.getElementById('passwordInput').value.trim();
-
-            if(user.length >= 3 && pass.length >= 4) {
-                sessionUser = user;
-                localStorage.setItem('1o1c_board_user', user);
-                checkSession();
-                // Clear fields
-                document.getElementById('usernameInput').value = '';
-                document.getElementById('passwordInput').value = '';
-            } else {
-                alert("Profile requirement fail: Username min 3 chars, Password min 4 chars.");
-            }
-        }
-
-        function handleLogout() {
-            localStorage.removeItem('1o1c_board_user');
-            sessionUser = null;
-            checkSession();
-        }
-
-        function submitMainMessage() {
-            const textarea = document.getElementById('mainMessageText');
-            const text = textarea.value.trim();
-            if(!text) return;
-
-            const newPost = {
-                id: Date.now(),
-                author: sessionUser,
-                content: text,
-                timestamp: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
-                comments: []
-            };
-
-            // Inject at the top of the log chain (Newest first)
-            posts.unshift(newPost);
-            saveData();
-            renderFeed();
-            textarea.value = '';
-        }
-
-        function submitComment(postId) {
-            if(!sessionUser) {
-                alert("Identify your session profile at the top first.");
-                return;
-            }
-            const input = document.getElementById(`commentInput-${postId}`);
-            const text = input.value.trim();
-            if(!text) return;
-
-            const postIndex = posts.findIndex(p => p.id === postId);
-            if(postIndex !== -1) {
-                posts[postIndex].comments.push({
-                    author: sessionUser,
-                    content: text,
-                    timestamp: 'Just Now'
-                });
-                saveData();
-                renderFeed();
-            }
-        }
-
-        function toggleCommentBox(postId) {
-            const box = document.getElementById(`replyBox-${postId}`);
-            box.classList.toggle('hidden');
-        }
-
-        function saveData() {
-            localStorage.setItem('1o1c_board_posts', JSON.stringify(posts));
-        }
-
-        function renderFeed() {
-            const feed = document.getElementById('boardFeed');
-            document.getElementById('totalMessageCounter').innerText = `${posts.length} messages`;
-            
-            if(posts.length === 0) {
-                feed.innerHTML = `<div class="text-center py-12 text-gray-600 text-sm border border-dashed border-gray-900 rounded-xl">No active logs on the feed. Start the conversation above.</div>`;
-                return;
-            }
-
-            feed.innerHTML = posts.map(post => `
-                <div class="bg-[#12141c]/60 border border-gray-900 rounded-xl p-5 space-y-4">
-                    <div class="flex justify-between items-center text-xs">
-                        <div class="flex items-center space-x-2">
-                            <span class="w-2 h-2 rounded-full bg-red-600"></span>
-                            <span class="font-mono font-bold text-white">${escapeHTML(post.author)}</span>
-                        </div>
-                        <span class="text-gray-600 font-mono text-[11px]">${post.timestamp}</span>
-                    </div>
-                    
-                    <p class="text-sm text-gray-300 leading-relaxed break-words">${escapeHTML(post.content)}</p>
-                    
-                    <div class="flex items-center space-x-4 pt-2 text-xs border-t border-gray-900/50">
-                        <button onclick="toggleCommentBox(${post.id})" class="text-gray-500 hover:text-red-400 transition-colors flex items-center space-x-1 cursor-pointer">
-                            <i class="fa-regular fa-comment"></i>
-                            <span>Replies (${post.comments.length})</span>
-                        </button>
-                    </div>
-
-                    <div id="replyBox-${post.id}" class="hidden space-y-3 pt-2 pl-4 border-l-2 border-gray-900">
-                        <div class="space-y-2 max-h-[200px] overflow-y-auto pr-1">
-                            ${post.comments.map(c => `
-                                <div class="bg-[#1f2833]/20 p-2.5 rounded-lg text-xs">
-                                    <div class="flex justify-between font-mono font-semibold text-gray-400 mb-1">
-                                        <span class="text-red-400">${escapeHTML(c.author)}</span>
-                                        <span class="text-[10px] text-gray-600">${c.timestamp}</span>
-                                    </div>
-                                    <p class="text-gray-300 break-words">${escapeHTML(c.content)}</p>
-                                </div>
-                            `).join('')}
-                        </div>
-
-                        <div class="flex gap-2 pt-1">
-                            <input type="text" id="commentInput-${post.id}" placeholder="Write a reply comment..." class="w-full bg-[#0b0c10] border border-gray-800 rounded-lg px-3 py-1.5 text-xs text-white board-input">
-                            <button onclick="submitComment(${post.id})" class="bg-[#1f2833] hover:bg-red-600 text-white text-xs px-4 rounded-90px transition-all font-bold cursor-pointer">Reply</button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function escapeHTML(str) {
-            return str.replace(/[&<>'"]/g, 
-                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
-            );
-        }
-    </script>
 </body>
 </html>
