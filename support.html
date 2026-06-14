@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="https://1o1c.org/logo.png">
-    <title>Feature Shop | 1O1C Anarchy Lifesteal</title>
+
+    <title>Server Support | 1O1C Anarchy Lifesteal</title>
+    <meta name="description" content="Get official support for 1O1C Anarchy Lifesteal server. Contact our unified help desk.">
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { background-color: #0b0c10; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
         .glow-text { text-shadow: 0 0 15px rgba(255, 0, 0, 0.6); }
-        .shop-card:hover { border-color: #dc2626; }
+        .glow-border:hover { box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); border-color: #ff0000; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased text-gray-200">
+<body class="min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white antialiased text-gray-200">
 
     <nav class="sticky top-0 z-50 bg-[#0b0c10]/95 backdrop-blur-md border-b border-gray-900 px-4 py-4">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between">
@@ -26,134 +29,34 @@
             <div id="navLinks" class="hidden md:flex flex-col md:flex-row items-left md:items-center space-y-3 md:space-y-0 space-x-0 md:space-x-6 font-semibold tracking-wide text-sm md:text-base mt-4 md:mt-0 pt-3 md:pt-0 border-t border-gray-900 md:border-none">
                 <a href="index.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Home</a>
                 <a href="rules.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Rules</a>
-                <a href="store.html" class="text-red-500 border-b-2 border-red-500 pb-1 w-max">Feature Shop</a>
+                <a href="store.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Feature Shop</a>
                 <a href="board.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Message Boards</a>
-                <a href="support.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Support</a>
+                <a href="support.html" class="text-red-500 border-b-2 border-red-500 pb-1 w-max">Support</a>
             </div>
         </div>
     </nav>
 
     <header class="text-center pt-16 px-4 max-w-4xl mx-auto w-full">
-        <h1 class="text-5xl md:text-6xl font-black text-white tracking-wider glow-text mb-2">1O1C FEATURE SHOP</h1>
-        <p class="text-red-500 font-semibold uppercase tracking-widest text-sm md:text-base mb-8">Support network operations and keep the system online at 20 TPS.</p>
-        
-        <div class="max-w-md mx-auto bg-[#12141c]/80 border border-gray-900 font-mono font-bold text-sm text-gray-300 py-3 px-6 rounded-xl mb-6">
-            📊 Exchange Rate: €1 Euro = 1 Shop Point
-        </div>
-
-        <div class="max-w-xl mx-auto bg-red-950/20 border border-red-900/50 rounded-xl p-5 mb-10 text-center">
-            <h3 class="text-white font-bold text-lg mb-1 flex items-center justify-center gap-2">
-                <i class="fa-solid fa-envelope text-red-500"></i> How To Secure Features
-            </h3>
-            <p class="text-sm text-gray-400 mb-3">To purchase point packages or execute custom configurations, send an email directly to our automated processing node:</p>
-            <a href="mailto:help@1o1c.org" class="font-mono text-base font-bold text-red-400 bg-black/40 px-4 py-2 rounded border border-red-950 hover:text-white transition-colors">
-                help@1o1c.org
-            </a>
-            <p class="text-xs text-gray-500 mt-3">Include your <b>In-Game Name</b>, <b>Discord ID</b>, and the <b>Modules</b> you wish to unlock.</p>
-        </div>
+        <h1 class="text-5xl md:text-6xl font-black text-white tracking-wider glow-text mb-2">PLAYER HELP DESK</h1>
+        <p class="text-red-500 font-semibold uppercase tracking-widest text-sm md:text-base mb-12">Official Support & Ticket Routing Hub</p>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 mb-24 w-full grid lg:grid-cols-3 gap-8">
-        
-        <div class="lg:col-span-2 grid md:grid-cols-2 gap-8 self-start">
-            
-            <div class="bg-[#12141c]/60 border border-gray-900 rounded-2xl p-6 flex flex-col justify-between shop-card transition-all duration-300">
-                <div class="space-y-4">
-                    <h2 class="text-xl font-bold text-white border-b border-gray-900 pb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-sparkles text-red-500 text-sm"></i> Cosmetics & Identity
-                    </h2>
-                    <div class="space-y-3 text-sm">
-                        <div class="flex justify-between items-center py-1"><span class="text-gray-400">Custom Name Color</span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">1 Pt / €1</span></div>
-                        <div class="flex justify-between items-center py-1"><span class="text-gray-400">Custom Chat Prefix</span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">2 Pts / €2</span></div>
-                        <div class="flex justify-between items-center py-1"><span class="text-gray-400">In-game /nick Identity</span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">2 Pts / €2</span></div>
-                        <div class="flex justify-between items-center py-1"><span class="text-gray-400">Broadcasts <small class="text-gray-600">(Join/Quit/Death)</small></span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">2 Pts / €2</span></div>
-                        <div class="flex justify-between items-center py-1"><span class="text-gray-400">Discord [VIP] Role Rank</span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">3 Pts / €3</span></div>
-                        <div class="flex justify-between items-center py-1"><span class="text-gray-400">Animated Prefix+ Tier</span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">4 Pts / €4</span></div>
-                    </div>
-                </div>
-                <a href="mailto:help@1o1c.org?subject=Feature Shop Purchase: Cosmetics" class="mt-6 text-center border border-dashed border-red-900/60 bg-red-950/10 hover:bg-red-600 text-red-400 hover:text-white transition-all font-mono font-bold text-sm py-2.5 rounded-xl">
-                    Order via help@1o1c.org
-                </a>
+    <main class="max-w-xl mx-auto px-4 mb-24 w-full">
+        <div class="bg-[#1f2833]/40 border border-gray-800 p-8 md:p-12 rounded-xl flex flex-col items-center text-center transition-all duration-300 glow-border">
+            <div class="mb-8">
+                <i class="fa-solid fa-envelope text-red-500 text-6xl mb-4"></i>
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">Email Support Desk</h3>
+                <p class="text-gray-400 text-sm md:text-base leading-relaxed">
+                    Have payment issues, account inquiries, ban appeals, or technical exploits to report? Shoot an official ticket straight to our support line. 
+                </p>
+                <p class="text-gray-500 text-xs mt-2 italic">
+                    Please include your Minecraft username and relevant screenshots for faster processing nodes.
+                </p>
             </div>
-
-            <div class="bg-[#12141c]/60 border border-gray-900 rounded-2xl p-6 flex flex-col justify-between shop-card transition-all duration-300">
-                <div class="space-y-4">
-                    <h2 class="text-xl font-bold text-white border-b border-gray-900 pb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-bolt text-red-500 text-sm"></i> Utility & Privileges
-                    </h2>
-                    <div class="space-y-3 text-sm">
-                        <div class="flex justify-between items-center py-1"><span class="text-gray-400">Extra /home Profile Slot</span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">1 Pt / €1</span></div>
-                        <div class="flex justify-between items-center py-1"><span class="text-gray-400">Virtual Tools <small class="text-gray-600">(/stonecutter, /grindstone)</small></span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">1 Pt / €1</span></div>
-                        <div class="flex justify-between items-center py-1"><span class="text-gray-400">Virtual Crafting Bench (`/craft`)</span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">2 Pts / €2</span></div>
-                        <div class="flex justify-between items-center py-1"><span class="text-gray-400">Virtual Enderchest access (`/ec`)</span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">2 Pts / €2</span></div>
-                        <div class="flex justify-between items-center py-1"><span class="text-gray-400">Virtual Anvil repair (`/anvil`)</span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">2 Pts / €2</span></div>
-                        <div class="flex justify-between items-center py-1"><span class="text-gray-400">Virtual Brewing Stand (`/brew`)</span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">2 Pts / €2</span></div>
-                    </div>
-                </div>
-                <a href="mailto:help@1o1c.org?subject=Feature Shop Purchase: Utility" class="mt-6 text-center border border-dashed border-red-900/60 bg-red-950/10 hover:bg-red-600 text-red-400 hover:text-white transition-all font-mono font-bold text-sm py-2.5 rounded-xl">
-                    Order via help@1o1c.org
-                </a>
-            </div>
-
-            <div class="bg-[#12141c]/60 border border-gray-900 rounded-2xl p-6 flex flex-col justify-between shop-card transition-all duration-300 md:col-span-2">
-                <div class="space-y-4">
-                    <h2 class="text-xl font-bold text-white border-b border-gray-900 pb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-users text-red-500 text-sm"></i> Clan Infrastructure & Media Promotion
-                    </h2>
-                    <div class="grid md:grid-cols-2 gap-4 text-sm">
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center py-1"><span class="text-gray-400">Private Discord Clan Channel</span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">5 Pts / Mo</span></div>
-                            <div class="flex justify-between items-center py-1"><span class="text-gray-400">Custom System-wide Clan MOTD</span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">4 Pts / €4</span></div>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center py-1"><span class="text-gray-400">Global Clan Declaration Broadcast</span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">2 Pts / €2</span></div>
-                            <div class="flex justify-between items-center py-1"><span class="text-gray-400">Custom Texture Reskin Slot</span><span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">8 Pts / €8</span></div>
-                        </div>
-                    </div>
-                </div>
-                <a href="mailto:help@1o1c.org?subject=Feature Shop Purchase: Clan Modules" class="mt-6 text-center border border-dashed border-red-900/60 bg-red-950/10 hover:bg-red-600 text-red-400 hover:text-white transition-all font-mono font-bold text-sm py-2.5 rounded-xl">
-                    Order via help@1o1c.org
-                </a>
-            </div>
-
+            <a href="mailto:help@1o1c.org" class="bg-red-600 hover:bg-red-700 text-white font-mono font-bold tracking-wide px-8 py-4 rounded-xl transition-all w-full text-center text-lg shadow-lg shadow-red-900/20">
+                help@1o1c.org
+            </a>
         </div>
-
-        <div class="space-y-8">
-            
-            <div class="bg-[#12141c]/90 border border-gray-900 rounded-2xl p-5">
-                <h3 class="text-sm font-black uppercase tracking-wider text-white mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-crown text-amber-500"></i> Top Network Supporters
-                </h3>
-                <ol class="space-y-3 font-mono text-sm">
-                    <li class="flex justify-between items-center bg-black/40 px-3 py-2 rounded border border-gray-950">
-                        <span class="text-gray-400"><span class="text-amber-500 font-bold">1.</span> Void_Walker</span>
-                        <span class="text-red-400 font-bold">52 Pts</span>
-                    </li>
-                    <li class="flex justify-between items-center bg-black/40 px-3 py-2 rounded border border-gray-950">
-                        <span class="text-gray-400"><span class="text-gray-400 font-bold">2.</span> xX_Anarchy_Xx</span>
-                        <span class="text-red-400 font-bold">34 Pts</span>
-                    </li>
-                    <li class="flex justify-between items-center bg-black/40 px-3 py-2 rounded border border-gray-950">
-                        <span class="text-gray-400"><span class="text-amber-700 font-bold">3.</span> LifestealGod</span>
-                        <span class="text-red-400 font-bold">20 Pts</span>
-                    </li>
-                </ol>
-                <p class="text-[10px] text-gray-600 mt-3 text-center uppercase tracking-wide font-semibold">Updated dynamically every 24 Hours</p>
-            </div>
-
-            <div class="bg-black/30 border border-dashed border-gray-900 rounded-2xl p-4 text-center min-h-[250px] flex flex-col justify-center items-center">
-                <span class="text-[10px] uppercase font-mono tracking-widest text-gray-700 mb-2">Network Advertisement</span>
-                
-                <div class="w-full bg-[#12141c]/40 border border-gray-900 rounded-xl p-6 text-gray-600 font-mono text-xs">
-                    <i class="fa-solid fa-rectangle-ad text-2xl mb-2 text-gray-700"></i>
-                    <p>Want your server or product featured to 100K+ users?</p>
-                    <a href="mailto:help@1o1c.org?subject=Private Ad Placement Enquiry" class="text-red-500 font-bold hover:underline block mt-2">Contact Sponsorship Nodes</a>
-                </div>
-                
-                </div>
-
-        </div>
-
     </main>
 
     <footer class="text-center py-6 border-t border-gray-900 bg-[#0b0c10] text-gray-600 text-xs w-full px-4">
@@ -164,12 +67,17 @@
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             const menuIcon = document.getElementById('menuIcon');
+            
             if (navLinks.classList.contains('hidden')) {
-                navLinks.classList.remove('hidden'); navLinks.classList.add('flex');
-                menuIcon.classList.replace('fa-bars', 'fa-xmark');
+                navLinks.classList.remove('hidden');
+                navLinks.classList.add('flex');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
             } else {
-                navLinks.classList.add('hidden'); navLinks.classList.remove('flex');
-                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+                navLinks.classList.add('hidden');
+                navLinks.classList.remove('flex');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
             }
         }
     </script>
