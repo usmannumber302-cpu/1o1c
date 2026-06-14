@@ -1,383 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1O1C | Anarchy Lifesteal Hybrid</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3738945197109363"
+     crossorigin="anonymous"></script>
+    
+    <link rel="icon" type="image/png" href="https://1o1c.org/logo.png">
 
-<meta name="description" content="1O1C - One Owner One Chunk. A Minecraft Anarchy Lifesteal Hybrid featuring a Real World Map, zero rules, lifesteal mechanics, and support from 1.16.5 to the latest version.">
-<meta name="keywords" content="Minecraft, Anarchy, Lifesteal, Real World Map, 1O1C, One Owner One Chunk">
-<meta name="theme-color" content="#0f0f0f">
+    <title>1O1C Anarchy Lifesteal | Best Minecraft Anarchy Server</title>
+    <meta name="description" content="Join 1O1C (1o1c.org) - The ultimate Minecraft Anarchy Lifesteal Hybrid server. Running native 1.16.5 up to the newest versions. Zero rules, hacks allowed, real world map.">
+    <meta name="keywords" content="1o1c, 1o1c.org, minecraft anarchy server, lifesteal anarchy, minecraft server no rules, cracked anarchy server, real world map minecraft">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://1o1c.org">
 
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"VideoGame",
-  "name":"1O1C",
-  "alternateName":"One Owner One Chunk",
-  "description":"Anarchy Lifesteal Hybrid Minecraft Server.",
-  "url":"https://1o1c.org",
-  "image":"https://1o1c.org/logo.png"
-}
-</script>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://1o1c.org">
+    <meta property="og:title" content="1O1C Anarchy Lifesteal">
+    <meta property="og:description" content="Pure Anarchy + Lifesteal Mechanics on a Real World Map. Connect now via 1o1c.org">
+    <meta property="og:image" content="https://1o1c.org/logo.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:site_name" content="1O1C">
 
-<style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1O1C Anarchy Lifesteal">
+    <meta name="twitter:description" content="Join the elite hybrid Minecraft server. Real world map, enabled duplication, and zero lag. Compatible with 1.16.5 to the newest versions.">
+    <meta name="twitter:image" content="https://1o1c.org/logo.png">
 
-body{
-    background:#0b0b0b;
-    color:#fff;
-    font-family:Arial,sans-serif;
-    line-height:1.6;
-}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGameServer",
+      "name": "1O1C",
+      "description": "A premium Minecraft Anarchy and Lifesteal hybrid server running on a real world map layout with support for versions 1.16.5 through the newest updates.",
+      "url": "https://1o1c.org",
+      "image": "https://1o1c.org/logo.png",
+      "game": {
+        "@type": "VideoGame",
+        "name": "Minecraft",
+        "playMode": "MultiPlayer",
+        "applicationCategory": "Game"
+      },
+      "serverStatus": "Online",
+      "playersOnline": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "description": "Unique Joins: 2,507+"
+      }
+    }
+    </script>
 
-nav{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:#121212;
-    border-bottom:1px solid #2d2d2d;
-    padding:15px;
-}
-
-nav ul{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    list-style:none;
-    gap:20px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-nav a:hover{
-    color:#55ff55;
-}
-
-.hero{
-    text-align:center;
-    padding:70px 20px;
-}
-
-.logo{
-    width:120px;
-    border-radius:20px;
-    margin-bottom:20px;
-}
-
-h1{
-    font-size:3rem;
-}
-
-.tagline{
-    color:#55ff55;
-    font-size:1.3rem;
-}
-
-section{
-    max-width:1100px;
-    margin:auto;
-    padding:40px 20px;
-}
-
-.card{
-    background:#141414;
-    border:1px solid #2c2c2c;
-    border-radius:15px;
-    padding:25px;
-    margin:20px 0;
-}
-
-.ip-box{
-    cursor:pointer;
-    text-align:center;
-    font-size:2rem;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-.ip-box:hover{
-    transform:scale(1.02);
-}
-
-.copy-status{
-    color:#55ff55;
-    margin-top:10px;
-    opacity:0;
-    transition:0.3s;
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.stat{
-    text-align:center;
-}
-
-.online-dot{
-    width:12px;
-    height:12px;
-    background:#55ff55;
-    border-radius:50%;
-    display:inline-block;
-    animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-    0%{opacity:1;}
-    50%{opacity:0.3;}
-    100%{opacity:1;}
-}
-
-.progress-container{
-    background:#222;
-    border-radius:50px;
-    overflow:hidden;
-    margin-top:15px;
-}
-
-.progress{
-    background:#55ff55;
-    width:38%;
-    padding:10px;
-    text-align:center;
-    color:black;
-    font-weight:bold;
-}
-
-.buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:15px;
-    justify-content:center;
-}
-
-.btn{
-    background:#1e1e1e;
-    color:white;
-    text-decoration:none;
-    padding:12px 20px;
-    border-radius:10px;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#55ff55;
-    color:black;
-}
-
-.news{
-    overflow:hidden;
-    white-space:nowrap;
-}
-
-.news span{
-    display:inline-block;
-    animation:scroll 18s linear infinite;
-}
-
-@keyframes scroll{
-    from{transform:translateX(100%);}
-    to{transform:translateX(-100%);}
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    background:#111;
-    border-top:1px solid #2d2d2d;
-    color:#aaa;
-}
-
-ul.features{
-    padding-left:20px;
-}
-
-ul.features li{
-    margin:10px 0;
-}
-</style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0b0c10; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        .glow-text { text-shadow: 0 0 15px rgba(255, 0, 0, 0.6); }
+        .glow-border:hover { box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); border-color: #ff0000; }
+        .success-flash { 
+            border-color: #00ffcc !important; 
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.4) !important; 
+        }
+    </style>
 </head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white antialiased text-gray-200">
 
-<body>
+    <nav class="sticky top-0 z-50 bg-[#0b0c10]/90 backdrop-blur-md border-b border-gray-900 px-4 py-4">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-black text-white tracking-wider hover:text-red-500 transition-colors">1O1C</a>
+            <div class="flex items-center space-x-4 md:space-x-6 font-semibold tracking-wide text-sm md:text-base">
+                <a href="index.html" class="text-red-500 border-b-2 border-red-500 pb-1">Home</a>
+                <a href="rules.html" class="text-gray-300 hover:text-white transition-colors pb-1">Rules</a>
+                <a href="store.html" class="text-gray-300 hover:text-white transition-colors pb-1">Feature Shop</a>
+                <a href="board.html" class="text-gray-300 hover:text-white transition-colors pb-1">Message Boards</a>
+                <a href="support.html" class="text-gray-300 hover:text-white transition-colors pb-1">Support</a>
+            </div>
+        </div>
+    </nav>
 
-<nav>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="rules.html">Rules</a></li>
-<li><a href="store.html">Feature Shop</a></li>
-<li><a href="board.html">Message Boards</a></li>
-<li><a href="support.html">Support</a></li>
-</ul>
-</nav>
+    <header class="text-center pt-16 px-4 max-w-4xl mx-auto w-full">
+        <h1 class="text-6xl md:text-8xl font-black text-white tracking-wider glow-text mb-2">1O1C</h1>
+        <p class="text-red-500 font-semibold uppercase tracking-widest text-sm md:text-base mb-6">One Owner One Chunk • Anarchy Lifesteal Hybrid</p>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+            Zero rules. Total freedom. Every kill steals a heart, every death costs one. 
+            Conquer a brutal <strong class="text-white">Real World Map</strong> built for high-performance scale. Duping enabled. Zero lag.
+        </p>
 
-<div class="hero">
-<img src="https://1o1c.org/logo.png" class="logo" alt="1O1C Logo">
+        <button onclick="copyServerIP()" id="ipCard" class="inline-flex flex-col md:flex-row items-center bg-[#1f2833] border border-gray-700 p-4 rounded-xl cursor-pointer transition-all duration-300 glow-border group mx-auto focus:outline-none max-w-md w-full justify-between mb-12">
+            <div class="flex items-center space-x-3 px-4 py-2 md:py-0 w-full md:w-auto justify-center">
+                <i class="fa-solid fa-server text-red-500 text-2xl group-hover:animate-pulse"></i>
+                <span id="serverIp" class="text-xl md:text-2xl font-mono font-bold text-white tracking-wide">1o1c.org</span>
+            </div>
+            <div class="w-full md:w-auto bg-red-600 group-hover:bg-red-700 text-white font-bold uppercase text-xs tracking-wider px-6 py-3.5 rounded-lg mt-3 md:mt-0 transition-all duration-200" id="copyBtn">
+                Click to Copy
+            </div>
+        </button>
+    </header>
 
-<h1>1O1C</h1>
+    <section class="max-w-xl mx-auto w-full px-4 mb-8">
+        <div class="bg-[#12141c] border border-gray-800 p-5 rounded-xl">
+            <div class="flex justify-between items-center mb-2 font-mono text-xs md:text-sm tracking-wide">
+                <span class="text-gray-400 uppercase font-bold flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-red-500 inline-block shadow-[0_0_8px_#ff0000]"></span>
+                    Server Hardware Costs
+                </span>
+                <span class="text-white font-bold">
+                    <span id="currentFunds">€0</span> / <span class="text-red-500">20€</span> (<span id="percentText">0%</span>)
+                </span>
+            </div>
+            <div class="w-full bg-gray-900 h-4 rounded-md overflow-hidden p-[2px] border border-gray-800">
+                <div id="progressBar" class="bg-gradient-to-r from-red-800 to-red-600 h-full rounded-sm transition-all duration-1000 shadow-[0_0_10px_rgba(239,68,68,0.5)]" style="width: 0%"></div>
+            </div>
+            <div class="mt-3 text-center">
+                <a href="store.html" class="text-xs font-semibold text-gray-500 hover:text-red-400 font-mono tracking-wider transition-colors uppercase">
+                    Help keep the node online $\rightarrow$ Visit Feature Shop
+                </a>
+            </div>
+        </div>
+    </section>
 
-<p class="tagline">
-One Owner One Chunk<br>
-Anarchy Lifesteal Hybrid
-</p>
-</div>
+    <main class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 my-8 w-full">
+        <div class="bg-[#1f2833]/50 border border-gray-800 p-6 rounded-xl text-center">
+            <i class="fa-solid fa-earth-americas text-red-500 text-4xl mb-4"></i>
+            <h3 class="text-xl font-bold text-white mb-2">Real World Map</h3>
+            <p class="text-gray-400 text-sm">Explore, build, and claim territory on an expansive real-world geocentric scale layout. Build your empire where real cities stand.</p>
+        </div>
+        <div class="bg-[#1f2833]/50 border border-gray-800 p-6 rounded-xl text-center">
+            <i class="fa-solid fa-heart text-red-500 text-4xl mb-4"></i>
+            <h3 class="text-xl font-bold text-white mb-2">Lifesteal Mechanics</h3>
+            <p class="text-gray-400 text-sm">Every player you hunt down grants you a permanent heart container. Lose a fight, and your maximum health bar shrinks down to zero.</p>
+        </div>
+        <div class="bg-[#1f2833]/50 border border-gray-800 p-6 rounded-xl text-center">
+            <i class="fa-solid fa-bolt text-red-500 text-4xl mb-4"></i>
+            <h3 class="text-xl font-bold text-white mb-2">Performance Optimization</h3>
+            <p class="text-gray-400 text-sm">Core systems actively undergoing strategic optimizations to maintain highly fluid tick rates under intense concurrency workloads.</p>
+        </div>
+    </main>
 
-<section>
+    <section class="bg-[#12141c] border-t border-gray-900 py-12 w-full">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">Server Documentation & Community</h2>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
+                <a href="https://1o1c.fandom.com/wiki/1O1C_Wiki" target="_blank" rel="noopener" class="w-full sm:w-auto bg-[#1f2833] border border-gray-700 hover:border-red-500 text-white font-medium px-6 py-3 rounded-xl transition-all flex items-center justify-center space-x-2 group">
+                    <i class="fa-solid fa-book text-red-500 group-hover:scale-110 transition-transform"></i>
+                    <span>Read History Wiki</span>
+                </a>
+                <a href="https://discord.gg/VBG8ZFmXHK" target="_blank" rel="noopener" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-xl transition-all flex items-center justify-center space-x-2 group">
+                    <i class="fa-brands fa-discord group-hover:scale-110 transition-transform"></i>
+                    <span>Join Our Discord</span>
+                </a>
+                <a href="https://topg.org/minecraft-servers/server-682097" target="_blank" rel="noopener" class="w-full sm:w-auto bg-[#1f2833] border border-gray-700 hover:border-green-500 text-white font-medium px-6 py-3 rounded-xl transition-all flex items-center justify-center space-x-2 group">
+                    <i class="fa-solid fa-check-to-slot text-green-500 group-hover:scale-110 transition-transform"></i>
+                    <span>Vote on TopG</span>
+                </a>
+            </div>
 
-<div class="card ip-box" onclick="copyIP()">
-1o1c.org
+            <div class="bg-[#1f2833]/20 border border-gray-800 rounded-xl p-6 max-w-2xl mx-auto mb-8 text-left">
+                <div class="flex items-center space-x-2 mb-4 border-b border-gray-800 pb-2">
+                    <i class="fa-solid fa-newspaper text-red-500"></i>
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-gray-400">Latest Server Announcements</h3>
+                </div>
+                
+                <div class="space-y-4 max-h-[240px] overflow-y-auto pr-2">
+                    <article class="border-l-2 border-red-500 pl-3 py-1">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h4 class="text-white font-bold text-sm">Performance Upgrade & Map Migration</h4>
+                            <span class="text-xs font-mono text-gray-500">Latest</span>
+                        </div>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            The server architecture is actively undergoing optimization work to deliver much better performance nodes. Additionally, the field layout has officially changed to a comprehensive <strong>Real World Map</strong> framework. Connect now and test the structural improvements.
+                        </p>
+                    </article>
+                </div>
+            </div>
 
-<div class="copy-status" id="copied">
-✓ COPIED!
-</div>
-</div>
+            <div class="bg-[#1f2833]/30 border border-gray-800/80 rounded-xl p-4 max-w-2xl mx-auto overflow-hidden">
+                <div class="grid grid-cols-3 gap-4 text-center">
+                    <div class="border-r border-gray-800">
+                        <span class="block text-gray-500 text-xs uppercase font-bold tracking-wider">Version</span>
+                        <span class="text-white font-semibold text-sm">1.16.5 (till newest)</span>
+                    </div>
+                    <div class="border-r border-gray-800">
+                        <span class="block text-gray-500 text-xs uppercase font-bold tracking-wider">Unique Joins</span>
+                        <span class="text-red-500 font-bold text-sm">2,507+</span>
+                    </div>
+                    <div>
+                        <span class="block text-gray-500 text-xs uppercase font-bold tracking-wider">Status</span>
+                        <span class="text-green-500 font-bold text-sm flex items-center justify-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-green-500 inline-block animate-ping"></span> Online
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="stats">
+    <footer class="text-center py-6 border-t border-gray-900 bg-[#0b0c10] text-gray-600 text-xs w-full px-4">
+        &copy; 2026 1O1C. Not affiliated with Mojang Studios. Hosted on optimized self-hosted hardware nodes.
+    </footer>
 
-<div class="card stat">
-<h2>2,507+</h2>
-<p>Unique Joins</p>
-</div>
+    <script>
+        // Adjust these two values whenever someone buys features from the store!
+        const currentDonationAmount = 7.50; // Current collected amount in Euros
+        const monthlyGoalAmount = 20.00;     // Target goal
 
-<div class="card stat">
-<h2>
-<span class="online-dot"></span>
-Online
-</h2>
-<p>Live Status</p>
-</div>
+        // Logic to calculate percentages and fill the bar automatically
+        function updateFundingBar() {
+            const percentage = Math.min((currentDonationAmount / monthlyGoalAmount) * 100, 100);
+            document.getElementById('currentFunds').innerText = `€${currentDonationAmount.toFixed(2)}`;
+            document.getElementById('percentText').innerText = `${Math.round(percentage)}%`;
+            
+            // Delays slightly for smooth visual entry animation
+            setTimeout(() => {
+                document.getElementById('progressBar').style.width = `${percentage}%`;
+            }, 150);
+        }
 
-</div>
+        // Initialize progress tracker
+        window.addEventListener('DOMContentLoaded', updateFundingBar);
 
-</section>
+        function copyServerIP() {
+            const ipText = document.getElementById('serverIp').innerText;
+            const copyBtn = document.getElementById('copyBtn');
+            const ipCard = document.getElementById('ipCard');
 
-<section>
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(ipText)
+                    .then(() => executeFeedback(copyBtn, ipCard))
+                    .catch(() => fallbackCopy(ipText, copyBtn, ipCard));
+            } else {
+                fallbackCopy(ipText, copyBtn, ipCard);
+            }
+        }
 
-<div class="card">
-<h2>Core Features</h2>
+        function fallbackCopy(text, btn, card) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            el.setAttribute('readonly', '');
+            el.style.position = 'absolute';
+            el.style.left = '-999px';
+            document.body.appendChild(el);
+            el.select();
+            try {
+                document.execCommand('copy');
+                executeFeedback(btn, card);
+            } catch (err) {
+                console.error('Conversion process execution failure', err);
+            }
+            document.body.removeChild(el);
+        }
 
-<ul class="features">
+        function executeFeedback(btn, card) {
+            btn.innerText = "COPIED!";
+            btn.style.backgroundColor = "#00ffcc";
+            btn.style.borderColor = "#00ffcc";
+            btn.style.color = "#0b0c10";
+            card.classList.add('success-flash');
 
-<li><strong>Zero Rules:</strong> Hacks and duplication are enabled.</li>
-
-<li><strong>Lifesteal:</strong> Killing players steals permanent hearts. Dying reduces your maximum health until zero.</li>
-
-<li><strong>Real World Map:</strong> Build empires where real-world cities exist.</li>
-
-<li><strong>Performance Optimized:</strong> Engineered for stable TPS under heavy load.</li>
-
-<li><strong>Compatibility:</strong> Supports Minecraft 1.16.5 up to the latest versions.</li>
-
-</ul>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="card">
-
-<h2>Hardware Donations</h2>
-
-<p>€7.50 raised of €20.00 monthly goal.</p>
-
-<div class="progress-container">
-<div class="progress">
-38%
-</div>
-</div>
-
-<br>
-
-<a class="btn" href="store.html">
-Help keep the node online → Visit Feature Shop
-</a>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="buttons">
-
-<a class="btn"
-href="https://1o1c.fandom.com/wiki/1O1C_Wiki"
-target="_blank">
-Read History Wiki
-</a>
-
-<a class="btn"
-href="https://discord.gg/VBG8ZFmXHK"
-target="_blank">
-Join Our Discord
-</a>
-
-<a class="btn"
-href="https://topg.org/minecraft-servers/server-682097"
-target="_blank">
-Vote on TopG
-</a>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="card">
-
-<h2>Latest Announcement</h2>
-
-<div class="news">
-
-<span>
-Performance Upgrade & Map Migration • Core architecture optimized • Performance nodes upgraded • Official transition to the Real World Map framework completed.
-</span>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>
-© 2026 1O1C. Hosted on self-hosted hardware nodes.
-</p>
-
-<p>
-Not affiliated with Mojang Studios.
-</p>
-
-</footer>
-
-<script>
-function copyIP(){
-    navigator.clipboard.writeText("1o1c.org");
-
-    let copied=document.getElementById("copied");
-
-    copied.style.opacity="1";
-
-    setTimeout(()=>{
-        copied.style.opacity="0";
-    },2000);
-}
-</script>
-
+            setTimeout(() => {
+                btn.innerText = "Click to Copy";
+                btn.style.backgroundColor = "";
+                btn.style.borderColor = "";
+                btn.style.color = "";
+                card.classList.remove('success-flash');
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
