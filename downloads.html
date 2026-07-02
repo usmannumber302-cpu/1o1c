@@ -3,92 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download OMEGA Browser | 1O1C Anarchy Network</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Segoe+UI:wght@400;600;700&display=swap');
-        
-        .font-orbitron { font-family: 'Orbitron', sans-serif; }
-        .font-mono-tech { font-family: 'Share Tech Mono', monospace; }
-        body { font-family: 'Segoe UI', sans-serif; }
+    <link rel="icon" type="image/png" href="https://1o1c.org/logo.png">
 
-        /* Glowing text effects */
-        .neon-glow {
-            text-shadow: 0 0 10px rgba(69, 243, 255, 0.6), 0 0 20px rgba(69, 243, 255, 0.3);
-        }
-        .neon-glow-red {
-            text-shadow: 0 0 10px rgba(239, 68, 68, 0.6), 0 0 20px rgba(239, 68, 68, 0.3);
-        }
+    <title>Downloads Hub | 1O1C Anarchy Lifesteal</title>
+    <meta name="description" content="Download official utilities, clients, and browsers built by the 1O1C network administration.">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0b0c10; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        .glow-text { text-shadow: 0 0 15px rgba(255, 0, 0, 0.6); }
+        .app-card:hover { border-color: #dc2626; transform: translateY(-2px); }
     </style>
 </head>
-<body class="bg-[#0b0c10] text-[#c5c6c7] min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-cyan-500 selection:text-black">
+<body class="min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white antialiased text-gray-200">
 
-    <header class="border-b border-gray-800 bg-[#1f2833]/40 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex items-center justify-between">
-        <div class="flex items-center space-x-3">
-            <span class="font-orbitron text-2xl font-bold tracking-wider text-cyan-400 neon-glow">OMEGA</span>
+    <!-- Unified Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-[#0b0c10]/90 backdrop-blur-md border-b border-gray-900 px-4 py-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between">
+            <div class="flex items-center justify-between w-full md:w-auto">
+                <a href="index.html" class="text-2xl font-black text-white tracking-wider hover:text-red-500 transition-colors">1O1C</a>
+                <button onclick="toggleMenu()" class="text-gray-300 hover:text-white focus:outline-none md:hidden text-xl">
+                    <i id="menuIcon" class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <div id="navLinks" class="hidden md:flex flex-col md:flex-row items-left md:items-center space-y-3 md:space-y-0 space-x-0 md:space-x-6 font-semibold tracking-wide text-sm md:text-base mt-4 md:mt-0 pt-3 md:pt-0 border-t border-gray-900 md:border-none">
+                <a href="index.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Home</a>
+                <a href="rules.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Rules</a>
+                <a href="store.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Feature Shop</a>
+                <a href="downloads.html" class="text-red-500 border-b-2 border-red-500 pb-1 w-max">Downloads</a>
+                <a href="support.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Support</a>
+            </div>
         </div>
-        <nav class="flex space-x-6 text-sm uppercase tracking-wider font-semibold">
-            <a href="index.html" class="hover:text-cyan-400 transition-colors">Home</a>
-            <a href="board.html" class="hover:text-cyan-400 transition-colors">Leaderboard</a>
-            <a href="downloads.html" class="text-cyan-400 transition-colors">Download</a>
-        </nav>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="text-center pt-16 px-4 max-w-4xl mx-auto w-full">
+        <h1 class="text-5xl md:text-6xl font-black text-white tracking-wider glow-text mb-2">SYSTEM DOWNLOADS</h1>
+        <p class="text-red-500 font-semibold uppercase tracking-widest text-sm md:text-base mb-12">Official Applications Engineered by Silent_Maker & simon543215660</p>
     </header>
 
-    <main class="flex-grow flex flex-col items-center justify-center px-4 py-16 max-w-4xl mx-auto text-center relative">
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-        <div class="font-mono-tech text-xs bg-cyan-950/50 border border-cyan-500/30 text-cyan-400 px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase">
-            Stable Production Release // v1.0.0
-        </div>
-
-        <h1 class="font-orbitron text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight">
-            Your world, <span class="text-cyan-400 neon-glow">in one click.</span>
-        </h1>
-        <p class="text-gray-400 text-base md:text-lg max-w-2xl mb-12 leading-relaxed">
-            A secure, ultra-lightweight portal built for absolute speed. OMEGA values your privacy—built entirely without tracking layers, automated history logging, or hidden password collectors.
-        </p>
-
-        <!-- Download Action Hub -->
-        <div class="w-full flex flex-col sm:flex-row justify-center items-center gap-4 mb-16">
-            <!-- OMEGA Browser Download -->
+    <!-- App Deployment Grid -->
+    <main class="max-w-5xl mx-auto px-4 mb-24 w-full grid md:grid-cols-2 gap-8 items-start">
+        
+        <!-- MODULE 01: OMEGA Browser -->
+        <div class="bg-[#12141c]/60 border border-gray-900 rounded-2xl p-6 flex flex-col justify-between app-card transition-all duration-300 min-h-[340px]">
+            <div class="space-y-4">
+                <div class="flex justify-between items-start border-b border-gray-900 pb-3">
+                    <div>
+                        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-globe text-red-500 text-sm"></i> OMEGA Browser
+                        </h2>
+                        <span class="text-xs font-mono text-gray-500">Developer: Silent_Maker</span>
+                    </div>
+                    <span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">v1.0.0 // STABLE</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    An ultra-lightweight, high-speed customized terminal layout portal built entirely without telemetry layers, background data collectors, tracking tags, or history pools.
+                </p>
+                <div class="text-xs text-gray-500 space-y-1 font-mono pt-2">
+                    <div>⚡ Architecture: Windows x64 Executable</div>
+                    <div>🔒 Sandbox Protocol: Hardened Local Environment</div>
+                </div>
+            </div>
             <a href="https://github.com/usmannumber302-cpu/1o1c/releases/download/v1.0.0/OMEGA.Setup.1.0.0.exe" 
-               download
-               class="w-full sm:w-auto bg-cyan-500 hover:bg-cyan-400 text-[#0b0c10] font-bold text-base text-center uppercase tracking-wider px-8 py-4 rounded-xl shadow-[0_0_25px_rgba(69,243,255,0.20)] hover:shadow-[0_0_35px_rgba(69,243,255,0.40)] transform hover:-translate-y-0.5 transition-all flex items-center justify-center space-x-3 cursor-pointer">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                </svg>
-                <span>Download OMEGA Browser</span>
+               download 
+               class="mt-6 text-center border border-dashed border-red-900/60 bg-red-950/10 hover:bg-red-600 text-red-400 hover:text-white transition-all font-mono font-bold text-sm py-3 rounded-xl flex items-center justify-center gap-2">
+                <i class="fa-solid fa-download"></i> Get OMEGA Browser (Win)
             </a>
+        </div>
 
-            <!-- Minecraft Client Link -->
+        <!-- MODULE 02: 1O1C Minecraft Game Client -->
+        <div class="bg-[#12141c]/60 border border-gray-900 rounded-2xl p-6 flex flex-col justify-between app-card transition-all duration-300 min-h-[340px]">
+            <div class="space-y-4">
+                <div class="flex justify-between items-start border-b border-gray-900 pb-3">
+                    <div>
+                        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-cube text-red-500 text-sm"></i> Infinite Game Launcher
+                        </h2>
+                        <span class="text-xs font-mono text-gray-500">Developer: 1O1C Dev Team</span>
+                    </div>
+                    <span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">OFFICIAL CLIENT</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    The native 1O1C Minecraft client configuration built for deep synchronization with our server environment. Optimizes networking nodes for absolute execution speed and stability at full frame rates.
+                </p>
+                <div class="text-xs text-gray-500 space-y-1 font-mono pt-2">
+                    <div>⚡ Integration: Dual Authentication Sync</div>
+                    <div>🛠️ Optimization: Advanced Chunk Preloading Matrices</div>
+                </div>
+            </div>
             <a href="https://infinite.1o1c.org/" 
-               class="w-full sm:w-auto bg-transparent border-2 border-red-500 hover:bg-red-500 text-red-500 hover:text-white font-bold text-base text-center uppercase tracking-wider px-8 py-4 rounded-xl shadow-[0_0_20px_rgba(239,68,68,0.10)] hover:shadow-[0_0_30px_rgba(239,68,68,0.30)] transform hover:-translate-y-0.5 transition-all flex items-center justify-center space-x-3 cursor-pointer">
-                <i class="fa-solid fa-cube text-lg"></i>
-                <span>Install 1O1C Game Client</span>
+               class="mt-6 text-center border border-red-600 bg-red-600 hover:bg-red-700 text-white transition-all font-mono font-bold text-sm py-3 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-red-900/25">
+                <i class="fa-solid fa-gamepad"></i> Install Game Client Portal
             </a>
         </div>
 
-        <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6 text-left border-t border-gray-800/60 pt-12">
-            <div class="bg-[#151922]/40 border border-gray-800/50 rounded-xl p-5">
-                <h3 class="font-orbitron text-sm font-bold text-white tracking-wide uppercase mb-2">Zero Tracking</h3>
-                <p class="text-xs text-gray-400 leading-relaxed">Local browsing logs and session navigation records are entirely discarded instantly when exiting the terminal browser.</p>
+        <!-- FUTURE APPLICATION CARD STUB (Uncomment to add new software) -->
+        <!--
+        <div class="bg-[#12141c]/60 border border-gray-900 rounded-2xl p-6 flex flex-col justify-between app-card transition-all duration-300 min-h-[340px]">
+            <div class="space-y-4">
+                <div class="flex justify-between items-start border-b border-gray-900 pb-3">
+                    <div>
+                        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-code text-red-500 text-sm"></i> Application Name
+                        </h2>
+                        <span class="text-xs font-mono text-gray-500">Developer: Owner Name</span>
+                    </div>
+                    <span class="font-mono bg-red-950/40 text-red-400 px-2 py-0.5 rounded border border-red-900/40 text-xs">v1.0.0</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    Description goes here. Add functional details regarding your new custom software package.
+                </p>
             </div>
-            <div class="bg-[#151922]/40 border border-gray-800/50 rounded-xl p-5">
-                <h3 class="font-orbitron text-sm font-bold text-white tracking-wide uppercase mb-2">Persistent Profiles</h3>
-                <p class="text-xs text-gray-400 leading-relaxed">Isolated local storage keep you securely authenticated to authorized user accounts without sending your identity vectors away.</p>
-            </div>
-            <div class="bg-[#151922]/40 border border-gray-800/50 rounded-xl p-5">
-                <h3 class="font-orbitron text-sm font-bold text-white tracking-wide uppercase mb-2">Native Sandbox</h3>
-                <p class="text-xs text-gray-400 leading-relaxed">Designed inside an isolated guest layout shell preventing web pages from invoking or interacting with underlying operating files.</p>
-            </div>
+            <a href="#" class="mt-6 text-center border border-dashed border-red-900/60 bg-red-950/10 hover:bg-red-600 text-red-400 hover:text-white transition-all font-mono font-bold text-sm py-3 rounded-xl flex items-center justify-center gap-2">
+                <i class="fa-solid fa-download"></i> Download Binary
+            </a>
         </div>
+        -->
+
     </main>
 
-    <footer class="border-t border-gray-900 bg-[#07080a] py-6 px-6 text-center text-xs text-gray-600 font-mono-tech tracking-wider uppercase">
-        &copy; 2026 1O1C Network. All rights secured.
+    <!-- Footer Area -->
+    <footer class="text-center py-6 border-t border-gray-900 bg-[#0b0c10] text-gray-600 text-xs w-full px-4">
+        &copy; 2026 1O1C. Not affiliated with Mojang Studios. Hosted on optimized self-hosted hardware nodes.
     </footer>
 
-    <!-- FontAwesome for the cube icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Responsive Navigation Logic -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuIcon = document.getElementById('menuIcon');
+            if (navLinks.classList.contains('hidden')) {
+                navLinks.classList.remove('hidden'); navLinks.classList.add('flex');
+                menuIcon.classList.replace('fa-bars', 'fa-xmark');
+            } else {
+                navLinks.classList.add('hidden'); navLinks.classList.remove('flex');
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        }
+    </script>
 </body>
 </html>
