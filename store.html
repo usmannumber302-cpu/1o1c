@@ -178,6 +178,13 @@
             border: 1px solid #c2eabd;
             font-size: 12px;
             white-space: nowrap;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        /* Interactive styling rule for the price buttons */
+        .product-table tr:hover .price-tag {
+            background-color: #d4f4db;
+            border-color: #a3e0b0;
         }
 
         /* Sidebar Feature Containers */
@@ -379,6 +386,41 @@
         </footer>
 
     </div>
+
+    <!-- Global Handler for Clickable Shop Modules -->
+    <script>
+        document.querySelectorAll('.product-table tbody tr').forEach(row => {
+            const priceButton = row.querySelector('.price-tag');
+            if (priceButton) {
+                // Visual pointer indicator
+                priceButton.style.cursor = 'pointer';
+                
+                priceButton.addEventListener('click', () => {
+                    // Extract data elements dynamically from row
+                    const featureName = row.cells[0].innerText.replace(/\s+/g, ' ').trim();
+                    const costText = priceButton.innerText.trim();
+                    
+                    const emailDestination = "help@1o1c.org";
+                    const emailSubject = encodeURIComponent(`Feature Module Request: ${featureName}`);
+                    
+                    // Structured request template mapping matching informational notes
+                    const emailBody = encodeURIComponent(
+                        `Hello 1O1C Operations Hub,\n\n` +
+                        `I would like to activate the following server configuration update:\n` +
+                        `- Target Module: ${featureName}\n` +
+                        `- Cost Value: ${costText}\n\n` +
+                        `Account Setup Information:\n` +
+                        `- In-Game Name:\n` +
+                        `- Discord Handle:\n\n` +
+                        `Thank you.`
+                    );
+                    
+                    // Route to email protocol application
+                    window.location.href = `mailto:${emailDestination}?subject=${emailSubject}&body=${emailBody}`;
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
