@@ -2,130 +2,277 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link class="rounded-full" rel="icon" type="image/png" href="https://1o1c.org/logo.png">
+    <link rel="icon" type="image/png" href="https://1o1c.org/logo.png">
+
     <title>Server Rules | 1O1C Anarchy Lifesteal</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Official community rules and guidelines for the 1O1C Anarchy Network.">
+
     <style>
-        body { background-color: #0b0c10; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
-        .glow-text { text-shadow: 0 0 15px rgba(255, 0, 0, 0.6); }
-        .rule-card:hover { border-color: #dc2626; transform: translateX(4px); }
+        /* 2010 Era Balanced & Peaceful Base Styling */
+        body { 
+            background-color: #dce5ed; 
+            color: #2c3e50; 
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Standard 2010 Center Container with Soft Drop Shadows */
+        #wrapper {
+            width: 900px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border: 1px solid #b5c7d9;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: left;
+            box-shadow: 0px 4px 20px rgba(160, 180, 200, 0.4);
+        }
+
+        /* Clean Header Logo Design */
+        h1.logo {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 54px;
+            font-weight: bold;
+            color: #2980b9;
+            margin: 10px 0 5px 0;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-weight: normal;
+            font-size: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Glossy Navigation Menu Bar */
+        #nav-bar {
+            border: 1px solid #a4b9cc;
+            border-radius: 5px;
+            background: #eef3f7;
+            background: linear-gradient(to bottom, #f7fafc 0%, #eef3f7 100%);
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        #nav-bar a {
+            color: #34495e;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 6px 18px;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        #nav-bar a:hover {
+            color: #2980b9;
+            background-color: #e2ecf5;
+            border-radius: 4px;
+        }
+
+        #nav-bar a.active {
+            color: #ffffff;
+            background: #2980b9;
+            background: linear-gradient(to bottom, #3498db 0%, #2980b9 100%);
+            border-radius: 4px;
+        }
+
+        /* Peaceful Section Separators */
+        .section-header {
+            background-color: #ebf2f7;
+            color: #2c3e50;
+            padding: 8px 12px;
+            font-weight: bold;
+            border-left: 4px solid #2980b9;
+            border-radius: 0 4px 4px 0;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Rules 2-Column Grid Table */
+        .rules-table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: separate;
+            border-spacing: 15px;
+        }
+
+        .rules-table td {
+            width: 50%;
+            padding: 18px;
+            border: 1px solid #d6e0ea;
+            border-radius: 6px;
+            background-color: #fafbfc;
+            vertical-align: top;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .rule-title {
+            color: #2c3e50;
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .rule-number {
+            color: #2980b9;
+            font-family: Georgia, serif;
+            font-weight: bold;
+            margin-right: 4px;
+        }
+
+        .rule-text {
+            font-size: 13px;
+            color: #556270;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Enforcement Panel Layout */
+        .panel-table {
+            width: 100%;
+            margin: 25px 0;
+            border-collapse: separate;
+            border-spacing: 15px 0;
+        }
+
+        .panel-table td {
+            width: 50%;
+            padding: 20px;
+            border-radius: 6px;
+            vertical-align: top;
+        }
+
+        .enforce-panel {
+            border: 1px solid #eab3b3;
+            background-color: #fff5f5;
+        }
+
+        .staff-panel {
+            border: 1px solid #d6e0ea;
+            background-color: #fafbfc;
+        }
+
+        .panel-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .panel-list {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 13px;
+            color: #556270;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eef3f7;
+            color: #95a5a6;
+            font-size: 12px;
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased text-gray-200">
+<body>
 
-    <nav class="sticky top-0 z-50 bg-[#0b0c10]/90 backdrop-blur-md border-b border-gray-900 px-4 py-4">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between">
-            <div class="flex items-center justify-between w-full md:w-auto">
-                <a href="index.html" class="text-2xl font-black text-white tracking-wider hover:text-red-500 transition-colors">1O1C</a>
-                <button onclick="toggleMenu()" class="text-gray-300 hover:text-white focus:outline-none md:hidden text-xl">
-                    <i id="menuIcon" class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-            <div id="navLinks" class="hidden md:flex flex-col md:flex-row items-left md:items-center space-y-3 md:space-y-0 space-x-0 md:space-x-6 font-semibold tracking-wide text-sm md:text-base mt-4 md:mt-0 pt-3 md:pt-0 border-t border-gray-900 md:border-none">
-                <a href="index.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Home</a>
-                <a href="rules.html" class="text-red-500 border-b-2 border-red-500 pb-1 w-max">Rules</a>
-                <a href="store.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Feature Shop</a>
-                <a href="downloads.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Downloads</a>
-                <a href="support.html" class="text-gray-300 hover:text-white transition-colors pb-1 w-max">Support</a>
-            </div>
-        </div>
-    </nav>
+    <div id="wrapper">
 
-    <header class="text-center pt-16 px-4 max-w-4xl mx-auto w-full">
-        <h1 class="text-5xl md:text-6xl font-black text-white tracking-wider glow-text mb-2">1O1C NETWORK RULES</h1>
-        <p class="text-red-500 font-semibold uppercase tracking-widest text-sm md:text-base mb-12">Core Regulations & Administration Directives</p>
-    </header>
+        <!-- Header -->
+        <h1 class="logo">1O1C</h1>
+        <div class="subtitle">The Elite One-Chunk Anarchy Network &bull; Lifesteal Hybrid</div>
 
-    <main class="max-w-4xl mx-auto px-4 mb-24 w-full space-y-4">
-        
-        <div class="grid md:grid-cols-2 gap-4">
-            <div class="bg-[#12141c]/60 border border-gray-900 rounded-xl p-5 rule-card transition-all duration-200">
-                <h3 class="text-white font-mono font-bold text-base mb-2 flex items-center gap-2">
-                    <span class="text-red-500">01.</span> Use Appropriate Channels
-                </h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Keep discussions relevant to their designated channels. If a game does not have its own section, notify administration instead of posting elsewhere.</p>
-            </div>
-
-            <div class="bg-[#12141c]/60 border border-gray-900 rounded-xl p-5 rule-card transition-all duration-200">
-                <h3 class="text-white font-mono font-bold text-base mb-2 flex items-center gap-2">
-                    <span class="text-red-500">02.</span> No Harassment
-                </h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Any form of harassment, targeted cyberbullying, or intentional server-wide toxicity directed against others will not be tolerated.</p>
-            </div>
-
-            <div class="bg-[#12141c]/60 border border-gray-900 rounded-xl p-5 rule-card transition-all duration-200">
-                <h3 class="text-white font-mono font-bold text-base mb-2 flex items-center gap-2">
-                    <span class="text-red-500">03.</span> No Spamming
-                </h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Avoid excessive messages, including wall-text blocks, emoji floods, caps lock spam, or repeating media loops inside chat systems.</p>
-            </div>
-
-            <div class="bg-[#12141c]/60 border border-gray-900 rounded-xl p-5 rule-card transition-all duration-200">
-                <h3 class="text-white font-mono font-bold text-base mb-2 flex items-center gap-2">
-                    <span class="text-red-500">04.</span> Respect Decisions
-                </h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Follow instructions from core administration staff. Arguing over moderation rulings or wasting processing resources is strictly restricted.</p>
-            </div>
-
-            <div class="bg-[#12141c]/60 border border-gray-900 rounded-xl p-5 rule-card transition-all duration-200">
-                <h3 class="text-white font-mono font-bold text-base mb-2 flex items-center gap-2">
-                    <span class="text-red-500">05.</span> Zero Doxxing Protocol
-                </h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Sharing or threatening to reveal personal real-life data, locations, or identities will result in an immediate network-wide blacklist execution.</p>
-            </div>
-
-            <div class="bg-[#12141c]/60 border border-gray-900 rounded-xl p-5 rule-card transition-all duration-200">
-                <h3 class="text-white font-mono font-bold text-base mb-2 flex items-center gap-2">
-                    <span class="text-red-500">06.</span> Profile Restrictions
-                </h3>
-                <p class="text-sm text-gray-400 leading-relaxed">User profile assets, badges, and server nicknames must remain clean, functional, and free of explicit or suggestive materials.</p>
-            </div>
+        <!-- Navigation Menu -->
+        <div id="nav-bar">
+            <a href="index.html">Home</a>
+            <a href="rules.html" class="active">Rules</a>
+            <a href="store.html">Server Shop</a>
+            <a href="downloads.html">Downloads</a>
+            <a href="support.html">Support</a>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6 pt-6">
-            <div class="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
-                <h3 class="text-red-500 font-mono font-bold text-lg mb-3 flex items-center gap-2">
-                    <i class="fa-solid fa-gavel"></i> Enforcement Matrices
-                </h3>
-                <ul class="text-sm space-y-2 font-mono text-gray-300">
-                    <li><strong class="text-white">1st Level:</strong> Formal Structural Warning</li>
-                    <li><strong class="text-white">2nd Level:</strong> Temporary System Communications Mute</li>
-                    <li><strong class="text-white">3rd Level:</strong> Temporary Network Session Suspension</li>
-                    <li><strong class="text-white">Severe Breach:</strong> Immediate, Permanent Hardware Blacklist</li>
-                </ul>
-            </div>
+        <p style="line-height: 1.6; color: #556270; font-size: 14px; margin-bottom: 10px; text-align: center;">
+            While our in-game environment favors absolute sandbox survival, our community platforms adhere to standard guidelines to maintain operational integrity.
+        </p>
 
-            <div class="bg-slate-900/30 border border-gray-900 rounded-xl p-6">
-                <h3 class="text-white font-mono font-bold text-lg mb-3 flex items-center gap-2">
-                    <i class="fa-solid fa-shield-halved text-gray-400"></i> Core Directives (Staff)
-                </h3>
-                <ul class="text-xs space-y-2 text-gray-400 list-disc list-inside">
-                    <li><strong class="text-gray-200">OP LOCK:</strong> Default root operator commands are fully contained.</li>
-                    <li><strong class="text-gray-200">NO GOD MODE:</strong> Server physics and threat variables apply equally.</li>
-                    <li><strong class="text-gray-200">NETWORK BOUND:</strong> Admins shall not link with untrusted indices.</li>
-                </ul>
-            </div>
-        </div>
-    </main>
+        <!-- Main Guidelines Section -->
+        <div class="section-header">Community Code of Conduct</div>
 
-    <footer class="text-center py-6 border-t border-gray-900 bg-[#0b0c10] text-gray-600 text-xs w-full px-4">
-        &copy; 2026 1O1C. Not affiliated with Mojang Studios. Hosted on optimized self-hosted hardware nodes.
-    </footer>
+        <table class="rules-table">
+            <tr>
+                <td>
+                    <div class="rule-title"><span class="rule-number">01.</span> Organized Communication</div>
+                    <p class="rule-text">Kindly direct conversations to their designated topics. If you require assistance regarding specific game directories, reach out via the official help desk rather than using general channels.</p>
+                </td>
+                <td>
+                    <div class="rule-title"><span class="rule-number">02.</span> Mutual Respect</div>
+                    <p class="rule-text">Targeted hostility, personal degradation, and constructive harassment toward community members or groups are completely prohibited across all common platforms.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="rule-title"><span class="rule-number">03.</span> Chat Flow Maintenance</div>
+                    <p class="rule-text">Please refrain from flooding chat channels. This includes avoiding large blocks of text, excessive capitalization, message repetition, or spamming media files.</p>
+                </td>
+                <td>
+                    <div class="rule-title"><span class="rule-number">04.</span> Moderation Directives</div>
+                    <p class="rule-text">Respect choices made by administrative coordinators. Disputes regarding formal platform rules should be handled through appropriate support tickets.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="rule-title"><span class="rule-number">05.</span> Confidentiality Protocol</div>
+                    <p class="rule-text">Distributing, collecting, or threatening to expose private real-world personal information belonging to any individual will result in an immediate network restriction.</p>
+                </td>
+                <td>
+                    <div class="rule-title"><span class="rule-number">06.</span> Profile Appropriateness</div>
+                    <p class="rule-text">Account identities, aliases, custom avatars, and status messages must remain clear, respectful, and fully compliant with clean community environments.</p>
+                </td>
+            </tr>
+        </table>
 
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            const menuIcon = document.getElementById('menuIcon');
-            if (navLinks.classList.contains('hidden')) {
-                navLinks.classList.remove('hidden'); navLinks.classList.add('flex');
-                menuIcon.classList.replace('fa-bars', 'fa-xmark');
-            } else {
-                navLinks.classList.add('hidden'); navLinks.classList.remove('flex');
-                menuIcon.classList.replace('fa-xmark', 'fa-bars');
-            }
-        }
-    </script>
+        <!-- Policies & Operations Section -->
+        <div class="section-header">Administrative Guidelines & Frameworks</div>
+
+        <table class="panel-table">
+            <tr>
+                <td class="enforce-panel">
+                    <div class="panel-title" style="color: #c0392b;">Enforcement Measures</div>
+                    <ol class="panel-list" style="list-style-type: decimal;">
+                        <li><strong>Initial Notice:</strong> Formal record documentation.</li>
+                        <li><strong>Temporary Mute:</strong> Communication limitations across network assets.</li>
+                        <li><strong>Account Suspension:</strong> Temporary removal of platform entry credentials.</li>
+                        <li><strong>Network Ban:</strong> Definitive hardware and infrastructure restriction.</li>
+                    </ol>
+                </td>
+                <td class="staff-panel">
+                    <div class="panel-title" style="color: #2c3e50;">Internal Directives (Staff)</div>
+                    <ul class="panel-list" style="list-style-type: square;">
+                        <li><strong>Operator Limits:</strong> Default root level console access is fully contained.</li>
+                        <li><strong>Standard Physics:</strong> Administrative characters maintain standard gameplay parameters.</li>
+                        <li><strong>Directory Security:</strong> Staff accounts are restricted from accessing external index channels.</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Footer -->
+        <footer>
+            &copy; 2026 1O1C Anarchy Network. Independently managed. Not affiliated with Mojang Studios. Dedicated private host infrastructure.
+        </footer>
+
+    </div>
+
 </body>
 </html>
