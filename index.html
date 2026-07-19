@@ -2,297 +2,394 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3738945197109363"
-     crossorigin="anonymous"></script>
-    
     <link rel="icon" type="image/png" href="https://1o1c.org/logo.png">
 
     <title>1O1C Anarchy Lifesteal | The Oldest One-Chunk Minecraft Anarchy Server</title>
     <meta name="description" content="Join 1O1C (1o1c.org) - The oldest Minecraft One-Chunk Anarchy Lifesteal Hybrid server. Playable on all versions. Zero rules, hacks allowed, infinite map exploration.">
     <meta name="keywords" content="1o1c, 1o1c.org, minecraft anarchy server, oldest one chunk anarchy, lifesteal anarchy, minecraft server no rules, cracked anarchy server, infinite map minecraft">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://1o1c.org">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://1o1c.org">
-    <meta property="og:title" content="1O1C Anarchy Lifesteal | Oldest One-Chunk Server">
-    <meta property="og:description" content="The absolute oldest One-Chunk Anarchy + Lifesteal Mechanics on an infinite sandbox layout. Connect now via 1o1c.org">
-    <meta property="og:image" content="https://1o1c.org/logo.png">
-    <meta property="og:image:width" content="512">
-    <meta property="og:image:height" content="512">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:site_name" content="1O1C">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="1O1C Anarchy Lifesteal">
-    <meta name="twitter:description" content="Join the oldest hybrid one-chunk Minecraft server. Infinite map layout, enabled duplication, and zero lag. Playable on all Minecraft versions.">
-    <meta name="twitter:image" content="https://1o1c.org/logo.png">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "VideoGameServer",
-      "name": "1O1C",
-      "description": "The oldest running Minecraft One-Chunk Anarchy and Lifesteal hybrid server with full support for all versions.",
-      "url": "https://1o1c.org",
-      "image": "https://1o1c.org/logo.png",
-      "game": {
-        "@type": "VideoGame",
-        "name": "Minecraft",
-        "playMode": "MultiPlayer",
-        "applicationCategory": "Game"
-      },
-      "serverStatus": "Online",
-      "playersOnline": {
-        "@type": "QuantitativeValue",
-        "minValue": 0,
-        "description": "Unique Joins: 2,600+"
-      }
-    }
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #0b0c10; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
-        .glow-text { text-shadow: 0 0 15px rgba(255, 0, 0, 0.6); }
-        .glow-border:hover { box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); border-color: #ff0000; }
-        .success-flash { 
-            border-color: #00ffcc !important; 
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.4) !important; 
+        /* 2009 Web-Safe Base Styling */
+        body { 
+            background-color: #000000; 
+            color: #ffffff; 
+            font-family: "Courier New", Courier, monospace, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Centered Main Page Container Wrapper */
+        #wrapper {
+            width: 850px;
+            margin: 20px auto;
+            background-color: #0c0e12;
+            border: 3px double #ff0000;
+            padding: 15px;
+            text-align: left;
+            box-shadow: 0px 0px 15px #ff0000;
+        }
+
+        /* Retro Header Glow */
+        h1.logo {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 72px;
+            color: #ffffff;
+            text-shadow: 4px 4px 0px #aa0000, 0px 0px 20px #ff0000;
+            margin: 10px 0 0 0;
+            text-align: center;
+            letter-spacing: 5px;
+        }
+
+        .subtitle {
+            color: #ff3333;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Old-School Navigation Bar */
+        #nav-bar {
+            border-top: 2px solid #333;
+            border-bottom: 2px solid #333;
+            background-color: #131722;
+            padding: 8px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        #nav-bar a {
+            color: #cccccc;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0 15px;
+            font-size: 14px;
+        }
+
+        #nav-bar a:hover {
+            color: #ff0000;
+            text-decoration: underline;
+        }
+
+        #nav-bar a.active {
+            color: #ff0000;
+            border-bottom: 1px dashed #ff0000;
+        }
+
+        /* Server IP Copy Box Block */
+        #ip-container {
+            background-color: #171d29;
+            border: 2px dashed #ff0000;
+            padding: 15px;
+            text-align: center;
+            margin: 20px auto;
+            width: 70%;
+        }
+
+        .ip-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .copy-button {
+            background-color: #b30000;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 5px 15px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .copy-button:hover {
+            background-color: #ff0000;
+        }
+
+        /* Hard Feature Layout Grids using Traditional Tables */
+        .feature-table {
+            width: 100%;
+            margin: 25px 0;
+            border-collapse: collapse;
+        }
+
+        .feature-table td {
+            width: 33.33%;
+            padding: 15px;
+            border: 1px solid #222633;
+            background-color: #0e111a;
+            vertical-align: top;
+        }
+
+        .feature-title {
+            color: #ff3333;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 4px;
+        }
+
+        /* Donation Meter Layout Container */
+        #donation-box {
+            background-color: #090b10;
+            border: 1px solid #ff0000;
+            padding: 12px;
+            margin-bottom: 25px;
+        }
+
+        .meter-bg {
+            background-color: #222;
+            border: 1px solid #444;
+            height: 20px;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .meter-fill {
+            background-color: #ff0000;
+            height: 100%;
+            width: 0%; /* Altered dynamically by script */
+        }
+
+        /* Sidebar & Announcement Layout Structures */
+        .section-header {
+            background-color: #1a0000;
+            color: #ff3333;
+            padding: 6px;
+            font-weight: bold;
+            border-left: 5px solid #ff0000;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .announcement-block {
+            border-bottom: 1px dashed #222;
+            padding: 10px 0;
+        }
+
+        .announcement-title {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .announcement-date {
+            color: #777777;
+            font-size: 11px;
+            float: right;
+        }
+
+        /* Community Links Layout Bar */
+        .btn-link {
+            display: inline-block;
+            background-color: #171d29;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 8px 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+        .btn-link:hover {
+            border-color: #ff0000;
+            background-color: #222b3d;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #222;
+            color: #555555;
+            font-size: 11px;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white antialiased text-gray-200">
+<body>
 
-    <nav class="sticky top-0 z-50 bg-[#0b0c10]/90 backdrop-blur-md border-b border-gray-900 px-4 py-4">
-        <div class="max-w-6xl mx-auto flex items-center justify-between">
-            <a href="index.html" class="text-2xl font-black text-white tracking-wider hover:text-red-500 transition-colors">1O1C</a>
-            <div class="flex items-center space-x-4 md:space-x-6 font-semibold tracking-wide text-sm md:text-base">
-                <a href="index.html" class="text-red-500 border-b-2 border-red-500 pb-1">Home</a>
-                <a href="rules.html" class="text-gray-300 hover:text-white transition-colors pb-1">Rules</a>
-                <a href="store.html" class="text-gray-300 hover:text-white transition-colors pb-1">Feature Shop</a>
-                <a href="downloads.html" class="text-gray-300 hover:text-white transition-colors pb-1">Downloads</a>
-                <a href="support.html" class="text-gray-300 hover:text-white transition-colors pb-1">Support</a>
-            </div>
+    <div id="wrapper">
+
+        <!-- Logo Header Elements -->
+        <h1 class="logo">1O1C</h1>
+        <div class="subtitle">The Oldest One Chunk Anarchy Server &bull; Lifesteal Hybrid</div>
+
+        <!-- System Navigation Bar Layout -->
+        <div id="nav-bar">
+            <a href="index.html" class="active">Home</a>
+            <a href="rules.html">Rules</a>
+            <a href="store.html">Feature Shop</a>
+            <a href="downloads.html">Downloads</a>
+            <a href="support.html">Support</a>
         </div>
-    </nav>
 
-    <header class="text-center pt-16 px-4 max-w-4xl mx-auto w-full">
-        <h1 class="text-6xl md:text-8xl font-black text-white tracking-wider glow-text mb-2">1O1C</h1>
-        <p class="text-red-500 font-semibold uppercase tracking-widest text-sm md:text-base mb-6">The Oldest One Chunk Anarchy Server • Lifesteal Hybrid</p>
-        <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+        <!-- Main Introduction Text Block -->
+        <p style="line-height: 1.6; color: #bbbbbb; font-size: 13px;">
             Zero rules. Total freedom. Every kill steals a heart, every death costs one. 
-            Conquer the legendary, historical baseline of the absolute <strong class="text-white">oldest one-chunk anarchy server</strong> layout on an expansive, high-performance scale. Duping enabled. Zero lag.
+            Conquer the legendary, historical baseline of the absolute <strong>oldest one-chunk anarchy server</strong> layout on an expansive, high-performance scale. Duplication mechanics enabled. Zero platform latency lag vectors.
         </p>
 
-        <button onclick="copyServerIP()" id="ipCard" class="inline-flex flex-col md:flex-row items-center bg-[#1f2833] border border-gray-700 p-4 rounded-xl cursor-pointer transition-all duration-300 glow-border group mx-auto focus:outline-none max-w-md w-full justify-between mb-12">
-            <div class="flex items-center space-x-3 px-4 py-2 md:py-0 w-full md:w-auto justify-center">
-                <i class="fa-solid fa-server text-red-500 text-2xl group-hover:animate-pulse"></i>
-                <span id="serverIp" class="text-xl md:text-2xl font-mono font-bold text-white tracking-wide">1o1c.org</span>
+        <!-- Hardware Donation Goal Tracker Node -->
+        <div id="donation-box">
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="font-size: 12px; font-weight: bold; color: #999;">SERVER HARDWARE FUNDING STATUS</td>
+                    <td align="right" style="font-size: 12px; font-weight: bold;">
+                        <span id="currentFunds">&euro;0.00</span> / <span style="color:#ff0000;">&euro;20.00</span> (<span id="percentText">0%</span>)
+                    </td>
+                </tr>
+            </table>
+            <div class="meter-bg">
+                <div id="progressBar" class="meter-fill"></div>
             </div>
-            <div class="w-full md:w-auto bg-red-600 group-hover:bg-red-700 text-white font-bold uppercase text-xs tracking-wider px-6 py-3.5 rounded-lg mt-3 md:mt-0 transition-all duration-200" id="copyBtn">
-                Click to Copy
-            </div>
-        </button>
-    </header>
-
-    <section class="max-w-xl mx-auto w-full px-4 mb-8">
-        <div class="bg-[#12141c] border border-gray-800 p-5 rounded-xl">
-            <div class="flex justify-between items-center mb-2 font-mono text-xs md:text-sm tracking-wide">
-                <span class="text-gray-400 uppercase font-bold flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-red-500 inline-block shadow-[0_0_8px_#ff0000]"></span>
-                    Server Hardware Costs
-                </span>
-                <span class="text-white font-bold">
-                    <span id="currentFunds">€0</span> / <span class="text-red-500">20€</span> (<span id="percentText">0%</span>)
-                </span>
-            </div>
-            <div class="w-full bg-gray-900 h-4 rounded-md overflow-hidden p-[2px] border border-gray-800">
-                <div id="progressBar" class="bg-gradient-to-r from-red-800 to-red-600 h-full rounded-sm transition-all duration-1000 shadow-[0_0_10px_rgba(239,68,68,0.5)]" style="width: 0%"></div>
-            </div>
-            <div class="mt-3 text-center">
-                <a href="store.html" class="text-xs font-semibold text-gray-500 hover:text-red-400 font-mono tracking-wider transition-colors uppercase">
-                    Help keep the node online → Visit Feature Shop
-                </a>
+            <div style="text-align: center; margin-top: 6px;">
+                <a href="store.html" style="color: #666; font-size: 11px; text-decoration: underline;">Help keep the hardware platform operational &rarr; Visit Feature Shop</a>
             </div>
         </div>
-    </section>
 
-    <main class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 my-8 w-full">
-        <div class="bg-[#1f2833]/50 border border-gray-800 p-6 rounded-xl text-center">
-            <i class="fa-solid fa-infinity text-red-500 text-4xl mb-4"></i>
-            <h3 class="text-xl font-bold text-white mb-2">Infinite Wilderness</h3>
-            <p class="text-gray-400 text-sm">Explore, build, and claim your territory across an infinite sandbox layout. Build your custom empire with boundless architectural freedom.</p>
+        <!-- Connection Information Module Box -->
+        <div id="ip-container">
+            <span class="ip-text" id="serverIp">1o1c.org</span>
+            <button class="copy-button" onclick="copyServerIP()" id="copyBtn">CLICK TO COPY SERVER IP</button>
         </div>
-        <div class="bg-[#1f2833]/50 border border-gray-800 p-6 rounded-xl text-center">
-            <i class="fa-solid fa-heart text-red-500 text-4xl mb-4"></i>
-            <h3 class="text-xl font-bold text-white mb-2">Lifesteal Mechanics</h3>
-            <p class="text-gray-400 text-sm">Every player you hunt down grants you a permanent heart container. Lose a fight, and your maximum health bar shrinks down to zero.</p>
+
+        <!-- Feature Content Layout Grid (Table Block) -->
+        <table class="feature-table">
+            <tr>
+                <td>
+                    <div class="feature-title">Infinite Map Layout</div>
+                    <p style="font-size: 12px; color: #aaa; margin: 0; line-height: 1.4;">Explore, build, and claim your territory across an infinite sandbox layout. Build your custom empire with boundless architectural freedom.</p>
+                </td>
+                <td>
+                    <div class="feature-title">Lifesteal Core</div>
+                    <p style="font-size: 12px; color: #aaa; margin: 0; line-height: 1.4;">Every player you hunt down grants you a permanent heart container. Lose a fight, and your maximum health bar shrinks down to zero.</p>
+                </td>
+                <td>
+                    <div class="feature-title">Original One-Chunk</div>
+                    <p style="font-size: 12px; color: #aaa; margin: 0; line-height: 1.4;">Play on the original architecture that started the trend. True lawless sandbox constraints meeting elite core server parameters.</p>
+                </td>
+            </tr>
+        </table>
+
+        <!-- External Hub Links Layout Bar -->
+        <div class="section-header">Community Index Nodes</div>
+        <div style="margin-bottom: 25px;">
+            <a href="https://1o1c.fandom.com/wiki/1O1C_Wiki" target="_blank" class="btn-link">Read History Wiki</a>
+            <a href="https://discord.gg/VBG8ZFmXHK" target="_blank" class="btn-link" style="color: #6a89cc;">Join Our Discord Server</a>
+            <a href="https://topg.org/minecraft-servers/server-682097" target="_blank" class="btn-link" style="color: #78e08f;">Vote on TopG</a>
         </div>
-        <div class="bg-[#1f2833]/50 border border-gray-800 p-6 rounded-xl text-center">
-            <i class="fa-solid fa-crown text-red-500 text-4xl mb-4"></i>
-            <h3 class="text-xl font-bold text-white mb-2">The Oldest One-Chunk</h3>
-            <p class="text-gray-400 text-sm">Play on the original architecture that started the trend. True lawless sandbox constraints meeting elite core server parameters.</p>
+
+        <!-- Old-School Timeline/Announcement Feed Log -->
+        <div class="section-header">Latest Server Announcements & Changelogs</div>
+        
+        <div class="announcement-block">
+            <span class="announcement-date">July 19, 2026</span>
+            <div class="announcement-title" style="color:#a55eea;">ETA RESOURCE PACK V1.2 DROPPED [PUBLIC]</div>
+            <p style="font-size: 12px; color: #999; margin: 5px 0 0 0; line-height: 1.4;">
+                Upgrade your client visual setup with the official <strong>Eta Resource Pack v1.2</strong>! Built completely over SalC1's layout, this custom iteration includes full performance UI adjustments, 1.21.10 verification optimizations, and a custom anime girl Totem of Undying re-skin. Head over to the <a href="downloads.html" style="color:#a55eea;">Downloads Page</a> to deploy it.
+            </p>
         </div>
-    </main>
 
-    <section class="bg-[#12141c] border-t border-gray-900 py-12 w-full">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold text-white mb-6">Server Documentation & Community</h2>
-            
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
-                <a href="https://1o1c.fandom.com/wiki/1O1C_Wiki" target="_blank" rel="noopener" class="w-full sm:w-auto bg-[#1f2833] border border-gray-700 hover:border-red-500 text-white font-medium px-6 py-3 rounded-xl transition-all flex items-center justify-center space-x-2 group">
-                    <i class="fa-solid fa-book text-red-500 group-hover:scale-110 transition-transform"></i>
-                    <span>Read History Wiki</span>
-                </a>
-                <a href="https://discord.gg/VBG8ZFmXHK" target="_blank" rel="noopener" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-xl transition-all flex items-center justify-center space-x-2 group">
-                    <i class="fa-brands fa-discord group-hover:scale-110 transition-transform"></i>
-                    <span>Join Our Discord</span>
-                </a>
-                <a href="https://topg.org/minecraft-servers/server-682097" target="_blank" rel="noopener" class="w-full sm:w-auto bg-[#1f2833] border border-gray-700 hover:border-green-500 text-white font-medium px-6 py-3 rounded-xl transition-all flex items-center justify-center space-x-2 group">
-                    <i class="fa-solid fa-check-to-slot text-green-500 group-hover:scale-110 transition-transform"></i>
-                    <span>Vote on TopG</span>
-                </a>
-            </div>
-
-            <div class="bg-[#1f2833]/20 border border-gray-800 rounded-xl p-6 max-w-2xl mx-auto mb-8 text-left">
-                <div class="flex items-center space-x-2 mb-4 border-b border-gray-800 pb-2">
-                    <i class="fa-solid fa-newspaper text-red-500"></i>
-                    <h3 class="text-sm font-bold uppercase tracking-wider text-gray-400">Latest Server Announcements</h3>
-                </div>
-                
-                <div class="space-y-4 max-h-[240px] overflow-y-auto pr-2">
-                    <!-- NEW ANNOUNCEMENT: ETA RESOURCE PACK -->
-                    <article class="border-l-2 border-purple-500 pl-3 py-1 mb-4 bg-purple-500/5 rounded-r">
-                        <div class="flex justify-between items-baseline mb-1">
-                            <h4 class="text-white font-bold text-sm tracking-wide">ETA RESOURCE PACK V1.2 DROPPED</h4>
-                            <span class="text-xs font-mono text-purple-400 font-bold">Texture Update</span>
-                        </div>
-                        <p class="text-xs text-gray-400 leading-relaxed">
-                            Upgrade your client visual setup with the official <strong>Eta Resource Pack v1.2</strong>! Built completely over SalC1's layout, this custom iteration includes full performance UI adjustments, 1.21.10 verification optimizations, and a custom anime girl Totem of Undying re-skin. Head over to the <a href="downloads.html" class="text-purple-400 hover:underline">Downloads Page</a> to deploy it into your game directory.
-                        </p>
-                    </article>
-
-                    <article class="border-l-2 border-amber-500 pl-3 py-1 mb-4 bg-amber-500/5 rounded-r">
-                        <div class="flex justify-between items-baseline mb-1">
-                            <h4 class="text-white font-bold text-sm tracking-wide">THE CLOCK IS TICKING: ROAD TO 100</h4>
-                            <span class="text-xs font-mono text-amber-400 font-bold animate-pulse">CRITICAL EVENT</span>
-                        </div>
-                        <p class="text-xs text-gray-400 leading-relaxed">
-                            We are balanced directly on the razor's edge of <strong>100 Discord members</strong>. The absolute second that milestone counter drops, the server triggers a total system shift. A massive, volatile reality chain-reaction is primed, including a completely lawless <strong>24-hour anomaly</strong> that will entirely rewrite your standard survival play style. We are holding the final parameters close until it breaks—if you aren't online when the gate swings open, you miss out on server lore history. <strong>Grab your unique tracking invite links from the network hub right now</strong> and distribute them everywhere. Force the deployment sequence early.
-                        </p>
-                    </article>
-
-                    <article class="border-l-2 border-cyan-500 pl-3 py-1 mb-4">
-                        <div class="flex justify-between items-baseline mb-1">
-                            <h4 class="text-white font-bold text-sm">Introducing OMEGA Browser v1.0.0</h4>
-                            <span class="text-xs font-mono text-cyan-400 font-bold">New Project</span>
-                        </div>
-                        <p class="text-xs text-gray-400 leading-relaxed">
-                            We are expanding our ecosystem! Say hello to <strong>OMEGA Browser</strong>—an ultra-lightweight, privacy-focused browser built for speed, clean aesthetics, and zero data tracking. Features a custom dark dashboard and shortcut grid. Head over to our new <a href="downloads.html" class="text-cyan-400 hover:underline">Downloads Page</a> to pick up your copy now!
-                        </p>
-                    </article>
-
-                    <article class="border-l-2 border-red-500 pl-3 py-1">
-                        <div class="flex justify-between items-baseline mb-1">
-                            <h4 class="text-white font-bold text-sm">Performance Upgrade & Environment Optimization</h4>
-                            <span class="text-xs font-mono text-gray-500">Update</span>
-                        </div>
-                        <p class="text-xs text-gray-400 leading-relaxed">
-                            The server architecture is actively undergoing optimization work to deliver much better performance nodes across our core framework. Connect now using any game version and test the raw structural improvements.
-                        </p>
-                    </article>
-                </div>
-            </div>
-
-            <div class="bg-[#1f2833]/30 border border-gray-800/80 rounded-xl p-4 max-w-2xl mx-auto overflow-hidden">
-                <div class="grid grid-cols-3 gap-4 text-center">
-                    <div class="border-r border-gray-800">
-                        <span class="block text-gray-500 text-xs uppercase font-bold tracking-wider">Version</span>
-                        <span class="text-white font-semibold text-sm">All Versions Playable</span>
-                    </div>
-                    <div class="border-r border-gray-800">
-                        <span class="block text-gray-500 text-xs uppercase font-bold tracking-wider">Unique Joins</span>
-                        <span class="text-red-500 font-bold text-sm">2,600+</span>
-                    </div>
-                    <div>
-                        <span class="block text-gray-500 text-xs uppercase font-bold tracking-wider">Status</span>
-                        <span class="text-green-500 font-bold text-sm flex items-center justify-center gap-1">
-                            <span class="w-2 h-2 rounded-full bg-green-500 inline-block animate-ping"></span> Online
-                        </span>
-                    </div>
-                </div>
-            </div>
+        <div class="announcement-block">
+            <span class="announcement-date">July 2, 2026</span>
+            <div class="announcement-title" style="color:#e1b12c;">THE CLOCK IS TICKING: ROAD TO 100 MEMBERS</div>
+            <p style="font-size: 12px; color: #999; margin: 5px 0 0 0; line-height: 1.4;">
+                We are balanced directly on the razor's edge of 100 Discord members. The absolute second that milestone counter drops, the server triggers a total system shift. A massive, volatile reality chain-reaction is primed, including a completely lawless 24-hour anomaly that will entirely rewrite your standard survival play style.
+            </p>
         </div>
-    </section>
 
-    <footer class="text-center py-6 border-t border-gray-900 bg-[#0b0c10] text-gray-600 text-xs w-full px-4">
-        &copy; 2026 1O1C. Not affiliated with Mojang Studios. Hosted on optimized self-hosted hardware nodes.
-    </footer>
+        <div class="announcement-block">
+            <span class="announcement-date">June 24, 2026</span>
+            <div class="announcement-title" style="color:#45aaf2;">INTRODUCING OMEGA BROWSER V1.0.0</div>
+            <p style="font-size: 12px; color: #999; margin: 5px 0 0 0; line-height: 1.4;">
+                We are expanding our ecosystem! Say hello to OMEGA Browser—an ultra-lightweight, privacy-focused browser window companion utility built for speed, clean aesthetics, and zero data tracking metrics. Check the <a href="downloads.html" style="color:#45aaf2;">Downloads Page</a>.
+            </p>
+        </div>
 
+        <!-- Metadata Framework Status Indicators -->
+        <div class="section-header">Server Directory Data</div>
+        <table width="100%" style="font-size: 12px; font-weight: bold; background-color:#090b10; border:1px solid #222; padding:8px;">
+            <tr>
+                <td width="33%">CLIENT MATRIX: <span style="color:#fff;">All Versions</span></td>
+                <td width="33%" align="center">UNIQUE UNIVERSE JOINS: <span style="color:#ff0000;">2,600+</span></td>
+                <td width="33%" align="right">STATUS: <span style="color:#00ff00;">ONLINE</span></td>
+            </tr>
+        </table>
+
+        <!-- Layout Footer Element -->
+        <footer>
+            &copy; 2026 1O1C Anarchy Network. Not affiliated with Mojang Studios. Hosted on private dedicated framework nodes.
+        </footer>
+
+    </div>
+
+    <!-- Retro System Logic Scripts -->
     <script>
-        const currentDonationAmount = 7.50; 
-        const monthlyGoalAmount = 20.00;   
+        var currentDonationAmount = 7.50; 
+        var monthlyGoalAmount = 20.00;   
 
         function updateFundingBar() {
-            const percentage = Math.min((currentDonationAmount / monthlyGoalAmount) * 100, 100);
-            document.getElementById('currentFunds').innerText = `€${currentDonationAmount.toFixed(2)}`;
-            document.getElementById('percentText').innerText = `${Math.round(percentage)}%`;
+            var percentage = Math.min((currentDonationAmount / monthlyGoalAmount) * 100, 100);
+            document.getElementById('currentFunds').innerHTML = "&euro;" + currentDonationAmount.toFixed(2);
+            document.getElementById('percentText').innerText = Math.round(percentage) + "%";
             
-            setTimeout(() => {
-                document.getElementById('progressBar').style.width = `${percentage}%`;
+            setTimeout(function() {
+                document.getElementById('progressBar').style.width = percentage + "%";
             }, 150);
         }
 
-        window.addEventListener('DOMContentLoaded', updateFundingBar);
+        window.attachEvent ? window.attachEvent('onload', updateFundingBar) : window.addEventListener('DOMContentLoaded', updateFundingBar, false);
 
         function copyServerIP() {
-            const ipText = document.getElementById('serverIp').innerText;
-            const copyBtn = document.getElementById('copyBtn');
-            const ipCard = document.getElementById('ipCard');
+            var ipText = document.getElementById('serverIp').innerText;
+            var copyBtn = document.getElementById('copyBtn');
 
             if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(ipText)
-                    .then(() => executeFeedback(copyBtn, ipCard))
-                    .catch(() => fallbackCopy(ipText, copyBtn, ipCard));
+                navigator.clipboard.writeText(ipText).then(function() {
+                    executeFeedback(copyBtn);
+                }).catch(function() {
+                    fallbackCopy(ipText, copyBtn);
+                });
             } else {
-                fallbackCopy(ipText, copyBtn, ipCard);
+                fallbackCopy(ipText, copyBtn);
             }
         }
 
-        function fallbackCopy(text, btn, card) {
-            const el = document.createElement('textarea');
+        function fallbackCopy(text, btn) {
+            var el = document.createElement('textarea');
             el.value = text;
             el.setAttribute('readonly', '');
             el.style.position = 'absolute';
-            el.style.left = '-999px';
+            el.style.left = '-9999px';
             document.body.appendChild(el);
             el.select();
             try {
                 document.execCommand('copy');
-                executeFeedback(btn, card);
+                executeFeedback(btn);
             } catch (err) {
-                console.error('Conversion process execution failure', err);
+                console.log('Copy routine system block.');
             }
             document.body.removeChild(el);
         }
 
-        function executeFeedback(btn, card) {
-            btn.innerText = "COPIED!";
-            btn.style.backgroundColor = "#00ffcc";
-            btn.style.borderColor = "#00ffcc";
-            btn.style.color = "#0b0c10";
-            card.classList.add('success-flash');
+        function executeFeedback(btn) {
+            var originalText = btn.innerText;
+            btn.innerText = "IP COPIED TO CLIPBOARD!";
+            btn.style.backgroundColor = "#00cc00";
+            btn.style.color = "#000000";
 
-            setTimeout(() => {
-                btn.innerText = "Click to Copy";
+            setTimeout(function() {
+                btn.innerText = originalText;
                 btn.style.backgroundColor = "";
-                btn.style.borderColor = "";
                 btn.style.color = "";
-                card.classList.remove('success-flash');
             }, 2000);
         }
     </script>
