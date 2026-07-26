@@ -212,110 +212,124 @@
             Access verified infrastructure utilities, optimization modifications, and official client modifications managed by system developers.
         </p>
 
-        <!-- MODULE 00: TERRAGEN PLUGIN -->
+        <!-- MODULE 01: SERVER ADMINISTRATION & WORLD UTILITIES -->
         <div class="section-header">Server Administration & World Utilities</div>
         
-        <table class="app-box">
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
             <tr>
-                <td class="app-header">
-                    <div class="app-title">TerraGen Plugin</div>
-                    <div class="app-meta">v1.6.5 // SPIGOT / PAPER / BUKKIT</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="app-body">
-                    <p style="margin: 0 0 12px 0;">
-                        High-performance asynchronous world generation, filling, and trimming utility designed for large-scale anarchy and survival servers.
-                    </p>
-                    
-                    <strong style="color: #2c3e50; font-size: 13px;">What's New in v1.6.5:</strong>
-                    <ul style="margin: 5px 0 15px 0; padding-left: 20px; list-style-type: square;">
-                        <li><strong>New Command <code style="color: #2980b9;">/tgen trim</code>:</strong> Runs fully asynchronously with zero server lag during file I/O. Automatically deletes fully outside region files or clears outside chunks in headers for .mca/.mcr formats, including Nether and End dimensions.</li>
-                        <li><strong>WorldBorder Support:</strong> Use the <code style="color: #2980b9;">worldborder</code> keyword dynamically across start, fill, trim, and queue commands with auto-detection priority (Vanilla, ChunkyBorder, WorldBorder plugins).</li>
-                        <li><strong>Live BossBar (1.9+):</strong> Displays a real-time progress bar with percentage, speed, TPS, and ETA, shifting color from green to yellow to red.</li>
-                        <li><strong>Dynmap / BlueMap Hooks:</strong> Automatically pauses map renderers during generation/resuming tasks and resumes them upon completion or stop.</li>
-                        <li><strong>Enhanced Resume & Queues:</strong> Multi-world sequential queues, auto-save states every 20 seconds, and intelligent shape selection (square/circle).</li>
-                    </ul>
+                <!-- TerraGen Plugin Box -->
+                <td style="width: 100%; vertical-align: top;">
+                    <table class="app-box">
+                        <tr>
+                            <td class="app-header">
+                                <div class="app-title">TerraGen Plugin</div>
+                                <div class="app-meta">v1.6.5 // SPIGOT / PAPER / BUKKIT</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="app-body">
+                                <p style="margin: 0 0 12px 0;">
+                                    High-performance asynchronous world generation, filling, and trimming utility designed for large-scale anarchy and survival servers.
+                                </p>
+                                
+                                <strong style="color: #2c3e50; font-size: 13px;">What's New in v1.6.5:</strong>
+                                <ul style="margin: 5px 0 15px 0; padding-left: 20px; list-style-type: square;">
+                                    <li><strong>New Command <code style="color: #2980b9;">/tgen trim</code>:</strong> Runs fully asynchronously with zero server lag during file I/O. Automatically deletes fully outside region files or clears outside chunks in headers for .mca/.mcr formats, including Nether and End dimensions.</li>
+                                    <li><strong>WorldBorder Support:</strong> Use the <code style="color: #2980b9;">worldborder</code> keyword dynamically across start, fill, trim, and queue commands with auto-detection priority (Vanilla, ChunkyBorder, WorldBorder plugins).</li>
+                                    <li><strong>Live BossBar (1.9+):</strong> Displays a real-time progress bar with percentage, speed, TPS, and ETA, shifting color from green to yellow to red.</li>
+                                    <li><strong>Dynmap / BlueMap Hooks:</strong> Automatically pauses map renderers during generation/resuming tasks and resumes them upon completion or stop.</li>
+                                    <li><strong>Enhanced Compatibility & Queues:</strong> Supports multi-world sequential queues, 20-second auto-save checkpoints, shape selection (square/circle), and robust version parsing (handles Beta b/a prefix strings, single-component strings, and future versions like 26.2 without crashing).</li>
+                                </ul>
 
-                    <strong style="color: #2c3e50; font-size: 13px;">System Operational Specifications:</strong>
-                    <table class="spec-table">
-                        <tr>
-                            <td class="spec-label">Target Server Version</td>
-                            <td class="spec-value">1.7.10 to 26.2</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">File Size & Build</td>
-                            <td class="spec-value">56 KB (TerraGen-1.6.5.jar)</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">Command Aliases</td>
-                            <td class="spec-value">/terragen, /tg</td>
+                                <strong style="color: #2c3e50; font-size: 13px;">System Operational Specifications:</strong>
+                                <table class="spec-table">
+                                    <tr>
+                                        <td class="spec-label">Target Server Version</td>
+                                        <td class="spec-value">1.7.10 to 26.2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="spec-label">File Size & Build</td>
+                                        <td class="spec-value">56 KB (TerraGen-1.6.5.jar)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="spec-label">Command Aliases</td>
+                                        <td class="spec-value">/terragen, /tg</td>
+                                    </tr>
+                                </table>
+
+                                <a href="https://github.com/usmannumber302-cpu/1o1c/releases/download/TerraGen-v1.6.5/TerraGen-1.6.5.jar" download class="download-btn">Download TerraGen-1.6.5.jar (.jar) &raquo;</a>
+                            </td>
                         </tr>
                     </table>
-
-                    <a href="https://github.com/usmannumber302-cpu/1o1c/releases/tag/TerraGen-v1.6.5" class="download-btn">Download TerraGen-1.6.5.jar &raquo;</a>
                 </td>
             </tr>
         </table>
 
-        <!-- MODULE 01: INFINITE CLIENT -->
+        <!-- MODULE 02: ADVANCED GAMEPLAY MODIFICATIONS -->
         <div class="section-header">Advanced Gameplay Modifications</div>
         
-        <table class="app-box">
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
             <tr>
-                <td class="app-header">
-                    <div class="app-title">INFINITE CLIENT</div>
-                    <div class="app-meta">v2.3.0 // FABRIC MOD STABLE</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="app-body">
-                    <p style="margin: 0 0 12px 0;">
-                        Next-generation utility mod built on Fabric, leveraging Java 25 Project Panama and Rust for raw rendering performance and memory safety.
-                    </p>
-                    
-                    <strong style="color: #2c3e50; font-size: 13px;">Key Structural Profiles:</strong>
-                    <ul style="margin: 5px 0 15px 0; padding-left: 20px; list-style-type: square;">
-                        <li><strong>Native Power:</strong> Core rendering engines and complex client calculations are processed directly natively via Rust, minimizing stuttering and optimizing execution frame rates.</li>
-                        <li><strong>Project Xross Integration:</strong> Features zero-overhead, thread-safe memory mapping bridges between the JVM ecosystem (Kotlin/Java) and compiled system code components.</li>
-                        <li><strong>NativeMeshEngine:</strong> High-speed, backend system mesh processing structures designed explicitly to run advanced visuals like entity ESP and custom environment modules seamlessly.</li>
-                        <li><strong>Modernized Toolchain:</strong> Engineered aggressively utilizing modern developer tech boundaries: Java 25 EA, structural Kotlin workflows, and memory-safe Rust logic profiles.</li>
-                    </ul>
+                <!-- Infinite Client Box -->
+                <td style="width: 100%; vertical-align: top;">
+                    <table class="app-box">
+                        <tr>
+                            <td class="app-header">
+                                <div class="app-title">INFINITE CLIENT</div>
+                                <div class="app-meta">v2.3.0 // FABRIC MOD STABLE</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="app-body">
+                                <p style="margin: 0 0 12px 0;">
+                                    Next-generation utility mod built on Fabric, leveraging Java 25 Project Panama and Rust for raw rendering performance and memory safety.
+                                </p>
+                                
+                                <strong style="color: #2c3e50; font-size: 13px;">Key Structural Profiles:</strong>
+                                <ul style="margin: 5px 0 15px 0; padding-left: 20px; list-style-type: square;">
+                                    <li><strong>Native Power:</strong> Core rendering engines and complex client calculations are processed directly natively via Rust, minimizing stuttering and optimizing execution frame rates.</li>
+                                    <li><strong>Project Xross Integration:</strong> Features zero-overhead, thread-safe memory mapping bridges between the JVM ecosystem (Kotlin/Java) and compiled system code components.</li>
+                                    <li><strong>NativeMeshEngine:</strong> High-speed, backend system mesh processing structures designed explicitly to run advanced visuals like entity ESP and custom environment modules seamlessly.</li>
+                                    <li><strong>Modernized Toolchain:</strong> Engineered aggressively utilizing modern developer tech boundaries: Java 25 EA, structural Kotlin workflows, and memory-safe Rust logic profiles.</li>
+                                </ul>
 
-                    <strong style="color: #2c3e50; font-size: 13px;">System Operational Specifications:</strong>
-                    <table class="spec-table">
-                        <tr>
-                            <td class="spec-label">Target Minecraft Version</td>
-                            <td class="spec-value">1.21.11</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">Minimum Fabric Loader</td>
-                            <td class="spec-value">0.18.2+</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">Mandatory Java Runtime</td>
-                            <td class="spec-value">JDK 25 (EA Profile)</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">Mod Dependencies</td>
-                            <td class="spec-value">Fabric API &amp; Fabric Kotlin Extensions</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">Architecture Design</td>
-                            <td class="spec-value">The-Infinitys, rxnd0mdev, &amp; NekomiRyan</td>
+                                <strong style="color: #2c3e50; font-size: 13px;">System Operational Specifications:</strong>
+                                <table class="spec-table">
+                                    <tr>
+                                        <td class="spec-label">Target Minecraft Version</td>
+                                        <td class="spec-value">1.21.11</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="spec-label">Minimum Fabric Loader</td>
+                                        <td class="spec-value">0.18.2+</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="spec-label">Mandatory Java Runtime</td>
+                                        <td class="spec-value">JDK 25 (EA Profile)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="spec-label">Mod Dependencies</td>
+                                        <td class="spec-value">Fabric API &amp; Fabric Kotlin Extensions</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="spec-label">Architecture Design</td>
+                                        <td class="spec-value">The-Infinitys, rxnd0mdev, &amp; NekomiRyan</td>
+                                    </tr>
+                                </table>
+
+                                <p style="margin: 12px 0 0 0; font-size: 12px; color: #7f8c8d; font-style: italic; background-color: #f5f8fa; padding: 10px; border-radius: 4px; border: 1px solid #e2ecf5;">
+                                    <strong>Under the Hood:</strong> Infinite Client abandons outdated JNI standards completely. By implementing the modern Foreign Function &amp; Memory API (Project Panama), native execution buffers communicate straight with underlying machine hardware pipelines without cross-environment penalties.
+                                </p>
+
+                                <a href="https://infinite.1o1c.org/" class="download-btn">Install Infinite Client Portal Assembly &raquo;</a>
+                            </td>
                         </tr>
                     </table>
-
-                    <p style="margin: 12px 0 0 0; font-size: 12px; color: #7f8c8d; font-style: italic; background-color: #f5f8fa; padding: 10px; border-radius: 4px; border: 1px solid #e2ecf5;">
-                        <strong>Under the Hood:</strong> Infinite Client abandons outdated JNI standards completely. By implementing the modern Foreign Function &amp; Memory API (Project Panama), native execution buffers communicate straight with underlying machine hardware pipelines without cross-environment penalties.
-                    </p>
-
-                    <a href="https://infinite.1o1c.org/" class="download-btn">Install Infinite Client Portal Assembly &raquo;</a>
                 </td>
             </tr>
         </table>
 
-        <!-- MODULE 02: OMEGA BROWSER & ETA PACK -->
+        <!-- MODULE 03: UTILITY UTILITIES & CUSTOM TEXTURES -->
         <div class="section-header">Utility Utilities & Custom Textures</div>
 
         <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
