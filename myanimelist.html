@@ -5,10 +5,9 @@
     <link rel="icon" type="image/png" href="https://1o1c.org/logo.png">
 
     <title>My Anime List | 1O1C Anarchy Network</title>
-    <meta name="description" content="Personal tracked anime list, completed series logs, and ratings directory.">
+    <meta name="description" content="Personal tracked anime list, completed series logs, online MAL ratings, and review directory.">
 
     <style>
-        /* 2010 Era Balanced & Peaceful Base Styling */
         body { 
             background-color: #dce5ed; 
             color: #2c3e50; 
@@ -18,9 +17,8 @@
             text-align: center;
         }
 
-        /* Standard 2010 Center Container */
         #wrapper {
-            width: 900px;
+            width: 950px;
             margin: 30px auto;
             background-color: #ffffff;
             border: 1px solid #b5c7d9;
@@ -30,7 +28,6 @@
             box-shadow: 0px 4px 20px rgba(160, 180, 200, 0.4);
         }
 
-        /* Header Logo Design */
         h1.logo {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 54px;
@@ -50,7 +47,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Navigation Menu Bar */
         #nav-bar {
             border: 1px solid #a4b9cc;
             border-radius: 5px;
@@ -83,7 +79,6 @@
             border-radius: 4px;
         }
 
-        /* Section Separators */
         .section-header {
             background-color: #ebf2f7;
             color: #2c3e50;
@@ -97,32 +92,35 @@
             letter-spacing: 0.5px;
         }
 
-        /* Filter Controls */
-        .filter-container {
-            text-align: right;
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 15px;
         }
 
-        .filter-btn {
-            background: #f1f4f7;
-            background: linear-gradient(to bottom, #ffffff 0%, #e9eff4 100%);
-            border: 1px solid #bcccd9;
+        .action-btn {
+            background: #2980b9;
+            background: linear-gradient(to bottom, #3498db 0%, #2980b9 100%);
+            border: 1px solid #20639b;
             border-radius: 4px;
-            color: #34495e;
-            padding: 5px 12px;
+            color: #ffffff;
+            padding: 6px 14px;
             font-size: 12px;
             font-weight: bold;
             cursor: pointer;
-            margin-left: 5px;
         }
 
-        .filter-btn:hover, .filter-btn.active {
-            background: #2980b9;
-            color: #ffffff;
-            border-color: #2573a7;
+        .action-btn:hover {
+            background: #20639b;
         }
 
-        /* Anime Table Styling */
+        #fetchStatus {
+            font-size: 12px;
+            color: #7f8c8d;
+            font-weight: bold;
+        }
+
         .anime-table {
             width: 100%;
             border-collapse: collapse;
@@ -151,13 +149,14 @@
             background-color: #f0f4f8;
         }
 
-        .status-completed {
+        .status-watched {
             color: #27ae60;
             font-weight: bold;
         }
 
-        .status-plan {
-            color: #7f8c8d;
+        .mal-score {
+            font-weight: bold;
+            color: #e67e22;
         }
 
         .rating-select {
@@ -183,11 +182,9 @@
 
     <div id="wrapper">
 
-        <!-- Header -->
         <h1 class="logo">1O1C</h1>
         <div class="subtitle">Personal Media Directories & Anime Tracking Archives</div>
 
-        <!-- Navigation Menu -->
         <div id="nav-bar">
             <a href="index.html">Home</a>
             <a href="rules.html">Rules</a>
@@ -198,34 +195,31 @@
         </div>
 
         <p style="line-height: 1.6; color: #556270; font-size: 14px; margin-bottom: 20px;">
-            Tracked collection of anime titles. Select ratings using the dropdown options to save your scores locally in your browser session.
+            Complete collection of watched anime titles. Click <strong>Fetch Online MAL Ratings</strong> to automatically pull live MyAnimeList community ratings via API. Your personal ratings are saved locally in your browser.
         </p>
 
-        <div class="section-header">Anime Watchlist & Directory Index</div>
+        <div class="section-header">Watched Anime Directory Index</div>
 
-        <!-- Filter Controls -->
-        <div class="filter-container">
-            <button class="filter-btn active" onclick="filterTable('all', this)">Show All</button>
-            <button class="filter-btn" onclick="filterTable('completed', this)">Completed Only (✓)</button>
-            <button class="filter-btn" onclick="filterTable('plan', this)">Plan to Watch</button>
+        <div class="action-bar">
+            <button class="action-btn" onclick="fetchAllMalRatings()">Fetch Online MAL Ratings</button>
+            <span id="fetchStatus">Status: Ready (All 401 Watched)</span>
         </div>
 
-        <!-- Anime List Table -->
         <table class="anime-table" id="animeTable">
             <thead>
                 <tr>
-                    <th width="8%">#</th>
-                    <th width="52%">Anime Title</th>
-                    <th width="20%">Status</th>
-                    <th width="20%">Your Rating</th>
+                    <th width="6%">#</th>
+                    <th width="48%">Anime Title</th>
+                    <th width="18%">Status</th>
+                    <th width="14%">MAL Score</th>
+                    <th width="14%">Your Rating</th>
                 </tr>
             </thead>
             <tbody id="animeBody">
-                <!-- Dynamically populated via JS for clean render -->
+                <!-- Populated dynamically via JS -->
             </tbody>
         </table>
 
-        <!-- Footer -->
         <footer>
             &copy; 2026 1O1C Anarchy Network. Independently managed. Not affiliated with Mojang Studios. Dedicated private host infrastructure.
         </footer>
@@ -233,410 +227,408 @@
     </div>
 
     <script>
-        // Array representation of raw anime list
         var animeData = [
-            { id: 1, title: "Classroom of Elite", completed: true },
-            { id: 2, title: "Tomodachi Game", completed: true },
-            { id: 3, title: "Spy X Family", completed: true },
-            { id: 4, title: "Angel Next Door", completed: true },
-            { id: 5, title: "Migi and Dali", completed: true },
-            { id: 6, title: "Love is War", completed: true },
-            { id: 7, title: "Attack on Titan", completed: true },
-            { id: 8, title: "Rent a Girlfriend", completed: true },
-            { id: 9, title: "Spy Classroom", completed: true },
-            { id: 10, title: "Daily Life of Immortal King", completed: true },
-            { id: 11, title: "Hyouka", completed: true },
-            { id: 12, title: "Erased", completed: true },
-            { id: 13, title: "Promised Neverland", completed: true },
-            { id: 14, title: "Death Note", completed: true },
-            { id: 15, title: "A Silent Voice", completed: true },
-            { id: 16, title: "One Punch Man", completed: true },
-            { id: 17, title: "The Millionaire Detective Balance: UNLIMITED", completed: false },
-            { id: 17, title: "The Devil is a Part-Timer!", completed: true },
-            { id: 18, title: "Mushoku Tensei: Jobless Reincarnation", completed: true },
-            { id: 19, title: "The Familiar of Zero", completed: true },
-            { id: 20, title: "Re:Zero - Starting Life in Another World", completed: true },
-            { id: 21, title: "Noragami", completed: true },
-            { id: 22, title: "Steins;Gate", completed: true },
-            { id: 23, title: "Parasyte -the maxim-", completed: true },
-            { id: 24, title: "Assassination Classroom", completed: true },
-            { id: 25, title: "Bocchi the Rock!", completed: false },
-            { id: 26, title: "Orange", completed: true },
-            { id: 27, title: "Dr. Stone", completed: true },
-            { id: 28, title: "Gosick", completed: false },
-            { id: 29, title: "Monster", completed: true },
-            { id: 30, title: "The Irregular at Magic High School", completed: true },
-            { id: 31, title: "Terror in Resonance", completed: false },
-            { id: 32, title: "The Reincarnation of the Strongest Exorcist in Another World", completed: true },
-            { id: 33, title: "Do It Yourself!!", completed: true },
-            { id: 34, title: "Barakamon", completed: true },
-            { id: 35, title: "Your Name.", completed: true },
-            { id: 36, title: "Weathering with You", completed: true },
-            { id: 37, title: "The Misfit of Demon King Academy (Anos)", completed: true },
-            { id: 38, title: "Solo Leveling", completed: true },
-            { id: 39, title: "Oshi no Ko", completed: true },
-            { id: 40, title: "Heavenly Delusion", completed: false },
-            { id: 41, title: "My Dress-Up Darling", completed: true },
-            { id: 42, title: "Another", completed: true },
-            { id: 43, title: "I Want to Eat Your Pancreas", completed: true },
-            { id: 44, title: "Your Lie in April", completed: true },
-            { id: 45, title: "Violet Evergarden", completed: true },
-            { id: 46, title: "Lookism", completed: true },
-            { id: 47, title: "Maid Sama!", completed: true },
-            { id: 48, title: "Josee, the Tiger and the Fish", completed: true },
-            { id: 49, title: "Say I Love You", completed: true },
-            { id: 50, title: "In Another World with My Smartphone", completed: true },
-            { id: 51, title: "Summoned to Another World for a Second Time", completed: true },
-            { id: 52, title: "Frieren: Beyond Journey's End", completed: true },
-            { id: 53, title: "Yamada-kun and the Seven Witches", completed: true },
-            { id: 54, title: "The Kingdoms of Ruin", completed: true },
-            { id: 55, title: "Lycoris Recoil", completed: true },
-            { id: 56, title: "The Detective Is Already Dead", completed: true },
-            { id: 57, title: "The World's Finest Assassin Gets Reincarnated in Another World as an Aristocrat", completed: true },
-            { id: 58, title: "The Tunnel to Summer, the Exit of Goodbyes", completed: true },
-            { id: 59, title: "Charlotte", completed: true },
-            { id: 60, title: "Danganronpa 3", completed: false },
-            { id: 61, title: "My Happy Marriage", completed: true },
-            { id: 62, title: "My Love Story with Yamada-kun at Lv999", completed: true },
-            { id: 63, title: "I'm Standing on a Million Lives", completed: true },
-            { id: 64, title: "The Quintessential Quintuplets", completed: true },
-            { id: 65, title: "Hand Shakers", completed: false },
-            { id: 66, title: "Shironeko Project: Zero Chronicle", completed: false },
-            { id: 67, title: "The Genius Prince's Guide to Raising a Nation Out of Debt", completed: true },
-            { id: 68, title: "My Stepmom's Daughter Is My Ex", completed: true },
-            { id: 69, title: "Black Summoner", completed: true },
-            { id: 70, title: "Engage Kiss", completed: true },
-            { id: 71, title: "A Couple of Cuckoos", completed: true },
-            { id: 72, title: "Plastic Memories", completed: true },
-            { id: 73, title: "The Day I Became a God", completed: true },
-            { id: 74, title: "Tonikaku Kawaii (TONIKAWA: Over the Moon for You)", completed: true },
-            { id: 75, title: "Engaged to the Unidentified", completed: true },
-            { id: 76, title: "Kubo Won't Let Me Be Invisible", completed: true },
-            { id: 77, title: "By the Grace of the Gods", completed: true },
-            { id: 78, title: "Real Girl (3D Kanojo)", completed: true },
-            { id: 79, title: "Cheating Craft", completed: false },
-            { id: 80, title: "Oreshura", completed: true },
-            { id: 81, title: "Higehiro: After Being Rejected, I Shaved and Took in a High School Runaway", completed: false },
-            { id: 82, title: "Tsukigakirei (As the Moon, So Beautiful)", completed: false },
-            { id: 83, title: "Horimiya", completed: true },
-            { id: 84, title: "KonoSuba: God's Blessing on This Wonderful World!", completed: true },
-            { id: 85, title: "Zom 100: Bucket List of the Dead", completed: true },
-            { id: 86, title: "Mieruko-chan", completed: true },
-            { id: 87, title: "Black Bullet", completed: false },
-            { id: 88, title: "Komi Can't Communicate", completed: true },
-            { id: 89, title: "Darling in the Franxx", completed: true },
-            { id: 90, title: "Chainsaw Man", completed: true },
-            { id: 91, title: "More than a Married Couple, but Not Lovers.", completed: true },
-            { id: 92, title: "Wise Man's Grandchild", completed: false },
-            { id: 93, title: "Reign of the Seven Spellblades", completed: false },
-            { id: 94, title: "The Villainess Enjoys a Carefree Life", completed: true },
-            { id: 95, title: "The Foolish Angel Dances with the Devil", completed: true },
-            { id: 96, title: "A Galaxy Next Door", completed: true },
-            { id: 97, title: "Fruits Basket", completed: false },
-            { id: 98, title: "Code Geass: Lelouch of the Rebellion", completed: true },
-            { id: 99, title: "Persona 5: The Animation", completed: false },
-            { id: 100, title: "ReLIFE", completed: false },
-            { id: 101, title: "Vinland Saga", completed: false },
-            { id: 102, title: "Nisekoi: False Love", completed: false },
-            { id: 103, title: "A Girl & Her Guard Dog", completed: false },
-            { id: 104, title: "Kakkou no Iinazuke", completed: false },
-            { id: 105, title: "The Weakest Tamer Began a Journey to Pick Up Trash", completed: false },
-            { id: 106, title: "Rascal Does Not Dream of Bunny Girl Senpai", completed: false },
-            { id: 107, title: "Beauty Will Decide Job", completed: false },
-            { id: 108, title: "The Girl Downstairs", completed: false },
-            { id: 109, title: "Uncle from Another World", completed: true },
-            { id: 110, title: "Tearmoon Empire", completed: false },
-            { id: 111, title: "Angels of Death", completed: false },
-            { id: 112, title: "The Grimm Variations", completed: false },
-            { id: 113, title: "Maiden of the Savage", completed: false },
-            { id: 114, title: "Tamako Love Story", completed: false },
-            { id: 115, title: "My Instant Death Ability Is So Overpowered", completed: false },
-            { id: 116, title: "Shine Post", completed: false },
-            { id: 117, title: "The Garden of Words", completed: false },
-            { id: 118, title: "Babylon", completed: false },
-            { id: 119, title: "Akudama Drive", completed: false },
-            { id: 120, title: "An Archdemon's Dilemma: How to Love Your Elf Bride", completed: false },
-            { id: 122, title: "Viral Hit", completed: false },
-            { id: 123, title: "Unnamed Memory", completed: false },
-            { id: 124, title: "The Duke of Death and His Maid", completed: false },
-            { id: 125, title: "Studio Apartment, Good Lighting, Angel Included", completed: false },
-            { id: 126, title: "Why Raeliana Ended Up at the Duke's Mansion", completed: false },
-            { id: 127, title: "A Story About a Man and a Woman Who Will Grow Old Together", completed: false },
-            { id: 128, title: "Teasing Master Takagi-san", completed: false },
-            { id: 129, title: "The New Gate", completed: false },
-            { id: 130, title: "Bottom-Tier Character Tomozaki", completed: false },
-            { id: 131, title: "Great Teacher Onizuka (GTO)", completed: true },
-            { id: 132, title: "Young GTO (Shonan Junai Gumi)", completed: false },
-            { id: 133, title: "Bartender: Glass of God", completed: false },
-            { id: 134, title: "The Ice Guy and His Cool Female Colleague", completed: true },
-            { id: 135, title: "Hello World", completed: false },
-            { id: 137, title: "Inuyashiki / Junji Ito Collection", completed: false },
-            { id: 138, title: "Matoi the Sacred Slayer", completed: false },
-            { id: 139, title: "The Seven Deadly Sins", completed: false },
-            { id: 140, title: "Gleipnir", completed: false },
-            { id: 141, title: "When Supernatural Battles Became Commonplace", completed: false },
-            { id: 142, title: "The Hentai Prince and the Stony Cat", completed: false },
-            { id: 143, title: "Daily Lives of High School Boys", completed: false },
-            { id: 144, title: "The Many Sides of Voice Actor Radio", completed: false },
-            { id: 145, title: "Oniai", completed: false },
-            { id: 146, title: "My Teen Romantic Comedy SNAFU", completed: false },
-            { id: 148, title: "Blood-C", completed: false },
-            { id: 149, title: "ORESUKI Are you the only one who loves me?", completed: false },
-            { id: 150, title: "Hellsing Ultimate", completed: false },
-            { id: 151, title: "Days with My Stepsister", completed: false },
-            { id: 152, title: "Call of the Night", completed: true },
-            { id: 153, title: "A Sister's All You Need", completed: false },
-            { id: 154, title: "Fullmetal Alchemist", completed: false },
-            { id: 155, title: "Angel Beats!", completed: false },
-            { id: 156, title: "Gridman Universe", completed: false },
-            { id: 157, title: "Love, Chunibyo & Other Delusions!", completed: false },
-            { id: 158, title: "UN-GO", completed: false },
-            { id: 159, title: "Moriarty the Patriot", completed: false },
-            { id: 160, title: "The Perfect Insider", completed: false },
-            { id: 161, title: "True Beauty", completed: false },
-            { id: 162, title: "Summer Ghost", completed: false },
-            { id: 163, title: "Memories (1995)", completed: false },
-            { id: 164, title: "Too Many Losing Heroines!", completed: false },
-            { id: 165, title: "Hortensia Saga", completed: false },
-            { id: 166, title: "How to Raise a Boring Girlfriend", completed: false },
-            { id: 167, title: "Haganai: I Don't Have Many Friends", completed: false },
-            { id: 168, title: "Lord of the Mysteries", completed: true },
-            { id: 169, title: "Link Click", completed: false },
-            { id: 170, title: "To Me, the One Who Loved You", completed: false },
-            { id: 171, title: "Chaos Dragon", completed: false },
-            { id: 172, title: "Pseudo Harem", completed: false },
-            { id: 173, title: "Wonder Egg Priority", completed: false },
-            { id: 174, title: "The Beginning After the End", completed: true },
-            { id: 175, title: "Blue Box", completed: false },
-            { id: 176, title: "Golden Boy", completed: false },
-            { id: 177, title: "You Are Ms. Servant", completed: true },
-            { id: 178, title: "Boogiepop and Others", completed: false },
-            { id: 179, title: "The Unparalleled Black & White", completed: false },
-            { id: 180, title: "When He Realizes She Is Getting Bullied", completed: false },
-            { id: 181, title: "Ningen Fushin: Adventurers Who Don't Believe in Humanity Will Save the World", completed: false },
-            { id: 182, title: "Dororo", completed: false },
-            { id: 183, title: "Undead Girl Murder Farce", completed: false },
-            { id: 184, title: "Guilty Crown", completed: false },
-            { id: 185, title: "Puella Magi Madoka Magica", completed: false },
-            { id: 186, title: "Neon Genesis Evangelion", completed: false },
-            { id: 187, title: "Kakegurui", completed: false },
-            { id: 188, title: "Psycho-Pass", completed: false },
-            { id: 189, title: "Pluto", completed: false },
-            { id: 190, title: "Sonny Boy", completed: false },
-            { id: 191, title: "Made in Abyss", completed: false },
-            { id: 192, title: "Tsugumomo", completed: false },
-            { id: 193, title: "The Fruit of Grisaia", completed: false },
-            { id: 194, title: "Koikimo", completed: false },
-            { id: 195, title: "Burn the Witch", completed: false },
-            { id: 196, title: "On the Screen", completed: false },
-            { id: 197, title: "To Your Eternity", completed: false },
-            { id: 198, title: "Uma Musume: Pretty Derby", completed: false },
-            { id: 199, title: "Tsurezure Children", completed: false },
-            { id: 200, title: "Killing Bites", completed: false },
-            { id: 202, title: "Kowloon Generic Romance", completed: false },
-            { id: 203, title: "Dear Alice", completed: false },
-            { id: 204, title: "To Be Hero X", completed: true },
-            { id: 205, title: "ID: INVADED", completed: false },
-            { id: 206, title: "Kokoro Connect", completed: false },
-            { id: 207, title: "ORG", completed: false },
-            { id: 208, title: "Jugram Haschwalth", completed: false },
-            { id: 210, title: "Pantheon", completed: false },
-            { id: 211, title: "Takopi's Original Sin", completed: false },
-            { id: 212, title: "X Movie", completed: false },
-            { id: 213, title: "Kakegurui - Compulsive Gambler", completed: false },
-            { id: 214, title: "Berserk", completed: false },
-            { id: 215, title: "Baccano!", completed: false },
-            { id: 216, title: "Aoi Bungaku Series (Blue Literature)", completed: false },
-            { id: 217, title: "Paprika (Satoshi Kon)", completed: false },
-            { id: 218, title: "Wash It All Away", completed: false },
-            { id: 219, title: "Ghost in the Shell", completed: false },
-            { id: 220, title: "No Game No Life", completed: true },
-            { id: 221, title: "Fate/Zero", completed: true },
-            { id: 222, title: "The Apothecary Diaries", completed: true },
-            { id: 223, title: "Kaiji: Ultimate Survivor", completed: false },
-            { id: 224, title: "One Outs", completed: false },
-            { id: 225, title: "Akagi", completed: false },
-            { id: 226, title: "Vagabond", completed: false },
-            { id: 227, title: "91 Days", completed: false },
-            { id: 228, title: "Dorohedoro", completed: false },
-            { id: 229, title: "Cyberpunk: Edgerunners", completed: false },
-            { id: 230, title: "Rainbow: Nisha Rokubou no Shichinin", completed: false },
-            { id: 231, title: "Clannad & After Story", completed: false },
-            { id: 232, title: "March Comes in Like a Lion", completed: false },
-            { id: 233, title: "Maquia: When the Promised Flower Blooms", completed: false },
-            { id: 234, title: "Nana", completed: false },
-            { id: 235, title: "White Album 2", completed: false },
-            { id: 236, title: "5 Centimeters per Second", completed: false },
-            { id: 237, title: "The Girl Who Leapt Through Time", completed: false },
-            { id: 238, title: "Cowboy Bebop", completed: false },
-            { id: 239, title: "Great Pretender", completed: false },
-            { id: 240, title: "Land of the Lustrous", completed: false },
-            { id: 241, title: "Devilman Crybaby", completed: false },
-            { id: 242, title: "Heike Monogatari", completed: false },
-            { id: 243, title: "Odd Taxi", completed: false },
-            { id: 244, title: "Kengan Ashura", completed: false },
-            { id: 245, title: "Baki the Grappler", completed: false },
-            { id: 246, title: "Holyland", completed: false },
-            { id: 248, title: "Talentless Nana", completed: false },
-            { id: 249, title: "Zaregoto: Kubikiri Cycle", completed: false },
-            { id: 250, title: "Blade of the Immortal", completed: false },
-            { id: 251, title: "Gantz", completed: false },
-            { id: 252, title: "Darker than Black", completed: false },
-            { id: 253, title: "Black Lagoon", completed: false },
-            { id: 254, title: "Trigun Stampede", completed: false },
-            { id: 255, title: "Highschool of the Dead", completed: false },
-            { id: 256, title: "Deadman Wonderland", completed: false },
-            { id: 257, title: "Future Diary (Mirai Nikki)", completed: false },
-            { id: 258, title: "Shiki", completed: false },
-            { id: 259, title: "Hell's Paradise", completed: false },
-            { id: 260, title: "Blue Lock", completed: false },
-            { id: 261, title: "Haikyuu!!", completed: false },
-            { id: 262, title: "Hajime no Ippo", completed: false },
-            { id: 263, title: "Initial D", completed: false },
-            { id: 264, title: "Redline", completed: false },
-            { id: 265, title: "Summer Time Rendering", completed: false },
-            { id: 267, title: "Vivy: Fluorite Eye's Song", completed: false },
-            { id: 268, title: "86 Eighty-Six", completed: false },
-            { id: 269, title: "Mobile Suit Gundam: Iron-Blooded Orphans", completed: false },
-            { id: 270, title: "Samurai Champloo", completed: false },
-            { id: 271, title: "Claymore", completed: false },
-            { id: 272, title: "Elfen Lied", completed: false },
-            { id: 273, title: "Seraph of the End", completed: false },
-            { id: 274, title: "Kabaneri of the Iron Fortress", completed: false },
-            { id: 275, title: "Bungo Stray Dogs", completed: false },
-            { id: 276, title: "Blood Blockade Battlefront", completed: false },
-            { id: 277, title: "Drifters", completed: false },
-            { id: 278, title: "Gungrave", completed: false },
-            { id: 279, title: "Ergo Proxy", completed: false },
-            { id: 280, title: "Texhnolyze", completed: false },
-            { id: 281, title: "Serial Experiments Lain", completed: false },
-            { id: 282, title: "Mushishi", completed: false },
-            { id: 283, title: "Kino's Journey", completed: false },
-            { id: 284, title: "Mononoke", completed: false },
-            { id: 285, title: "The Tatami Galaxy", completed: false },
-            { id: 286, title: "Ping Pong the Animation", completed: false },
-            { id: 287, title: "Keep Your Hands Off Eizouken!", completed: false },
-            { id: 288, title: "Mob Psycho 100", completed: false },
-            { id: 289, title: "Fire Force", completed: false },
-            { id: 290, title: "Soul Eater", completed: false },
-            { id: 291, title: "D.Gray-man", completed: false },
-            { id: 292, title: "Pandora Hearts", completed: false },
-            { id: 293, title: "The Case Study of Vanitas", completed: false },
-            { id: 294, title: "Shadows House", completed: false },
-            { id: 295, title: "Joker Game", completed: false },
-            { id: 296, title: "ACCA: 13-Territory Inspection Dept.", completed: false },
-            { id: 297, title: "B: The Beginning", completed: false },
-            { id: 298, title: "K-Project", completed: false },
-            { id: 299, title: "Aldnoah.Zero", completed: false },
-            { id: 300, title: "Re:Creators", completed: false },
-            { id: 301, title: "Grimgar: Ashes and Illusions", completed: false },
-            { id: 302, title: "Log Horizon", completed: false },
-            { id: 303, title: "Overlord", completed: true },
-            { id: 304, title: "Saga of Tanya the Evil", completed: true },
-            { id: 305, title: "Gate", completed: false },
-            { id: 306, title: "Knights & Magic", completed: false },
-            { id: 307, title: "Goblin Slayer", completed: false },
-            { id: 308, title: "The Rising of the Shield Hero", completed: true },
-            { id: 309, title: "Cautious Hero: The Hero Is Overpowered but Overly Cautious", completed: false },
-            { id: 310, title: "The Eminence in Shadow", completed: true },
-            { id: 311, title: "Shangri-La Frontier", completed: false },
-            { id: 312, title: "Ragna Crimson", completed: false },
-            { id: 313, title: "Undead Unluck", completed: false },
-            { id: 314, title: "Sakamoto Days", completed: true },
-            { id: 315, title: "Dandadan", completed: false },
-            { id: 316, title: "Wind Breaker", completed: false },
-            { id: 317, title: "Tokyo Revengers", completed: true },
-            { id: 318, title: "Gintama", completed: false },
-            { id: 319, title: "Beelzebub", completed: false },
-            { id: 320, title: "Golden Kamuy", completed: false },
-            { id: 321, title: "Kingdom", completed: false },
-            { id: 322, title: "The Heroic Legend of Arslan", completed: false },
-            { id: 323, title: "Magi: The Labyrinth of Magic", completed: false },
-            { id: 324, title: "Black Clover", completed: false },
-            { id: 325, title: "Fairy Tail", completed: false },
-            { id: 326, title: "Bleach", completed: false },
-            { id: 327, title: "Hunter x Hunter", completed: false },
-            { id: 328, title: "YuYu Hakusho", completed: false },
-            { id: 329, title: "Slam Dunk", completed: false },
-            { id: 330, title: "Kuroko's Basketball", completed: false },
-            { id: 331, title: "Ace of Diamond", completed: false },
-            { id: 332, title: "Blue Giant", completed: false },
-            { id: 333, title: "Beck: Mongolian Chop Squad", completed: false },
-            { id: 334, title: "Kids on the Slope", completed: false },
-            { id: 335, title: "Anohana: The Flower We Saw That Day", completed: false },
-            { id: 336, title: "Little Busters!", completed: false },
-            { id: 337, title: "Kimi ni Todoke: From Me to You", completed: false },
-            { id: 338, title: "My Love Story!!", completed: false },
-            { id: 339, title: "Blue Spring Ride", completed: false },
-            { id: 340, title: "Wotakoi: Love is Hard for Otaku", completed: false },
-            { id: 341, title: "Scum's Wish", completed: false },
-            { id: 342, title: "Domestic Girlfriend", completed: true },
-            { id: 343, title: "We Never Learn: BOKUBEN", completed: false },
-            { id: 344, title: "Oregairu", completed: false },
-            { id: 345, title: "Monogatari Series", completed: false },
-            { id: 346, title: "Fullmetal Alchemist: Brotherhood", completed: false },
-            { id: 347, title: "One Piece", completed: true },
-            { id: 348, title: "Naruto", completed: true },
-            { id: 349, title: "Dragon Ball", completed: true },
-            { id: 350, title: "Jujutsu Kaisen", completed: true },
-            { id: 351, title: "Bleach: Thousand-Year Blood War", completed: false },
-            { id: 352, title: "Demon Slayer: Kimetsu no Yaiba", completed: true },
-            { id: 353, title: "My Hero Academia", completed: false },
-            { id: 354, title: "Black Butler", completed: false },
-            { id: 355, title: "Noragami Aragoto", completed: true },
-            { id: 356, title: "Beyond the Boundary", completed: false },
-            { id: 357, title: "Kiznaiver", completed: false },
-            { id: 362, title: "Nichijou - My Ordinary Life", completed: false },
-            { id: 363, title: "Arakawa Under the Bridge", completed: false },
-            { id: 364, title: "Grand Blue Dreaming", completed: false },
-            { id: 365, title: "Prison School", completed: false },
-            { id: 366, title: "SHIMONETA: A Boring World Where the Concept of Dirty Jokes Doesn't Exist", completed: false },
-            { id: 371, title: "High School DxD", completed: true },
-            { id: 372, title: "To Love Ru", completed: false },
-            { id: 373, title: "Trinity Seven", completed: false },
-            { id: 374, title: "Date A Live", completed: true },
-            { id: 375, title: "Strike the Blood", completed: false },
-            { id: 376, title: "Chivalry of a Failed Knight", completed: false },
-            { id: 377, title: "The Asterisk War", completed: false },
-            { id: 378, title: "Absolute Duo", completed: false },
-            { id: 379, title: "Infinite Stratos", completed: false },
-            { id: 380, title: "Hundred", completed: false },
-            { id: 381, title: "Undefeated Bahamut Chronicle", completed: false },
-            { id: 382, title: "Sky Wizards Academy", completed: false },
-            { id: 383, title: "Bladedance of Elementalers", completed: false },
-            { id: 384, title: "Seirei Gensouki: Spirit Chronicles", completed: false },
-            { id: 385, title: "TSUKIMICHI -Moonlit Fantasy-", completed: true },
-            { id: 386, title: "Campfire Cooking in Another World with My Absurd Skill", completed: true },
-            { id: 387, title: "The Reincarnation of the Strongest Exorcist in Another World", completed: true },
-            { id: 388, title: "Skeleton Knight in Another World", completed: true },
-            { id: 389, title: "Trapped in a Dating Sim: The World of Otome Games is Tough for Mobs", completed: true },
-            { id: 390, title: "My Next Life as a Villainess: All Routes Lead to Doom!", completed: false },
-            { id: 391, title: "My Next Life as a Villainess", completed: false },
-            { id: 392, title: "I'm the Villainess, So I'm Taming the Final Boss", completed: false },
-            { id: 393, title: "Endo and Kobayashi Live! The Latest on Tsundere Villainess Lieselotte", completed: false },
-            { id: 394, title: "The Magical Revolution of the Reincarnated Princess and the Genius Young Lady", completed: false },
-            { id: 395, title: "Handyman Saitou in Another World", completed: false },
-            { id: 397, title: "Farming Life in Another World", completed: true },
-            { id: 398, title: "In the Land of Leadale", completed: false },
-            { id: 399, title: "Kuma Kuma Kuma Bear", completed: false },
-            { id: 400, title: "BOFURI: I Don't Want to Get Hurt, so I'll Max Out My Defense.", completed: false },
-            { id: 401, title: "takt op.Destiny", completed: false }
+            { id: 1, title: "Classroom of Elite" },
+            { id: 2, title: "Tomodachi Game" },
+            { id: 3, title: "Spy X Family" },
+            { id: 4, title: "Angel Next Door" },
+            { id: 5, title: "Migi and Dali" },
+            { id: 6, title: "Love is War" },
+            { id: 7, title: "Attack on Titan" },
+            { id: 8, title: "Rent a Girlfriend" },
+            { id: 9, title: "Spy Classroom" },
+            { id: 10, title: "Daily Life of Immortal King" },
+            { id: 11, title: "Hyouka" },
+            { id: 12, title: "Erased" },
+            { id: 13, title: "Promise Neverland" },
+            { id: 14, title: "Death Note" },
+            { id: 15, title: "Silent Voice" },
+            { id: 16, title: "One Punch Man" },
+            { id: 17, title: "The Millionaire Detective" },
+            { id: 18, title: "Devil is part timer" },
+            { id: 19, title: "Musohuko tensi" },
+            { id: 20, title: "Familiar of zero" },
+            { id: 21, title: "Re zero" },
+            { id: 22, title: "Noragami" },
+            { id: 23, title: "Stein Gate" },
+            { id: 24, title: "Parasite" },
+            { id: 25, title: "Assination classroom" },
+            { id: 26, title: "Bochi the rock" },
+            { id: 27, title: "Orange" },
+            { id: 28, title: "Dr stone" },
+            { id: 29, title: "Go sick" },
+            { id: 30, title: "Monster" },
+            { id: 31, title: "Irregular at magic academy" },
+            { id: 32, title: "Terror in resonance" },
+            { id: 33, title: "Recarnation of the exosite" },
+            { id: 34, title: "Do it yourself" },
+            { id: 35, title: "Barakamon" },
+            { id: 36, title: "Your name" },
+            { id: 37, title: "Weathering with you" },
+            { id: 38, title: "Anos" },
+            { id: 39, title: "Solo leveling" },
+            { id: 40, title: "Oshi no ko" },
+            { id: 41, title: "Heavenly delusion" },
+            { id: 42, title: "Dress up darling" },
+            { id: 43, title: "Another" },
+            { id: 44, title: "I want to eat your pancreas" },
+            { id: 45, title: "Your lie in April" },
+            { id: 46, title: "Violet ever garden" },
+            { id: 47, title: "Lookism" },
+            { id: 48, title: "Maid Sama" },
+            { id: 49, title: "Josse the tiger and the fish" },
+            { id: 50, title: "Say I love you" },
+            { id: 51, title: "In another world with my smart phone" },
+            { id: 52, title: "Reincarnated for second time" },
+            { id: 53, title: "Frieren beyond journeys end" },
+            { id: 54, title: "Yamada kun and seven witches" },
+            { id: 55, title: "Kingdom of ruin" },
+            { id: 56, title: "Lyrois recoil" },
+            { id: 57, title: "The detective is already dead" },
+            { id: 58, title: "World finest assain recarnated" },
+            { id: 59, title: "The tunnel to summer" },
+            { id: 60, title: "Charlotte" },
+            { id: 61, title: "Dragon ronpa 3" },
+            { id: 62, title: "My happy marriage" },
+            { id: 63, title: "Loving yamada at lv 999" },
+            { id: 64, title: "I am standing on a million life" },
+            { id: 65, title: "Qussessential quentiplets" },
+            { id: 66, title: "Hand shaker" },
+            { id: 67, title: "Sheroniko project zero chronicles" },
+            { id: 68, title: "Genuis prince guide to rise a nation" },
+            { id: 69, title: "My stepmother daughter is my ex" },
+            { id: 70, title: "The black summoner" },
+            { id: 71, title: "Engaged kiss" },
+            { id: 72, title: "Couple of cukoos" },
+            { id: 73, title: "Plastic memory" },
+            { id: 74, title: "The day I become a god" },
+            { id: 75, title: "Tonikaku kawaii" },
+            { id: 76, title: "Engaged to the unidentified" },
+            { id: 77, title: "Kubo won't let me invisible" },
+            { id: 78, title: "By the grace of the god" },
+            { id: 79, title: "3D girlfriend" },
+            { id: 80, title: "Cheating craft" },
+            { id: 81, title: "Oreshura" },
+            { id: 82, title: "Higehiro" },
+            { id: 83, title: "As the moon so beautiful" },
+            { id: 84, title: "Horimiya" },
+            { id: 85, title: "Konosuba" },
+            { id: 86, title: "Zoom 100" },
+            { id: 87, title: "Mieruko chan" },
+            { id: 88, title: "Black bullet" },
+            { id: 89, title: "Komi chan can't communicate" },
+            { id: 90, title: "Darling in the franxx" },
+            { id: 91, title: "Chainsaw man" },
+            { id: 92, title: "More than married couple" },
+            { id: 93, title: "Wise man Grandchild" },
+            { id: 94, title: "Reign of seven blades" },
+            { id: 95, title: "The villainess enjoy a carefree life" },
+            { id: 96, title: "The foolish angel dances" },
+            { id: 97, title: "A galaxy next door" },
+            { id: 98, title: "Fruit basket" },
+            { id: 99, title: "Code grease lelouch" },
+            { id: 100, title: "Persona 5" },
+            { id: 101, title: "Relife" },
+            { id: 102, title: "Vinlandsaga" },
+            { id: 103, title: "Nisekoi" },
+            { id: 104, title: "A girl and her guard dog" },
+            { id: 105, title: "Kakou no linazuke" },
+            { id: 106, title: "The weakest tamer" },
+            { id: 107, title: "Rascal does not dream" },
+            { id: 108, title: "Beauty will decide job" },
+            { id: 109, title: "The girl downstairs" },
+            { id: 110, title: "Uncle from another world" },
+            { id: 111, title: "Tearmoon empire" },
+            { id: 112, title: "Angel for death" },
+            { id: 113, title: "The grimm variations" },
+            { id: 114, title: "Madien of the savage" },
+            { id: 115, title: "Tamako love story" },
+            { id: 116, title: "Instant death ability" },
+            { id: 117, title: "Shine post" },
+            { id: 118, title: "Garden of words" },
+            { id: 119, title: "Babylon" },
+            { id: 120, title: "Akudama drive" },
+            { id: 121, title: "Arcdemon" },
+            { id: 122, title: "Viral hit" },
+            { id: 123, title: "Unnamed memory" },
+            { id: 124, title: "Duke of death" },
+            { id: 125, title: "Studio apartment" },
+            { id: 126, title: "Why ranela ended up at duke" },
+            { id: 127, title: "Old grandparents become young" },
+            { id: 128, title: "Teasing master takagi san" },
+            { id: 129, title: "New gate" },
+            { id: 130, title: "Bottom tier character tomozaki" },
+            { id: 131, title: "Great teacher onizuka gto" },
+            { id: 132, title: "Young teacher onizuka gto" },
+            { id: 133, title: "Bartender glass god" },
+            { id: 134, title: "Ice guy and his cool colleague" },
+            { id: 135, title: "Hello world" },
+            { id: 136, title: "Inuyashiki/junji ito koccion" },
+            { id: 137, title: "Motoi the sacred slayer" },
+            { id: 138, title: "Seven deadly sins" },
+            { id: 139, title: "Gleipnir" },
+            { id: 140, title: "When supernatural battle" },
+            { id: 141, title: "Its princess and stony cat" },
+            { id: 142, title: "Daily life of high school boys" },
+            { id: 143, title: "Many sides of voice actor" },
+            { id: 144, title: "Oniai and she is his sister" },
+            { id: 145, title: "My teen romantic comedy" },
+            { id: 146, title: "Blood c" },
+            { id: 147, title: "Oresuki" },
+            { id: 148, title: "Hellsing ultimate" },
+            { id: 149, title: "The days with my step sister" },
+            { id: 150, title: "Call of the night" },
+            { id: 151, title: "A sister is all you need" },
+            { id: 152, title: "Full mental alchemist" },
+            { id: 153, title: "Angel beats" },
+            { id: 154, title: "Gridman universe" },
+            { id: 155, title: "Chunibyo and other delusions" },
+            { id: 156, title: "Un go" },
+            { id: 157, title: "Morairty the patriot" },
+            { id: 158, title: "The perfect insider" },
+            { id: 159, title: "The true beauty" },
+            { id: 160, title: "Summer ghost" },
+            { id: 161, title: "Memories film from 1995" },
+            { id: 162, title: "Too many losing heroin" },
+            { id: 163, title: "Hortensia saga" },
+            { id: 164, title: "How to raise a boring" },
+            { id: 165, title: "Haganai i don't have many friends" },
+            { id: 166, title: "Lord of masteries" },
+            { id: 167, title: "Link click" },
+            { id: 168, title: "To me the one who loved me" },
+            { id: 169, title: "Choas dragon" },
+            { id: 170, title: "Pseudo harem" },
+            { id: 171, title: "Wonder egg priority" },
+            { id: 172, title: "The beginning after the end" },
+            { id: 173, title: "Blue box" },
+            { id: 174, title: "Golden boys" },
+            { id: 175, title: "You are Ms servant" },
+            { id: 176, title: "Boogiepop and others" },
+            { id: 177, title: "The unparalleled black & white" },
+            { id: 178, title: "When he release she is getting bullied" },
+            { id: 179, title: "Nigen fushin" },
+            { id: 180, title: "Dororo" },
+            { id: 181, title: "Undead girl murder face" },
+            { id: 182, title: "Guilty crown" },
+            { id: 183, title: "Madoka magical" },
+            { id: 184, title: "Noen genesis Evangelion" },
+            { id: 185, title: "Kakegurui" },
+            { id: 186, title: "Psycho-pass" },
+            { id: 187, title: "Pluto" },
+            { id: 188, title: "Sony boy" },
+            { id: 189, title: "Made in abyss" },
+            { id: 190, title: "Tsugunai" },
+            { id: 191, title: "The fruit of grisaia" },
+            { id: 192, title: "Koikimo" },
+            { id: 193, title: "Burn the witch" },
+            { id: 194, title: "On the screen" },
+            { id: 195, title: "To your eternity" },
+            { id: 196, title: "Random horse anime" },
+            { id: 197, title: "Tsundere children" },
+            { id: 198, title: "Killing bites" },
+            { id: 199, title: "Kowloon generic" },
+            { id: 200, title: "Dear Alice" },
+            { id: 201, title: "To be hero x" },
+            { id: 202, title: "ID:invaded" },
+            { id: 203, title: "Kokoro connect" },
+            { id: 204, title: "Org" },
+            { id: 205, title: "Jugram haschwalth" },
+            { id: 206, title: "Pantheon" },
+            { id: 207, title: "Takopi" },
+            { id: 208, title: "X movie" },
+            { id: 209, title: "Kakegurui compulsive gambler" },
+            { id: 210, title: "Berserk" },
+            { id: 211, title: "Baccano" },
+            { id: 212, title: "Blue literature" },
+            { id: 213, title: "Satoshi kons paprika" },
+            { id: 214, title: "Wash it all away" },
+            { id: 215, title: "Ghost in the shell" },
+            { id: 216, title: "No Game No Life" },
+            { id: 217, title: "Fate/Zero" },
+            { id: 218, title: "The Apothecary Diaries" },
+            { id: 219, title: "Kaiji: Ultimate Survivor" },
+            { id: 220, title: "One Outs" },
+            { id: 221, title: "Akagi" },
+            { id: 222, title: "Vagabond" },
+            { id: 223, title: "91 Days" },
+            { id: 224, title: "Dorohedoro" },
+            { id: 225, title: "Cyberpunk: Edgerunners" },
+            { id: 226, title: "Rainbow: Nisha Rokubou" },
+            { id: 227, title: "Clannad & After Story" },
+            { id: 228, title: "March Comes in Like a Lion" },
+            { id: 229, title: "Maquia: When the Promised Flower Blooms" },
+            { id: 230, title: "Nana" },
+            { id: 231, title: "White Album 2" },
+            { id: 232, title: "5 Centimeters per Second" },
+            { id: 233, title: "The Girl Who Leapt Through Time" },
+            { id: 234, title: "Cowboy Bebop" },
+            { id: 235, title: "Great Pretender" },
+            { id: 236, title: "Land of the Lustrous" },
+            { id: 237, title: "Devilman Crybaby" },
+            { id: 238, title: "Heike Monogatari" },
+            { id: 239, title: "Odd Taxi" },
+            { id: 240, title: "Kengan Ashura" },
+            { id: 241, title: "Baki the Grappler" },
+            { id: 242, title: "Holyland" },
+            { id: 243, title: "Talentless Nana" },
+            { id: 244, title: "Zaregoto: Kubikiri Cycle" },
+            { id: 245, title: "Blade of the Immortal" },
+            { id: 246, title: "Gantz" },
+            { id: 247, title: "Darker than Black" },
+            { id: 248, title: "Black Lagoon" },
+            { id: 249, title: "Trigun Stampede" },
+            { id: 250, title: "Highschool of the Dead" },
+            { id: 251, title: "Deadman Wonderland" },
+            { id: 252, title: "Mirai Nikki" },
+            { id: 253, title: "Shiki" },
+            { id: 254, title: "Hell's Paradise" },
+            { id: 255, title: "Blue Lock" },
+            { id: 256, title: "Haikyuu!!" },
+            { id: 257, title: "Hajime no Ippo" },
+            { id: 258, title: "Initial D" },
+            { id: 259, title: "Redline" },
+            { id: 260, title: "Summer Time Rendering" },
+            { id: 261, title: "Vivy: Fluorite Eye's Song" },
+            { id: 262, title: "86 Eighty-Six" },
+            { id: 263, title: "Iron-Blooded Orphans" },
+            { id: 264, title: "Samurai Champloo" },
+            { id: 265, title: "Claymore" },
+            { id: 266, title: "Elfen Lied" },
+            { id: 267, title: "Seraph of the End" },
+            { id: 268, title: "Kabaneri of the Iron Fortress" },
+            { id: 269, title: "Bungo Stray Dogs" },
+            { id: 270, title: "Blood Blockade Battlefront" },
+            { id: 271, title: "Drifters" },
+            { id: 272, title: "Gungrave" },
+            { id: 273, title: "Ergo Proxy" },
+            { id: 274, title: "Texhnolyze" },
+            { id: 275, title: "Serial Experiments Lain" },
+            { id: 276, title: "Mushishi" },
+            { id: 277, title: "Kino's Journey" },
+            { id: 278, title: "Mononoke" },
+            { id: 279, title: "The Tatami Galaxy" },
+            { id: 280, title: "Ping Pong the Animation" },
+            { id: 281, title: "Keep Your Hands Off Eizouken!" },
+            { id: 282, title: "Mob Psycho 100" },
+            { id: 283, title: "Fire Force" },
+            { id: 284, title: "Soul Eater" },
+            { id: 285, title: "D.Gray-man" },
+            { id: 286, title: "Pandora Hearts" },
+            { id: 287, title: "Vanitas no Carte" },
+            { id: 288, title: "Shadows House" },
+            { id: 289, title: "Joker Game" },
+            { id: 290, title: "ACCA: 13-Territory Inspection Dept." },
+            { id: 291, title: "B: The Beginning" },
+            { id: 292, title: "K-Project" },
+            { id: 293, title: "Aldnoah.Zero" },
+            { id: 294, title: "Re:Creators" },
+            { id: 295, title: "Grimgar: Ashes and Illusions" },
+            { id: 296, title: "Log Horizon" },
+            { id: 297, title: "Overlord" },
+            { id: 298, title: "Saga of Tanya the Evil" },
+            { id: 299, title: "Gate" },
+            { id: 300, title: "Knights & Magic" },
+            { id: 301, title: "Goblin Slayer" },
+            { id: 302, title: "The Rising of the Shield Hero" },
+            { id: 303, title: "Cautious Hero" },
+            { id: 304, title: "Eminence in Shadow" },
+            { id: 305, title: "Shangri-La Frontier" },
+            { id: 306, title: "Ragna Crimson" },
+            { id: 307, title: "Undead Unluck" },
+            { id: 308, title: "Sakamoto Days" },
+            { id: 309, title: "Dandadan" },
+            { id: 310, title: "Wind Breaker" },
+            { id: 311, title: "Tokyo Revengers" },
+            { id: 312, title: "Gintama" },
+            { id: 313, title: "Beelzebub" },
+            { id: 314, title: "Golden Kamuy" },
+            { id: 315, title: "Kingdom" },
+            { id: 316, title: "Arslan Senki" },
+            { id: 317, title: "Magi: The Labyrinth of Magic" },
+            { id: 318, title: "Black Clover" },
+            { id: 319, title: "Fairy Tail" },
+            { id: 320, title: "Bleach" },
+            { id: 321, title: "Hunter x Hunter" },
+            { id: 322, title: "YuYu Hakusho" },
+            { id: 323, title: "Slam Dunk" },
+            { id: 324, title: "Kuroko no Basket" },
+            { id: 325, title: "Ace of the Diamond" },
+            { id: 326, title: "Blue Giant" },
+            { id: 327, title: "Beck: Mongolian Chop Squad" },
+            { id: 328, title: "Kids on the Slope" },
+            { id: 329, title: "Anohana" },
+            { id: 330, title: "Little Busters!" },
+            { id: 331, title: "Kimi ni Todoke" },
+            { id: 332, title: "My Love Story!!" },
+            { id: 333, title: "Blue Spring Ride" },
+            { id: 334, title: "Wotakoi: Love is Hard for Otaku" },
+            { id: 335, title: "Scum's Wish" },
+            { id: 336, title: "Domestic Girlfriend" },
+            { id: 337, title: "We Never Learn" },
+            { id: 338, title: "Oregairu" },
+            { id: 339, title: "Monogatari Series" },
+            { id: 340, title: "Fullmetal Alchemist: Brotherhood" },
+            { id: 341, title: "One Piece" },
+            { id: 342, title: "Naruto" },
+            { id: 343, title: "Dragon Ball" },
+            { id: 344, title: "Jujutsu Kaisen" },
+            { id: 345, title: "Bleach: Thousand-Year Blood War" },
+            { id: 346, title: "Demon Slayer" },
+            { id: 347, title: "My Hero Academia" },
+            { id: 348, title: "Black Butler" },
+            { id: 349, title: "Noragami Aragoto" },
+            { id: 350, title: "Beyond the Boundary" },
+            { id: 351, title: "Kiznaiver" },
+            { id: 352, title: "Nichijou" },
+            { id: 353, title: "Arakawa Under the Bridge" },
+            { id: 354, title: "Grand Blue Dreaming" },
+            { id: 355, title: "Prison School" },
+            { id: 356, title: "Shimoneta" },
+            { id: 357, title: "High School DxD" },
+            { id: 358, title: "To Love Ru" },
+            { id: 359, title: "Trinity Seven" },
+            { id: 360, title: "Date A Live" },
+            { id: 361, title: "Strike the Blood" },
+            { id: 362, title: "Chivalry of a Failed Knight" },
+            { id: 363, title: "The Asterisk War" },
+            { id: 364, title: "Absolute Duo" },
+            { id: 365, title: "Infinite Stratos" },
+            { id: 366, title: "Hundred" },
+            { id: 367, title: "Undefeated Bahamut Chronicle" },
+            { id: 368, title: "Sky Wizards Academy" },
+            { id: 369, title: "Blade Dance of the Elementalers" },
+            { id: 370, title: "Seirei Gensouki: Spirit Chronicles" },
+            { id: 371, title: "Tsukimichi: Moonlit Fantasy" },
+            { id: 372, title: "Campfire Cooking in Another World" },
+            { id: 373, title: "The Reincarnation of the Strongest Exorcist in Another World" },
+            { id: 374, title: "Skeleton Knight in Another World" },
+            { id: 375, title: "Trapped in a Dating Sim" },
+            { id: 376, title: "Otome Game no Hametsu Flag" },
+            { id: 377, title: "My Next Life as a Villainess" },
+            { id: 378, title: "I'm the Villainess, So I'm Taming the Final Boss" },
+            { id: 379, title: "Endo and Kobayashi Live!" },
+            { id: 380, title: "The Magical Revolution of the Reincarnated Princess and the Genius Young Lady" },
+            { id: 381, title: "Handyman Saitou in Another World" },
+            { id: 382, title: "Farming Life in Another World" },
+            { id: 383, title: "In the Land of Leadale" },
+            { id: 384, title: "Kuma Kuma Kuma Bear" },
+            { id: 385, title: "BOFURI: I Don't Want to Get Hurt, so I'll Max Out My Defense" },
+            { id: 386, title: "takt op.Destiny" }
         ];
 
-        function renderTable(data) {
+        function renderTable() {
             var tbody = document.getElementById('animeBody');
             tbody.innerHTML = '';
 
-            data.forEach(function(item) {
+            animeData.forEach(function(item) {
                 var tr = document.createElement('tr');
-                tr.className = item.completed ? 'row-completed' : 'row-plan';
 
-                var statusText = item.completed 
-                    ? '<span class="status-completed">&#10003; Completed</span>' 
-                    : '<span class="status-plan">Plan to Watch</span>';
+                var statusText = '<span class="status-watched">&#10003; Watched</span>';
+
+                var cachedMalScore = localStorage.getItem('mal_score_' + item.id) || 'N/A';
+                var malScoreHTML = '<span class="mal-score" id="score-' + item.id + '">' + cachedMalScore + '</span>';
 
                 var savedRating = localStorage.getItem('anime_rating_' + item.id) || 'Unrated';
-
                 var ratingOptions = ['Unrated', '10/10', '9/10', '8/10', '7/10', '6/10', '5/10', '4/10', '3/10', '2/10', '1/10'];
                 var selectHTML = '<select class="rating-select" onchange="saveRating(' + item.id + ', this.value)">';
                 ratingOptions.forEach(function(opt) {
@@ -648,6 +640,7 @@
                 tr.innerHTML = '<td>' + item.id + '</td>' +
                                '<td>' + item.title + '</td>' +
                                '<td>' + statusText + '</td>' +
+                               '<td>' + malScoreHTML + '</td>' +
                                '<td>' + selectHTML + '</td>';
 
                 tbody.appendChild(tr);
@@ -658,24 +651,38 @@
             localStorage.setItem('anime_rating_' + id, val);
         }
 
-        function filterTable(type, btn) {
-            var buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(function(b) { b.classList.remove('active'); });
-            btn.classList.add('active');
-
-            if (type === 'completed') {
-                var filtered = animeData.filter(function(a) { return a.completed; });
-                renderTable(filtered);
-            } else if (type === 'plan') {
-                var filtered = animeData.filter(function(a) { return !a.completed; });
-                renderTable(filtered);
-            } else {
-                renderTable(animeData);
+        async function fetchAllMalRatings() {
+            var statusEl = document.getElementById('fetchStatus');
+            statusEl.innerText = "Status: Fetching ratings from Jikan API...";
+            
+            for (let i = 0; i < animeData.length; i++) {
+                let anime = animeData[i];
+                let cached = localStorage.getItem('mal_score_' + anime.id);
+                
+                if (!cached || cached === 'N/A') {
+                    try {
+                        let response = await fetch('https://api.jikan.moe/v4/anime?q=' + encodeURIComponent(anime.title) + '&limit=1');
+                        if (response.ok) {
+                            let data = await response.json();
+                            if (data.data && data.data.length > 0 && data.data[0].score) {
+                                let score = data.data[0].score + ' / 10';
+                                localStorage.setItem('mal_score_' + anime.id, score);
+                                var scoreEl = document.getElementById('score-' + anime.id);
+                                if (scoreEl) scoreEl.innerText = score;
+                            }
+                        }
+                        // Respect Jikan API rate limit (approx 3 req/sec)
+                        await new Promise(resolve => setTimeout(resolve, 350));
+                    } catch (err) {
+                        console.error('Error fetching ' + anime.title, err);
+                    }
+                }
+                statusEl.innerText = "Status: Processed " + (i + 1) + " / " + animeData.length;
             }
+            statusEl.innerText = "Status: Complete!";
         }
 
-        // Initial render
-        renderTable(animeData);
+        renderTable();
     </script>
 </body>
 </html>
