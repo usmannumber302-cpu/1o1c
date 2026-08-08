@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="https://1o1c.org/logo.png">
+
+    <title>My Reading List | 1O1C Network</title>
+    <meta name="description" content="Curated reading directory featuring top 100 influential books categorized across key genres.">
+
+    <style>
+        body { 
+            background-color: #dce5ed; 
+            color: #2c3e50; 
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        #wrapper {
+            width: 950px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border: 1px solid #b5c7d9;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: left;
+            box-shadow: 0px 4px 20px rgba(160, 180, 200, 0.4);
+        }
+
+        h1.logo {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 54px;
+            font-weight: bold;
+            color: #2980b9;
+            margin: 10px 0 5px 0;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-weight: normal;
+            font-size: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        #nav-bar {
+            border: 1px solid #a4b9cc;
+            border-radius: 5px;
+            background: #eef3f7;
+            background: linear-gradient(to bottom, #f7fafc 0%, #eef3f7 100%);
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        #nav-bar a {
+            color: #34495e;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 6px 14px;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        #nav-bar a:hover {
+            color: #2980b9;
+            background-color: #e2ecf5;
+            border-radius: 4px;
+        }
+
+        #nav-bar a.active {
+            color: #ffffff;
+            background: #2980b9;
+            background: linear-gradient(to bottom, #3498db 0%, #2980b9 100%);
+            border-radius: 4px;
+        }
+
+        .section-header {
+            background-color: #ebf2f7;
+            color: #2c3e50;
+            padding: 8px 12px;
+            font-weight: bold;
+            border-left: 4px solid #2980b9;
+            border-radius: 0 4px 4px 0;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+
+        .search-input, .category-select {
+            padding: 7px 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #2c3e50;
+        }
+
+        .search-input {
+            width: 60%;
+        }
+
+        .category-select {
+            width: 35%;
+        }
+
+        .book-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .book-table th {
+            background-color: #ebf2f7;
+            color: #2c3e50;
+            padding: 10px;
+            border: 1px solid #d6e0ea;
+            text-align: left;
+        }
+
+        .book-table td {
+            padding: 8px 10px;
+            border: 1px solid #eef3f7;
+            color: #556270;
+        }
+
+        .book-table tr:nth-child(even) {
+            background-color: #fafbfc;
+        }
+
+        .book-table tr:hover {
+            background-color: #f0f4f8;
+        }
+
+        .price-tag {
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .category-badge {
+            background-color: #e2ecf5;
+            color: #2980b9;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .status-select {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            padding: 3px;
+            font-size: 12px;
+            color: #2c3e50;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eef3f7;
+            color: #95a5a6;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="wrapper">
+
+        <h1 class="logo">1O1C</h1>
+        <div class="subtitle">Personal Media Directories & Recommended Literature Archives</div>
+
+        <div id="nav-bar">
+            <a href="index.html">Home</a>
+            <a href="rules.html">Rules</a>
+            <a href="store.html">Server Shop</a>
+            <a href="downloads.html">Downloads</a>
+            <a href="myrandomlist.html">My Anime List</a>
+            <a href="myreadinglist.html" class="active">My Reading List</a>
+            <a href="support.html">Support</a>
+        </div>
+
+        <p style="line-height: 1.6; color: #556270; font-size: 14px; margin-bottom: 20px;">
+            A curated list of 100 essential books divided into 10 key categories (Strategy & Power, Finance, Productivity & Habits, Psychology, Philosophy & Wisdom, Biography, Science & Tech, Fiction & Classics, Thriller & Mystery, and Self-Mastery). Track reading status directly in your browser.
+        </p>
+
+        <div class="section-header">Top 100 Books Archive</div>
+
+        <div class="filter-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search by title or author..." onkeyup="filterBooks()">
+            <select id="categoryFilter" class="category-select" onchange="filterBooks()">
+                <option value="All">All Categories (100 Books)</option>
+                <option value="Strategy & Power">Strategy & Power</option>
+                <option value="Finance & Wealth">Finance & Wealth</option>
+                <option value="Productivity & Habits">Productivity & Habits</option>
+                <option value="Psychology">Psychology</option>
+                <option value="Philosophy & Wisdom">Philosophy & Wisdom</option>
+                <option value="Biography & History">Biography & History</option>
+                <option value="Science & Technology">Science & Technology</option>
+                <option value="Fiction & Classics">Fiction & Classics</option>
+                <option value="Thriller & Mystery">Thriller & Mystery</option>
+                <option value="Self-Mastery">Self-Mastery</option>
+            </select>
+        </div>
+
+        <table class="book-table" id="bookTable">
+            <thead>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="35%">Book Title</th>
+                    <th width="22%">Author</th>
+                    <th width="18%">Category</th>
+                    <th width="10%">Est. Price</th>
+                    <th width="10%">Status</th>
+                </tr>
+            </thead>
+            <tbody id="bookBody">
+                <!-- Populated dynamically via JavaScript -->
+            </tbody>
+        </table>
+
+        <footer>
+            &copy; 2026 1O1C Anarchy Network. Independently managed. Not affiliated with Mojang Studios.
+        </footer>
+
+    </div>
+
+    <script>
+        var booksData = [
+            // Strategy & Power (1-10)
+            { id: 1, title: "The 48 Laws of Power", author: "Robert Greene", category: "Strategy & Power", price: 18.00 },
+            { id: 2, title: "The Art of War", author: "Sun Tzu", category: "Strategy & Power", price: 7.99 },
+            { id: 3, title: "The Prince", author: "Niccolò Machiavelli", category: "Strategy & Power", price: 6.99 },
+            { id: 4, title: "33 Strategies of War", author: "Robert Greene", category: "Strategy & Power", price: 19.50 },
+            { id: 5, title: "Mastery", author: "Robert Greene", category: "Strategy & Power", price: 17.20 },
+            { id: 6, title: "The Laws of Human Nature", author: "Robert Greene", category: "Strategy & Power", price: 20.00 },
+            { id: 7, title: "On War", author: "Carl von Clausewitz", category: "Strategy & Power", price: 14.99 },
+            { id: 8, title: "Strategy", author: "B.H. Liddell Hart", category: "Strategy & Power", price: 16.50 },
+            { id: 9, title: "The Book of Five Rings", author: "Miyamoto Musashi", category: "Strategy & Power", price: 8.99 },
+            { id: 10, title: "Rules for Radicals", author: "Saul D. Alinsky", category: "Strategy & Power", price: 12.95 },
+
+            // Finance & Wealth (11-20)
+            { id: 11, title: "Rich Dad Poor Dad", author: "Robert T. Kiyosaki", category: "Finance & Wealth", price: 11.99 },
+            { id: 12, title: "The Psychology of Money", author: "Morgan Housel", category: "Finance & Wealth", price: 14.69 },
+            { id: 13, title: "The Intelligent Investor", author: "Benjamin Graham", category: "Finance & Wealth", price: 17.99 },
+            { id: 14, title: "Think and Grow Rich", author: "Napoleon Hill", category: "Finance & Wealth", price: 9.99 },
+            { id: 15, title: "The Richest Man in Babylon", author: "George S. Clason", category: "Finance & Wealth", price: 7.49 },
+            { id: 16, title: "The Millionaire Fastlane", author: "MJ DeMarco", category: "Finance & Wealth", price: 15.99 },
+            { id: 17, title: "Principles for Dealing with the Changing World Order", author: "Ray Dalio", category: "Finance & Wealth", price: 21.00 },
+            { id: 18, title: "Your Money or Your Life", author: "Vicki Robin & Joe Dominguez", category: "Finance & Wealth", price: 13.50 },
+            { id: 19, title: "Unshakable", author: "Tony Robbins", category: "Finance & Wealth", price: 12.00 },
+            { id: 20, title: "The Simple Path to Wealth", author: "JL Collins", category: "Finance & Wealth", price: 14.00 },
+
+            // Productivity & Habits (21-30)
+            { id: 21, title: "Atomic Habits", author: "James Clear", category: "Productivity & Habits", price: 13.79 },
+            { id: 22, title: "The Power of Habit", author: "Charles Duhigg", category: "Productivity & Habits", price: 12.50 },
+            { id: 23, title: "Deep Work", author: "Cal Newport", category: "Productivity & Habits", price: 15.20 },
+            { id: 24, title: "Getting Things Done", author: "David Allen", category: "Productivity & Habits", price: 14.00 },
+            { id: 25, title: "The 7 Habits of Highly Effective People", author: "Stephen R. Covey", category: "Productivity & Habits", price: 13.00 },
+            { id: 26, title: "Make Time", author: "Jake Knapp & John Zeratsky", category: "Productivity & Habits", price: 16.00 },
+            { id: 27, title: "Essentialism", author: "Greg McKeown", category: "Productivity & Habits", price: 14.80 },
+            { id: 28, title: "The One Thing", author: "Gary Keller", category: "Productivity & Habits", price: 15.00 },
+            { id: 29, title: "Eat That Frog!", author: "Brian Tracy", category: "Productivity & Habits", price: 10.99 },
+            { id: 30, title: "Digital Minimalism", author: "Cal Newport", category: "Productivity & Habits", price: 14.50 },
+
+            // Psychology (31-40)
+            { id: 31, title: "Thinking, Fast and Slow", author: "Daniel Kahneman", category: "Psychology", price: 15.99 },
+            { id: 32, title: "Influence: The Psychology of Persuasion", author: "Robert B. Cialdini", category: "Psychology", price: 16.50 },
+            { id: 33, title: "Man's Search for Meaning", author: "Viktor E. Frankl", category: "Psychology", price: 9.99 },
+            { id: 34, title: "Predictably Irrational", author: "Dan Ariely", category: "Psychology", price: 13.99 },
+            { id: 35, title: "Blink: The Power of Thinking Without Thinking", author: "Malcolm Gladwell", category: "Psychology", price: 11.50 },
+            { id: 36, title: "The Righteous Mind", author: "Jonathan Haidt", category: "Psychology", price: 14.20 },
+            { id: 37, title: "Flow: The Psychology of Optimal Experience", author: "Mihaly Csikszentmihalyi", category: "Psychology", price: 12.80 },
+            { id: 38, title: "Quiet", author: "Susan Cain", category: "Psychology", price: 11.99 },
+            { id: 39, title: "Grit", author: "Angela Duckworth", category: "Psychology", price: 13.40 },
+            { id: 40, title: "The Boy Who Was Raised as a Dog", author: "Bruce D. Perry", category: "Psychology", price: 12.20 },
+
+            // Philosophy & Wisdom (41-50)
+            { id: 41, title: "Meditations", author: "Marcus Aurelius", category: "Philosophy & Wisdom", price: 8.99 },
+            { id: 42, title: "Letters from a Stoic", author: "Seneca", category: "Philosophy & Wisdom", price: 9.50 },
+            { id: 43, title: "Beyond Good and Evil", author: "Friedrich Nietzsche", category: "Philosophy & Wisdom", price: 7.99 },
+            { id: 44, title: "The Daily Stoic", author: "Ryan Holiday", category: "Philosophy & Wisdom", price: 15.00 },
+            { id: 45, title: "The Republic", author: "Plato", category: "Philosophy & Wisdom", price: 8.50 },
+            { id: 46, title: "Discours de la méthode", author: "René Descartes", category: "Philosophy & Wisdom", price: 6.99 },
+            { id: 47, title: "Tao Te Ching", author: "Lao Tzu", category: "Philosophy & Wisdom", price: 7.20 },
+            { id: 48, title: "Ego is the Enemy", author: "Ryan Holiday", category: "Philosophy & Wisdom", price: 14.00 },
+            { id: 49, title: "Critique of Pure Reason", author: "Immanuel Kant", category: "Philosophy & Wisdom", price: 12.99 },
+            { id: 50, title: "The Antichrist", author: "Friedrich Nietzsche", category: "Philosophy & Wisdom", price: 6.50 },
+
+            // Biography & History (51-60)
+            { id: 51, title: "Steve Jobs", author: "Walter Isaacson", category: "Biography & History", price: 16.99 },
+            { id: 52, title: "Elon Musk", author: "Walter Isaacson", category: "Biography & History", price: 21.00 },
+            { id: 53, title: "Sapiens: A Brief History of Humankind", author: "Yuval Noah Harari", category: "Biography & History", price: 18.00 },
+            { id: 54, title: "Shoe Dog", author: "Phil Knight", category: "Biography & History", price: 13.50 },
+            { id: 55, title: "Alexander Hamilton", author: "Ron Chernow", category: "Biography & History", price: 17.50 },
+            { id: 56, title: "Guns, Germs, and Steel", author: "Jared Diamond", category: "Biography & History", price: 14.99 },
+            { id: 57, title: "Churchill: A Life", author: "Martin Gilbert", category: "Biography & History", price: 19.99 },
+            { id: 58, title: "Genghis Khan and the Making of the Modern World", author: "Jack Weatherford", category: "Biography & History", price: 12.99 },
+            { id: 59, title: "Long Walk to Freedom", author: "Nelson Mandela", category: "Biography & History", price: 15.00 },
+            { id: 60, title: "The Rise and Fall of the Third Reich", author: "William L. Shirer", category: "Biography & History", price: 22.00 },
+
+            // Science & Technology (61-70)
+            { id: 61, title: "A Brief History of Time", author: "Stephen Hawking", category: "Science & Technology", price: 11.99 },
+            { id: 62, title: "The Selfish Gene", author: "Richard Dawkins", category: "Science & Technology", price: 13.50 },
+            { id: 63, title: "Astrophysics for People in a Hurry", author: "Neil deGrasse Tyson", category: "Science & Technology", price: 10.99 },
+            { id: 64, title: "The Gene: An Intimate History", author: "Siddhartha Mukherjee", category: "Science & Technology", price: 16.00 },
+            { id: 65, title: "Gödel, Escher, Bach", author: "Douglas Hofstadter", category: "Science & Technology", price: 21.50 },
+            { id: 66, title: "Life 3.0", author: "Max Tegmark", category: "Science & Technology", price: 14.20 },
+            { id: 67, title: "The Superintelligence", author: "Nick Bostrom", category: "Science & Technology", price: 15.00 },
+            { id: 68, title: "What Is Life?", author: "Erwin Schrödinger", category: "Science & Technology", price: 9.99 },
+            { id: 69, title: "Cosmos", author: "Carl Sagan", category: "Science & Technology", price: 12.50 },
+            { id: 70, title: "The Elegant Universe", author: "Brian Greene", category: "Science & Technology", price: 14.00 },
+
+            // Fiction & Classics (71-80)
+            { id: 71, title: "The Alchemist", author: "Paulo Coelho", category: "Fiction & Classics", price: 10.89 },
+            { id: 72, title: "1984", author: "George Orwell", category: "Fiction & Classics", price: 8.99 },
+            { id: 73, title: "Crime and Punishment", author: "Fyodor Dostoevsky", category: "Fiction & Classics", price: 9.99 },
+            { id: 74, title: "The Great Gatsby", author: "F. Scott Fitzgerald", category: "Fiction & Classics", price: 7.99 },
+            { id: 75, title: "To Kill a Mockingbird", author: "Harper Lee", category: "Fiction & Classics", price: 8.99 },
+            { id: 76, title: "The Count of Monte Cristo", author: "Alexandre Dumas", category: "Fiction & Classics", price: 11.50 },
+            { id: 77, title: "Brave New World", author: "Aldous Huxley", category: "Fiction & Classics", price: 9.50 },
+            { id: 78, title: "The Brothers Karamazov", author: "Fyodor Dostoevsky", category: "Fiction & Classics", price: 12.00 },
+            { id: 79, title: "Fahrenheit 451", author: "Ray Bradbury", category: "Fiction & Classics", price: 8.50 },
+            { id: 80, title: "And the Mountains Echoed", author: "Khaled Hosseini", category: "Fiction & Classics", price: 11.00 },
+
+            // Thriller & Mystery (81-90)
+            { id: 81, title: "The Silent Patient", author: "Alex Michaelides", category: "Thriller & Mystery", price: 11.99 },
+            { id: 82, title: "Gone Girl", author: "Gillian Flynn", category: "Thriller & Mystery", price: 10.50 },
+            { id: 83, title: "The Da Vinci Code", author: "Dan Brown", category: "Thriller & Mystery", price: 9.99 },
+            { id: 84, title: "Shutter Island", author: "Dennis Lehane", category: "Thriller & Mystery", price: 8.99 },
+            { id: 85, title: "Angels & Demons", author: "Dan Brown", category: "Thriller & Mystery", price: 9.50 },
+            { id: 86, title: "The Girl with the Dragon Tattoo", author: "Stieg Larsson", category: "Thriller & Mystery", price: 10.00 },
+            { id: 87, title: "And Then There Were None", author: "Agatha Christie", category: "Thriller & Mystery", price: 7.99 },
+            { id: 88, title: "Red Dragon", author: "Thomas Harris", category: "Thriller & Mystery", price: 8.50 },
+            { id: 89, title: "Before I Go to Sleep", author: "S.J. Watson", category: "Thriller & Mystery", price: 9.20 },
+            { id: 90, title: "The Girl on the Train", author: "Paula Hawkins", category: "Thriller & Mystery", price: 9.99 },
+
+            // Self-Mastery (91-100)
+            { id: 91, title: "Can't Hurt Me", author: "David Goggins", category: "Self-Mastery", price: 16.00 },
+            { id: 92, title: "Extreme Ownership", author: "Jocko Willink & Leif Babin", category: "Self-Mastery", price: 15.50 },
+            { id: 93, title: "12 Rules for Life", author: "Jordan B. Peterson", category: "Self-Mastery", price: 14.99 },
+            { id: 94, title: "The Four Agreements", author: "Don Miguel Ruiz", category: "Self-Mastery", price: 7.99 },
+            { id: 95, title: "Awaken the Giant Within", author: "Tony Robbins", category: "Self-Mastery", price: 13.99 },
+            { id: 96, title: "As a Man Thinketh", author: "James Allen", category: "Self-Mastery", price: 5.99 },
+            { id: 97, title: "The Subtle Art of Not Giving a F*ck", author: "Mark Manson", category: "Self-Mastery", price: 12.99 },
+            { id: 98, title: "Mastery of Love", author: "Don Miguel Ruiz", category: "Self-Mastery", price: 8.50 },
+            { id: 99, title: "Never Split the Difference", author: "Chris Voss", category: "Self-Mastery", price: 14.00 },
+            { id: 100, title: "Way of the Peaceful Warrior", author: "Dan Millman", category: "Self-Mastery", price: 10.99 }
+        ];
+
+        function renderBooks(data) {
+            var tbody = document.getElementById('bookBody');
+            tbody.innerHTML = '';
+
+            data.forEach(function(item) {
+                var tr = document.createElement('tr');
+
+                var savedStatus = localStorage.getItem('book_status_' + item.id) || 'Unread';
+                var statusOptions = ['Unread', 'Reading', 'Completed'];
+                var selectHTML = '<select class="status-select" onchange="saveStatus(' + item.id + ', this.value)">';
+                statusOptions.forEach(function(opt) {
+                    var selected = (opt === savedStatus) ? ' selected' : '';
+                    selectHTML += '<option value="' + opt + '"' + selected + '>' + opt + '</option>';
+                });
+                selectHTML += '</select>';
+
+                tr.innerHTML = '<td>' + item.id + '</td>' +
+                               '<td><strong>' + item.title + '</strong></td>' +
+                               '<td>' + item.author + '</td>' +
+                               '<td><span class="category-badge">' + item.category + '</span></td>' +
+                               '<td class="price-tag">$' + item.price.toFixed(2) + '</td>' +
+                               '<td>' + selectHTML + '</td>';
+
+                tbody.appendChild(tr);
+            });
+        }
+
+        function saveStatus(id, val) {
+            localStorage.setItem('book_status_' + id, val);
+        }
+
+        function filterBooks() {
+            var searchText = document.getElementById('searchInput').value.toLowerCase();
+            var selectedCategory = document.getElementById('categoryFilter').value;
+
+            var filtered = booksData.filter(function(book) {
+                var matchesSearch = book.title.toLowerCase().includes(searchText) || 
+                                  book.author.toLowerCase().includes(searchText);
+                var matchesCategory = (selectedCategory === 'All') || (book.category === selectedCategory);
+                return matchesSearch && matchesCategory;
+            });
+
+            renderBooks(filtered);
+        }
+
+        renderBooks(booksData);
+    </script>
+</body>
+</html>
