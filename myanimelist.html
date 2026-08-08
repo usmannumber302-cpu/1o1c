@@ -5,7 +5,7 @@
     <link rel="icon" type="image/png" href="https://1o1c.org/logo.png">
 
     <title>My Random List | 1O1C Network</title>
-    <meta name="description" content="Personal anime database and watchlist collection.">
+    <meta name="description" content="Personal anime rating and watchlist database for 1O1C.">
 
     <style>
         body { 
@@ -58,15 +58,25 @@
         }
 
         #nav-bar a {
+            color: #34495e;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 6px 14px;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        #nav-bar a:hover {
+            color: #2980b9;
+            background-color: #e2ecf5;
+            border-radius: 4px;
+        }
+
+        #nav-bar a.active {
             color: #ffffff;
             background: #2980b9;
             background: linear-gradient(to bottom, #3498db 0%, #2980b9 100%);
             border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 6px 18px;
-            font-size: 14px;
-            display: inline-block;
         }
 
         .section-header {
@@ -99,11 +109,11 @@
         }
 
         .search-input {
-            width: 65%;
+            width: 60%;
         }
 
         .type-select {
-            width: 30%;
+            width: 35%;
         }
 
         .anime-table {
@@ -134,17 +144,7 @@
             background-color: #f0f4f8;
         }
 
-        .score-badge {
-            background-color: #fef9e7;
-            color: #d35400;
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: bold;
-            display: inline-block;
-        }
-
-        .status-badge {
+        .status-completed {
             background-color: #e8f8f5;
             color: #27ae60;
             padding: 3px 8px;
@@ -152,6 +152,25 @@
             font-size: 11px;
             font-weight: bold;
             display: inline-block;
+        }
+
+        .status-plan {
+            background-color: #ebf5fb;
+            color: #2980b9;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .rating-badge {
+            font-weight: bold;
+            color: #d35400;
+            background-color: #fef5e7;
+            padding: 3px 6px;
+            border-radius: 4px;
+            border: 1px solid #fdebd0;
         }
 
         footer {
@@ -169,24 +188,30 @@
     <div id="wrapper">
 
         <h1 class="logo">1O1C</h1>
-        <div class="subtitle">Personal Media Directories & Anime Watchlist</div>
+        <div class="subtitle">Personal Media Directories & Global Network Portal</div>
 
         <div id="nav-bar">
+            <a href="index.html">Home</a>
+            <a href="rules.html">Rules</a>
+            <a href="store.html">Server Shop</a>
+            <a href="downloads.html">Downloads</a>
             <a href="myrandomlist.html" class="active">My Random List</a>
+            <a href="mymcserverlist.html">MC Server List</a>
+            <a href="support.html">Support</a>
         </div>
 
         <p style="line-height: 1.6; color: #556270; font-size: 14px; margin-bottom: 20px;">
-            A curated database of personal anime entries along with their official MyAnimeList (MAL) scores and broadcast status.
+            Personal catalog of watched anime, movies, and planned watchlists with actual community/personal ratings assigned across all entries.
         </p>
 
-        <div class="section-header">Anime Watchlist Index</div>
+        <div class="section-header">My Random Anime & Media Database</div>
 
         <div class="filter-container">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search anime title or format..." onkeyup="filterAnime()">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search anime title..." onkeyup="filterAnime()">
             <select id="statusFilter" class="type-select" onchange="filterAnime()">
                 <option value="All">All Statuses</option>
-                <option value="Finished Airing">Finished Airing</option>
-                <option value="Currently Airing">Currently Airing</option>
+                <option value="Completed">Watched / Completed</option>
+                <option value="Plan to Watch">Plan to Watch</option>
             </select>
         </div>
 
@@ -194,75 +219,271 @@
             <thead>
                 <tr>
                     <th width="8%">#</th>
-                    <th width="45%">Title</th>
-                    <th width="15%">Format</th>
-                    <th width="16%">MAL Score</th>
-                    <th width="16%">Status</th>
+                    <th width="52%">Anime Title</th>
+                    <th width="20%">Rating</th>
+                    <th width="20%">Status</th>
                 </tr>
             </thead>
             <tbody id="animeBody">
-                <!-- Dynamically Populated -->
+                <!-- Populated dynamically via JavaScript -->
             </tbody>
         </table>
 
         <footer>
-            &copy; 2026 1O1C Network. Personal Anime Index.
+            &copy; 2026 1O1C Network. Curated Personal Media Log.
         </footer>
 
     </div>
 
     <script>
         var animeData = [
-            { id: 1, title: "Classroom of the Elite", type: "TV Series", score: "7.86", status: "Finished Airing" },
-            { id: 2, title: "Tomodachi Game", type: "TV Series", score: "7.68", status: "Finished Airing" },
-            { id: 3, title: "Spy x Family", type: "TV Series", score: "8.50", status: "Finished Airing" },
-            { id: 4, title: "The Angel Next Door Spoils Me Rotten", type: "TV Series", score: "7.84", status: "Finished Airing" },
-            { id: 5, title: "Migi & Dali", type: "TV Series", score: "7.72", status: "Finished Airing" },
-            { id: 6, title: "Kaguya-sama: Love is War", type: "TV Series", score: "8.69", status: "Finished Airing" },
-            { id: 7, title: "Attack on Titan", type: "TV Series", score: "8.55", status: "Finished Airing" },
-            { id: 8, title: "Rent-a-Girlfriend", type: "TV Series", score: "6.41", status: "Finished Airing" },
-            { id: 9, title: "Spy Classroom", type: "TV Series", score: "6.60", status: "Finished Airing" },
-            { id: 10, title: "The Daily Life of the Immortal King", type: "ONA", score: "7.28", status: "Finished Airing" },
-            { id: 11, title: "Hyouka", type: "TV Series", score: "8.08", status: "Finished Airing" },
-            { id: 12, title: "ERASED", type: "TV Series", score: "8.30", status: "Finished Airing" },
-            { id: 13, title: "The Promised Neverland", type: "TV Series", score: "8.52", status: "Finished Airing" },
-            { id: 14, title: "Death Note", type: "TV Series", score: "8.62", status: "Finished Airing" },
-            { id: 15, title: "A Silent Voice", type: "Movie", score: "8.93", status: "Finished Airing" },
-            { id: 16, title: "One Punch Man", type: "TV Series", score: "8.50", status: "Finished Airing" },
-            { id: 17, title: "The Millionaire Detective - Balance: UNLIMITED", type: "TV Series", score: "7.10", status: "Finished Airing" },
-            { id: 18, title: "The Devil is a Part-Timer!", type: "TV Series", score: "7.70", status: "Finished Airing" },
-            { id: 19, title: "Mushoku Tensei: Jobless Reincarnation", type: "TV Series", score: "8.36", status: "Finished Airing" },
-            { id: 20, title: "The Familiar of Zero", type: "TV Series", score: "7.22", status: "Finished Airing" },
-            { id: 21, title: "Re:ZERO -Starting Life in Another World-", type: "TV Series", score: "8.23", status: "Finished Airing" },
-            { id: 22, title: "Noragami", type: "TV Series", score: "7.96", status: "Finished Airing" },
-            { id: 23, title: "Steins;Gate", type: "TV Series", score: "9.07", status: "Finished Airing" },
-            { id: 24, title: "Parasyte -the maxim-", type: "TV Series", score: "8.33", status: "Finished Airing" },
-            { id: 25, title: "Assassination Classroom", type: "TV Series", score: "8.09", status: "Finished Airing" },
-            { id: 26, title: "Bocchi the Rock!", type: "TV Series", score: "8.76", status: "Finished Airing" },
-            { id: 27, title: "Orange", type: "TV Series", score: "7.62", status: "Finished Airing" },
-            { id: 28, title: "Dr. STONE", type: "TV Series", score: "8.27", status: "Finished Airing" },
-            { id: 29, title: "Gosick", type: "TV Series", score: "8.03", status: "Finished Airing" },
-            { id: 30, title: "Monster", type: "TV Series", score: "8.88", status: "Finished Airing" },
-            { id: 31, title: "Frieren: Beyond Journey's End", type: "TV Series", score: "9.29", status: "Finished Airing" },
-            { id: 32, title: "Fullmetal Alchemist: Brotherhood", type: "TV Series", score: "9.09", status: "Finished Airing" },
-            { id: 33, title: "Demon Slayer: Kimetsu no Yaiba", type: "TV Series", score: "8.48", status: "Finished Airing" },
-            { id: 34, title: "Jujutsu Kaisen", type: "TV Series", score: "8.61", status: "Finished Airing" },
-            { id: 35, title: "Chainsaw Man", type: "TV Series", score: "8.51", status: "Finished Airing" },
-            { id: 36, title: "Vinland Saga", type: "TV Series", score: "8.73", status: "Finished Airing" },
-            { id: 37, title: "Bleach: Thousand-Year Blood War", type: "TV Series", score: "8.90", status: "Finished Airing" },
-            { id: 38, title: "Hunter x Hunter (2011)", type: "TV Series", score: "9.04", status: "Finished Airing" },
-            { id: 39, title: "Mob Psycho 100", type: "TV Series", score: "8.48", status: "Finished Airing" },
-            { id: 40, title: "Code Geass: Lelouch of the Rebellion", type: "TV Series", score: "8.70", status: "Finished Airing" },
-            { id: 41, title: "Your Name.", type: "Movie", score: "8.84", status: "Finished Airing" },
-            { id: 42, title: "Weathering With You", type: "Movie", score: "8.28", status: "Finished Airing" },
-            { id: 43, title: "Suzume", type: "Movie", score: "8.34", status: "Finished Airing" },
-            { id: 44, title: "Violet Evergarden", type: "TV Series", score: "8.67", status: "Finished Airing" },
-            { id: 45, title: "Cyberpunk: Edgerunners", type: "ONA", score: "8.60", status: "Finished Airing" },
-            { id: 46, title: "Oshi no Ko", type: "TV Series", score: "8.71", status: "Finished Airing" },
-            { id: 47, title: "Solo Leveling", type: "TV Series", score: "8.32", status: "Finished Airing" },
-            { id: 48, title: "Blue Lock", type: "TV Series", score: "8.25", status: "Finished Airing" },
-            { id: 49, title: "Summer Time Rendering", type: "TV Series", score: "8.50", status: "Finished Airing" },
-            { id: 50, title: "86 Eighty-Six", type: "TV Series", score: "8.28", status: "Finished Airing" }
+            { id: 1, title: "Classroom of the Elite", rating: "8.1 / 10", status: "Completed" },
+            { id: 2, title: "Tomodachi Game", rating: "7.7 / 10", status: "Completed" },
+            { id: 3, title: "Spy x Family", rating: "8.5 / 10", status: "Completed" },
+            { id: 4, title: "The Angel Next Door Spoils Me Rotten", rating: "7.8 / 10", status: "Completed" },
+            { id: 5, title: "Migi & Dali", rating: "7.9 / 10", status: "Completed" },
+            { id: 6, title: "Kaguya-sama: Love is War", rating: "8.7 / 10", status: "Completed" },
+            { id: 7, title: "Attack on Titan", rating: "9.0 / 10", status: "Completed" },
+            { id: 8, title: "Rent-a-Girlfriend", rating: "6.8 / 10", status: "Completed" },
+            { id: 9, title: "Spy Classroom", rating: "6.6 / 10", status: "Completed" },
+            { id: 10, title: "The Daily Life of the Immortal King", rating: "7.3 / 10", status: "Completed" },
+            { id: 11, title: "Hyouka", rating: "8.1 / 10", status: "Completed" },
+            { id: 12, title: "Erased", rating: "8.3 / 10", status: "Completed" },
+            { id: 13, title: "The Promised Neverland", rating: "8.5 / 10", status: "Completed" },
+            { id: 14, title: "Death Note", rating: "8.6 / 10", status: "Completed" },
+            { id: 15, title: "A Silent Voice", rating: "8.9 / 10", status: "Completed" },
+            { id: 16, title: "One Punch Man", rating: "8.5 / 10", status: "Completed" },
+            { id: 17, title: "The Millionaire Detective Balance: UNLIMITED", rating: "7.5 / 10", status: "Plan to Watch" },
+            { id: 18, title: "The Devil is a Part-Timer!", rating: "7.7 / 10", status: "Completed" },
+            { id: 19, title: "Mushoku Tensei: Jobless Reincarnation", rating: "8.4 / 10", status: "Completed" },
+            { id: 20, title: "The Familiar of Zero", rating: "7.2 / 10", status: "Completed" },
+            { id: 21, title: "Re:Zero - Starting Life in Another World", rating: "8.2 / 10", status: "Completed" },
+            { id: 22, title: "Noragami", rating: "8.0 / 10", status: "Completed" },
+            { id: 23, title: "Steins;Gate", rating: "9.0 / 10", status: "Completed" },
+            { id: 24, title: "Parasyte -the maxim-", rating: "8.3 / 10", status: "Completed" },
+            { id: 25, title: "Assassination Classroom", rating: "8.1 / 10", status: "Completed" },
+            { id: 26, title: "Bocchi the Rock!", rating: "8.8 / 10", status: "Plan to Watch" },
+            { id: 27, title: "Orange", rating: "7.6 / 10", status: "Completed" },
+            { id: 28, title: "Dr. STONE", rating: "8.2 / 10", status: "Completed" },
+            { id: 29, title: "Gosick", rating: "8.0 / 10", status: "Plan to Watch" },
+            { id: 30, title: "Monster", rating: "8.9 / 10", status: "Completed" },
+            { id: 31, title: "The Irregular at Magic High School", rating: "7.4 / 10", status: "Completed" },
+            { id: 32, title: "Terror in Resonance", rating: "8.1 / 10", status: "Plan to Watch" },
+            { id: 33, title: "Reincarnation of the Strongest Exorcist in Another World", rating: "7.2 / 10", status: "Completed" },
+            { id: 34, title: "Do It Yourself!!", rating: "7.7 / 10", status: "Completed" },
+            { id: 35, title: "Barakamon", rating: "8.4 / 10", status: "Completed" },
+            { id: 36, title: "Your Name.", rating: "8.8 / 10", status: "Completed" },
+            { id: 37, title: "Weathering with You", rating: "8.3 / 10", status: "Completed" },
+            { id: 38, title: "The Misfit of Demon King Academy (Anos)", rating: "7.3 / 10", status: "Completed" },
+            { id: 39, title: "Solo Leveling", rating: "8.3 / 10", status: "Completed" },
+            { id: 40, title: "Oshi no Ko", rating: "8.7 / 10", status: "Completed" },
+            { id: 41, title: "Heavenly Delusion", rating: "8.2 / 10", status: "Plan to Watch" },
+            { id: 42, title: "My Dress-Up Darling", rating: "8.2 / 10", status: "Completed" },
+            { id: 43, title: "Another", rating: "7.4 / 10", status: "Completed" },
+            { id: 44, title: "I Want to Eat Your Pancreas", rating: "8.5 / 10", status: "Completed" },
+            { id: 45, title: "Your Lie in April", rating: "8.6 / 10", status: "Completed" },
+            { id: 46, title: "Violet Evergarden", rating: "8.6 / 10", status: "Completed" },
+            { id: 47, title: "Lookism", rating: "7.4 / 10", status: "Completed" },
+            { id: 48, title: "Maid Sama!", rating: "8.0 / 10", status: "Completed" },
+            { id: 49, title: "Josee, the Tiger and the Fish", rating: "8.4 / 10", status: "Completed" },
+            { id: 50, title: "Say 'I Love You'", rating: "7.4 / 10", status: "Completed" },
+            { id: 51, title: "In Another World with My Smartphone", rating: "6.2 / 10", status: "Completed" },
+            { id: 52, title: "Summoned to Another World for a Second Time", rating: "5.9 / 10", status: "Completed" },
+            { id: 53, title: "Frieren: Beyond Journey's End", rating: "9.3 / 10", status: "Completed" },
+            { id: 54, title: "Yamada-kun and the Seven Witches", rating: "7.6 / 10", status: "Completed" },
+            { id: 55, title: "The Kingdoms of Ruin", rating: "6.5 / 10", status: "Completed" },
+            { id: 56, title: "Lycoris Recoil", rating: "8.1 / 10", status: "Completed" },
+            { id: 57, title: "The Detective Is Already Dead", rating: "6.3 / 10", status: "Completed" },
+            { id: 58, title: "The World's Finest Assassin Gets Reincarnated", rating: "7.3 / 10", status: "Completed" },
+            { id: 59, title: "The Tunnel to Summer, the Exit of Goodbyes", rating: "8.1 / 10", status: "Completed" },
+            { id: 60, title: "Charlotte", rating: "7.7 / 10", status: "Completed" },
+            { id: 61, title: "Danganronpa 3", rating: "7.1 / 10", status: "Plan to Watch" },
+            { id: 62, title: "My Happy Marriage", rating: "8.1 / 10", status: "Completed" },
+            { id: 63, title: "My Love Story with Yamada-kun at Lv999", rating: "8.0 / 10", status: "Completed" },
+            { id: 64, title: "I'm Standing on a Million Lives", rating: "6.5 / 10", status: "Completed" },
+            { id: 65, title: "The Quintessential Quintuplets", rating: "7.6 / 10", status: "Completed" },
+            { id: 66, title: "Hand Shakers", rating: "5.3 / 10", status: "Plan to Watch" },
+            { id: 67, title: "Shironeko Project: Zero Chronicle", rating: "6.1 / 10", status: "Plan to Watch" },
+            { id: 68, title: "The Genius Prince's Guide to Raising a Nation", rating: "7.4 / 10", status: "Completed" },
+            { id: 69, title: "My Stepmom's Daughter Is My Ex", rating: "6.8 / 10", status: "Completed" },
+            { id: 70, title: "Black Summoner", rating: "7.1 / 10", status: "Completed" },
+            { id: 71, title: "Engage Kiss", rating: "7.1 / 10", status: "Completed" },
+            { id: 72, title: "A Couple of Cuckoos", rating: "6.8 / 10", status: "Completed" },
+            { id: 73, title: "Plastic Memories", rating: "7.9 / 10", status: "Completed" },
+            { id: 74, title: "The Day I Became a God", rating: "6.7 / 10", status: "Completed" },
+            { id: 75, title: "Tonikaku Kawaii (Fly Me to the Moon)", rating: "7.9 / 10", status: "Completed" },
+            { id: 76, title: "Engaged to the Unidentified", rating: "7.4 / 10", status: "Completed" },
+            { id: 77, title: "Kubo Won't Let Me Be Invisible", rating: "7.6 / 10", status: "Completed" },
+            { id: 78, title: "By the Grace of the Gods", rating: "7.1 / 10", status: "Completed" },
+            { id: 79, title: "3D Kanojo: Real Girl", rating: "7.0 / 10", status: "Completed" },
+            { id: 80, title: "Cheating Craft", rating: "5.8 / 10", status: "Plan to Watch" },
+            { id: 81, title: "Oreshura", rating: "7.0 / 10", status: "Completed" },
+            { id: 82, title: "Higehiro: After Being Rejected, I Shaved and Took in a High School Runaway", rating: "7.4 / 10", status: "Plan to Watch" },
+            { id: 83, title: "Tsuki ga Kirei (As the Moon, So Beautiful)", rating: "8.0 / 10", status: "Plan to Watch" },
+            { id: 84, title: "Horimiya", rating: "8.2 / 10", status: "Completed" },
+            { id: 85, title: "KonoSuba: God's Blessing on This Wonderful World!", rating: "8.1 / 10", status: "Completed" },
+            { id: 86, title: "Zom 100: Bucket List of the Dead", rating: "8.0 / 10", status: "Completed" },
+            { id: 87, title: "Mieruko-chan", rating: "7.4 / 10", status: "Completed" },
+            { id: 88, title: "Black Bullet", rating: "7.1 / 10", status: "Plan to Watch" },
+            { id: 89, title: "Komi Can't Communicate", rating: "7.7 / 10", status: "Completed" },
+            { id: 90, title: "Darling in the FranXX", rating: "7.2 / 10", status: "Completed" },
+            { id: 91, title: "Chainsaw Man", rating: "8.5 / 10", status: "Completed" },
+            { id: 92, title: "More than a Married Couple, but Not Lovers", rating: "7.6 / 10", status: "Completed" },
+            { id: 93, title: "Wise Man's Grandchild", rating: "7.0 / 10", status: "Plan to Watch" },
+            { id: 94, title: "Reign of the Seven Spellblades", rating: "7.1 / 10", status: "Plan to Watch" },
+            { id: 95, title: "The Villainess Enjoying a Carefree Life", rating: "7.2 / 10", status: "Completed" },
+            { id: 96, title: "The Foolish Angel Dances with the Devil", rating: "7.0 / 10", status: "Completed" },
+            { id: 97, title: "A Galaxy Next Door", rating: "7.2 / 10", status: "Completed" },
+            { id: 98, title: "Fruits Basket", rating: "8.5 / 10", status: "Plan to Watch" },
+            { id: 99, title: "Code Geass: Lelouch of the Rebellion", rating: "8.7 / 10", status: "Completed" },
+            { id: 100, title: "Persona 5 the Animation", rating: "6.7 / 10", status: "Plan to Watch" },
+            { id: 101, title: "ReLIFE", rating: "8.0 / 10", status: "Plan to Watch" },
+            { id: 102, title: "Vinland Saga", rating: "8.7 / 10", status: "Plan to Watch" },
+            { id: 103, title: "Nisekoi: False Love", rating: "7.6 / 10", status: "Plan to Watch" },
+            { id: 104, title: "A Girl & Her Guard Dog", rating: "6.1 / 10", status: "Plan to Watch" },
+            { id: 105, title: "Kakkou no Iinazuke (A Couple of Cuckoos S2)", rating: "6.9 / 10", status: "Plan to Watch" },
+            { id: 106, title: "The Weakest Tamer Began a Journey to Pick Up Trash", rating: "7.5 / 10", status: "Plan to Watch" },
+            { id: 107, title: "Rascal Does Not Dream of Bunny Girl Senpai", rating: "8.2 / 10", status: "Plan to Watch" },
+            { id: 108, title: "Beauty Will Decide Job", rating: "6.8 / 10", status: "Plan to Watch" },
+            { id: 109, title: "The Girl Downstairs", rating: "7.3 / 10", status: "Plan to Watch" },
+            { id: 110, title: "Uncle from Another World", rating: "7.8 / 10", status: "Completed" },
+            { id: 111, title: "Tearmoon Empire", rating: "7.3 / 10", status: "Plan to Watch" },
+            { id: 112, title: "Angels of Death", rating: "6.9 / 10", status: "Plan to Watch" },
+            { id: 113, title: "The Grimm Variations", rating: "7.1 / 10", status: "Plan to Watch" },
+            { id: 114, title: "Maiden of the Savage", rating: "7.2 / 10", status: "Plan to Watch" },
+            { id: 115, title: "Tamako Love Story", rating: "8.0 / 10", status: "Plan to Watch" },
+            { id: 116, title: "My Instant Death Ability Is So Overpowered", rating: "6.7 / 10", status: "Plan to Watch" },
+            { id: 117, title: "Shine Post", rating: "7.4 / 10", status: "Plan to Watch" },
+            { id: 118, title: "The Garden of Words", rating: "8.0 / 10", status: "Plan to Watch" },
+            { id: 119, title: "Babylon", rating: "7.1 / 10", status: "Plan to Watch" },
+            { id: 120, title: "Akudama Drive", rating: "7.6 / 10", status: "Plan to Watch" },
+            { id: 121, title: "An Archdemon's Dilemma: How to Love Your Elf Bride", rating: "7.4 / 10", status: "Plan to Watch" },
+            { id: 122, title: "Viral Hit", rating: "7.5 / 10", status: "Plan to Watch" },
+            { id: 123, title: "Unnamed Memory", rating: "7.2 / 10", status: "Plan to Watch" },
+            { id: 124, title: "The Duke of Death and His Maid", rating: "7.7 / 10", status: "Plan to Watch" },
+            { id: 125, title: "Studio Apartment, Good Lighting, Angel Included", rating: "6.9 / 10", status: "Plan to Watch" },
+            { id: 126, title: "Why Raeliana Ended Up at the Duke's Mansion", rating: "7.6 / 10", status: "Plan to Watch" },
+            { id: 127, title: "A Story About a Man and Woman Who Turned Back into a Young Couple", rating: "7.3 / 10", status: "Plan to Watch" },
+            { id: 128, title: "Teasing Master Takagi-san", rating: "7.8 / 10", status: "Plan to Watch" },
+            { id: 129, title: "The New Gate", rating: "6.8 / 10", status: "Plan to Watch" },
+            { id: 130, title: "Bottom-Tier Character Tomozaki", rating: "7.2 / 10", status: "Plan to Watch" },
+            { id: 131, title: "Great Teacher Onizuka (GTO)", rating: "8.7 / 10", status: "Completed" },
+            { id: 132, title: "Young GTO (Shonan Junai Gumi)", rating: "7.4 / 10", status: "Plan to Watch" },
+            { id: 133, title: "Bartender: Glass of God", rating: "7.6 / 10", status: "Plan to Watch" },
+            { id: 134, title: "The Ice Guy and His Cool Female Colleague", rating: "7.5 / 10", status: "Completed" },
+            { id: 135, title: "Hello World", rating: "7.5 / 10", status: "Plan to Watch" },
+            { id: 136, title: "Inuyashiki / Junji Ito Collection", rating: "7.6 / 10", status: "Plan to Watch" },
+            { id: 137, title: "The Sacred Blacksmith", rating: "6.9 / 10", status: "Plan to Watch" },
+            { id: 138, title: "The Seven Deadly Sins", rating: "7.7 / 10", status: "Plan to Watch" },
+            { id: 139, title: "Gleipnir", rating: "6.9 / 10", status: "Plan to Watch" },
+            { id: 140, title: "When Supernatural Battles Became Commonplace", rating: "7.1 / 10", status: "Plan to Watch" },
+            { id: 141, title: "The Hentai Prince and the Stony Cat", rating: "7.1 / 10", status: "Plan to Watch" },
+            { id: 142, title: "Daily Lives of High School Boys", rating: "8.2 / 10", status: "Plan to Watch" },
+            { id: 143, title: "The Many Sides of Voice Actor Radio", rating: "7.0 / 10", status: "Plan to Watch" },
+            { id: 144, title: "Oniai (Onee-chan ga Kita)", rating: "6.4 / 10", status: "Plan to Watch" },
+            { id: 145, title: "My Teen Romantic Comedy SNAFU (Oregairu)", rating: "8.0 / 10", status: "Plan to Watch" },
+            { id: 146, title: "Blood-C", rating: "6.6 / 10", status: "Plan to Watch" },
+            { id: 147, title: "ORESUKI Are you the only one who loves me?", rating: "7.2 / 10", status: "Plan to Watch" },
+            { id: 148, title: "Hellsing Ultimate", rating: "8.3 / 10", status: "Plan to Watch" },
+            { id: 149, title: "Days with My Stepsister", rating: "7.6 / 10", status: "Plan to Watch" },
+            { id: 150, title: "Call of the Night", rating: "7.9 / 10", status: "Completed" },
+            { id: 151, title: "A Sister's All You Need", rating: "7.3 / 10", status: "Plan to Watch" },
+            { id: 152, title: "Fullmetal Alchemist: Brotherhood", rating: "9.1 / 10", status: "Plan to Watch" },
+            { id: 153, title: "Angel Beats!", rating: "8.1 / 10", status: "Plan to Watch" },
+            { id: 154, title: "Gridman Universe", rating: "7.8 / 10", status: "Plan to Watch" },
+            { id: 155, title: "Love, Chunibyo & Other Delusions!", rating: "7.7 / 10", status: "Plan to Watch" },
+            { id: 156, title: "UN-GO", rating: "7.4 / 10", status: "Plan to Watch" },
+            { id: 157, title: "Moriarty the Patriot", rating: "8.2 / 10", status: "Plan to Watch" },
+            { id: 158, title: "The Perfect Insider", rating: "7.2 / 10", status: "Plan to Watch" },
+            { id: 159, title: "True Beauty", rating: "7.4 / 10", status: "Plan to Watch" },
+            { id: 160, title: "Summer Ghost", rating: "7.7 / 10", status: "Plan to Watch" },
+            { id: 161, title: "Memories (1995 Film)", rating: "7.8 / 10", status: "Plan to Watch" },
+            { id: 162, title: "Makeine: Too Many Losing Heroines!", rating: "8.2 / 10", status: "Plan to Watch" },
+            { id: 163, title: "Hortensia Saga", rating: "6.2 / 10", status: "Plan to Watch" },
+            { id: 164, title: "How to Raise a Boring Girlfriend (Saekano)", rating: "7.5 / 10", status: "Plan to Watch" },
+            { id: 165, title: "Haganai: I Don't Have Many Friends", rating: "7.1 / 10", status: "Plan to Watch" },
+            { id: 166, title: "Lord of Mysteries", rating: "8.6 / 10", status: "Completed" },
+            { id: 167, title: "Link Click (Shiguang Dailiren)", rating: "8.7 / 10", status: "Plan to Watch" },
+            { id: 168, title: "To Me, the One Who Loved You", rating: "7.3 / 10", status: "Plan to Watch" },
+            { id: 169, title: "Chaos Dragon", rating: "5.8 / 10", status: "Plan to Watch" },
+            { id: 170, title: "Pseudo Harem", rating: "7.6 / 10", status: "Plan to Watch" },
+            { id: 171, title: "Wonder Egg Priority", rating: "7.6 / 10", status: "Plan to Watch" },
+            { id: 172, title: "The Beginning After the End", rating: "8.5 / 10", status: "Completed" },
+            { id: 173, title: "Blue Box", rating: "8.1 / 10", status: "Plan to Watch" },
+            { id: 174, title: "Golden Boy", rating: "8.0 / 10", status: "Plan to Watch" },
+            { id: 175, title: "You Are Ms. Servant", rating: "7.2 / 10", status: "Completed" },
+            { id: 176, title: "Boogiepop and Others", rating: "7.2 / 10", status: "Plan to Watch" },
+            { id: 177, title: "The Unparalleled Black & White", rating: "7.0 / 10", status: "Plan to Watch" },
+            { id: 178, title: "Ningen Fushin: Adventurers Who Don't Believe in Humanity", rating: "6.9 / 10", status: "Plan to Watch" },
+            { id: 179, title: "Dororo", rating: "8.2 / 10", status: "Plan to Watch" },
+            { id: 180, title: "Undead Girl Murder Farce", rating: "7.8 / 10", status: "Plan to Watch" },
+            { id: 181, title: "Guilty Crown", rating: "7.4 / 10", status: "Plan to Watch" },
+            { id: 182, title: "Puella Magi Madoka Magica", rating: "8.4 / 10", status: "Plan to Watch" },
+            { id: 183, title: "Neon Genesis Evangelion", rating: "8.5 / 10", status: "Plan to Watch" },
+            { id: 184, title: "Kakegurui", rating: "7.2 / 10", status: "Plan to Watch" },
+            { id: 185, title: "Psycho-Pass", rating: "8.3 / 10", status: "Plan to Watch" },
+            { id: 186, title: "PLUTO", rating: "8.5 / 10", status: "Plan to Watch" },
+            { id: 187, title: "Sonny Boy", rating: "7.8 / 10", status: "Plan to Watch" },
+            { id: 188, title: "Made in Abyss", rating: "8.7 / 10", status: "Plan to Watch" },
+            { id: 189, title: "The Fruit of Grisaia", rating: "7.3 / 10", status: "Plan to Watch" },
+            { id: 190, title: "Koikimo (It's Disgusting to Call This Love)", rating: "6.9 / 10", status: "Plan to Watch" },
+            { id: 191, title: "Burn the Witch", rating: "7.1 / 10", status: "Plan to Watch" },
+            { id: 192, title: "To Your Eternity", rating: "8.3 / 10", status: "Plan to Watch" },
+            { id: 193, title: "Tsurezure Children", rating: "7.6 / 10", status: "Plan to Watch" },
+            { id: 194, title: "Killing Bites", rating: "6.7 / 10", status: "Plan to Watch" },
+            { id: 195, title: "Kowloon Generic Romance", rating: "7.5 / 10", status: "Plan to Watch" },
+            { id: 196, title: "TO BE HERO X", rating: "8.2 / 10", status: "Completed" },
+            { id: 197, title: "ID: INVADED", rating: "7.8 / 10", status: "Plan to Watch" },
+            { id: 198, title: "Kokoro Connect", rating: "7.8 / 10", status: "Plan to Watch" },
+            { id: 199, title: "Pantheon", rating: "8.3 / 10", status: "Plan to Watch" },
+            { id: 200, title: "Takopi's Original Sin", rating: "8.1 / 10", status: "Plan to Watch" },
+            { id: 201, title: "Berserk", rating: "8.7 / 10", status: "Plan to Watch" },
+            { id: 202, title: "Baccano!", rating: "8.4 / 10", status: "Plan to Watch" },
+            { id: 203, title: "Aoi Bungaku Series (Blue Literature)", rating: "7.7 / 10", status: "Plan to Watch" },
+            { id: 204, title: "Paprika (Satoshi Kon)", rating: "8.1 / 10", status: "Plan to Watch" },
+            { id: 205, title: "Ghost in the Shell", rating: "8.2 / 10", status: "Plan to Watch" },
+            { id: 206, title: "No Game No Life", rating: "8.1 / 10", status: "Completed" },
+            { id: 207, title: "Fate/Zero", rating: "8.3 / 10", status: "Completed" },
+            { id: 208, title: "The Apothecary Diaries", rating: "8.8 / 10", status: "Completed" },
+            { id: 209, title: "Kaiji: Ultimate Survivor", rating: "8.3 / 10", status: "Plan to Watch" },
+            { id: 210, title: "One Outs", rating: "8.3 / 10", status: "Plan to Watch" },
+            { id: 211, title: "Cyberpunk: Edgerunners", rating: "8.6 / 10", status: "Plan to Watch" },
+            { id: 212, title: "Clannad & After Story", rating: "8.9 / 10", status: "Plan to Watch" },
+            { id: 213, title: "March Comes in Like a Lion", rating: "8.8 / 10", status: "Plan to Watch" },
+            { id: 214, title: "Cowboy Bebop", rating: "8.7 / 10", status: "Plan to Watch" },
+            { id: 215, title: "Devilman Crybaby", rating: "7.8 / 10", status: "Plan to Watch" },
+            { id: 216, title: "Odd Taxi", rating: "8.7 / 10", status: "Plan to Watch" },
+            { id: 217, title: "Hell's Paradise (Jigokuraku)", rating: "8.1 / 10", status: "Plan to Watch" },
+            { id: 218, title: "Blue Lock", rating: "8.2 / 10", status: "Plan to Watch" },
+            { id: 219, title: "Haikyuu!!", rating: "8.8 / 10", status: "Plan to Watch" },
+            { id: 220, title: "Summer Time Rendering", rating: "8.5 / 10", status: "Plan to Watch" },
+            { id: 221, title: "86 Eighty-Six", rating: "8.5 / 10", status: "Plan to Watch" },
+            { id: 222, title: "Bungo Stray Dogs", rating: "8.1 / 10", status: "Plan to Watch" },
+            { id: 223, title: "Serial Experiments Lain", rating: "8.1 / 10", status: "Plan to Watch" },
+            { id: 224, title: "Mob Psycho 100", rating: "8.6 / 10", status: "Plan to Watch" },
+            { id: 225, title: "Overlord", rating: "7.9 / 10", status: "Completed" },
+            { id: 226, title: "Saga of Tanya the Evil", rating: "7.9 / 10", status: "Completed" },
+            { id: 227, title: "The Rising of the Shield Hero", rating: "7.9 / 10", status: "Completed" },
+            { id: 228, title: "The Eminence in Shadow", rating: "8.3 / 10", status: "Completed" },
+            { id: 229, title: "Sakamoto Days", rating: "8.3 / 10", status: "Completed" },
+            { id: 230, title: "Dandadan", rating: "8.6 / 10", status: "Plan to Watch" },
+            { id: 231, title: "Tokyo Revengers", rating: "7.9 / 10", status: "Completed" },
+            { id: 232, title: "Domestic Girlfriend", rating: "6.7 / 10", status: "Completed" },
+            { id: 233, title: "One Piece", rating: "8.7 / 10", status: "Completed" },
+            { id: 234, title: "Naruto", rating: "8.0 / 10", status: "Completed" },
+            { id: 235, title: "Dragon Ball", rating: "7.9 / 10", status: "Completed" },
+            { id: 236, title: "Jujutsu Kaisen", rating: "8.6 / 10", status: "Completed" },
+            { id: 237, title: "Demon Slayer (Kimetsu no Yaiba)", rating: "8.5 / 10", status: "Completed" },
+            { id: 238, title: "Noragami Aragoto", rating: "8.2 / 10", status: "Completed" },
+            { id: 239, title: "Grand Blue Dreaming", rating: "8.4 / 10", status: "Plan to Watch" },
+            { id: 240, title: "High School DxD", rating: "7.3 / 10", status: "Completed" },
+            { id: 241, title: "Date A Live", rating: "7.2 / 10", status: "Completed" },
+            { id: 242, title: "TSUKIMICHI -Moonlit Fantasy-", rating: "7.7 / 10", status: "Completed" },
+            { id: 243, title: "Campfire Cooking in Another World", rating: "7.7 / 10", status: "Completed" },
+            { id: 244, title: "Skeleton Knight in Another World", rating: "7.1 / 10", status: "Completed" },
+            { id: 245, title: "Trapped in a Dating Sim", rating: "7.4 / 10", status: "Completed" },
+            { id: 246, title: "Farming Life in Another World", rating: "7.5 / 10", status: "Completed" },
+            { id: 247, title: "BOFURI: I Don't Want to Get Hurt, so I'll Max Out My Defense", rating: "7.5 / 10", status: "Completed" }
         ];
 
         function renderAnime(data) {
@@ -272,11 +493,16 @@
             data.forEach(function(item) {
                 var tr = document.createElement('tr');
 
+                var statusBadge = item.status === 'Completed' 
+                    ? '<span class="status-completed">✓ Watched</span>' 
+                    : '<span class="status-plan">Plan to Watch</span>';
+
+                var ratingHTML = '<span class="rating-badge">' + item.rating + '</span>';
+
                 tr.innerHTML = '<td>' + item.id + '</td>' +
                                '<td><strong>' + item.title + '</strong></td>' +
-                               '<td>' + item.type + '</td>' +
-                               '<td><span class="score-badge">★ ' + item.score + '</span></td>' +
-                               '<td><span class="status-badge">' + item.status + '</span></td>';
+                               '<td>' + ratingHTML + '</td>' +
+                               '<td>' + statusBadge + '</td>';
 
                 tbody.appendChild(tr);
             });
@@ -287,8 +513,7 @@
             var selectedStatus = document.getElementById('statusFilter').value;
 
             var filtered = animeData.filter(function(anime) {
-                var matchesSearch = anime.title.toLowerCase().includes(searchText) || 
-                                  anime.type.toLowerCase().includes(searchText);
+                var matchesSearch = anime.title.toLowerCase().includes(searchText);
                 var matchesStatus = (selectedStatus === 'All') || (anime.status === selectedStatus);
                 return matchesSearch && matchesStatus;
             });
