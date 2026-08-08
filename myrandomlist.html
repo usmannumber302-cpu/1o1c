@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="https://1o1c.org/logo.png">
+
+    <title>My Random List | 1O1C Anarchy Network</title>
+    <meta name="description" content="1O1C Directory and personal media tracking hubs including anime lists, reading lists, and Minecraft server lists.">
+
+    <style>
+        /* 2010 Era Balanced & Peaceful Base Styling */
+        body { 
+            background-color: #dce5ed; 
+            color: #2c3e50; 
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Standard 2010 Center Container */
+        #wrapper {
+            width: 900px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border: 1px solid #b5c7d9;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: left;
+            box-shadow: 0px 4px 20px rgba(160, 180, 200, 0.4);
+        }
+
+        /* Header Logo Design */
+        h1.logo {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 54px;
+            font-weight: bold;
+            color: #2980b9;
+            margin: 10px 0 5px 0;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-weight: normal;
+            font-size: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation Menu Bar */
+        #nav-bar {
+            border: 1px solid #a4b9cc;
+            border-radius: 5px;
+            background: #eef3f7;
+            background: linear-gradient(to bottom, #f7fafc 0%, #eef3f7 100%);
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        #nav-bar a {
+            color: #34495e;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 6px 14px;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        #nav-bar a:hover {
+            color: #2980b9;
+            background-color: #e2ecf5;
+            border-radius: 4px;
+        }
+
+        #nav-bar a.active {
+            color: #ffffff;
+            background: #2980b9;
+            background: linear-gradient(to bottom, #3498db 0%, #2980b9 100%);
+            border-radius: 4px;
+        }
+
+        /* Section Separators */
+        .section-header {
+            background-color: #ebf2f7;
+            color: #2c3e50;
+            padding: 8px 12px;
+            font-weight: bold;
+            border-left: 4px solid #2980b9;
+            border-radius: 0 4px 4px 0;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Grid Layout for Hub Buttons */
+        .list-grid {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            border-spacing: 15px;
+            margin: -15px -15px 10px -15px;
+        }
+
+        .list-card {
+            display: table-cell;
+            background-color: #fafbfc;
+            border: 1px solid #d6e0ea;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            vertical-align: top;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .list-card:hover {
+            border-color: #b5c7d9;
+            background-color: #f4f8fb;
+        }
+
+        .list-title {
+            color: #2980b9;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .list-desc {
+            font-size: 13px;
+            color: #556270;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            min-height: 55px;
+        }
+
+        /* Glossy Navigation Action Buttons */
+        .btn-action {
+            display: inline-block;
+            background: #3498db;
+            background: linear-gradient(to bottom, #3498db 0%, #2980b9 100%);
+            border: 1px solid #2573a7;
+            border-radius: 4px;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .btn-action:hover {
+            background: #2980b9;
+            background: linear-gradient(to bottom, #2980b9 0%, #1f6391 100%);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eef3f7;
+            color: #95a5a6;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="wrapper">
+
+        <!-- Header -->
+        <h1 class="logo">1O1C</h1>
+        <div class="subtitle">Personal Media Directories & Strategic Logs</div>
+
+        <!-- Navigation Menu -->
+        <div id="nav-bar">
+            <a href="index.html">Home</a>
+            <a href="rules.html">Rules</a>
+            <a href="store.html">Server Shop</a>
+            <a href="downloads.html">Downloads</a>
+            <a href="myrandomlist.html" class="active">My Random List</a>
+            <a href="support.html">Support</a>
+        </div>
+
+        <p style="line-height: 1.6; color: #556270; font-size: 14px; margin-bottom: 25px;">
+            Welcome to the central directory hub. Select any of the sub-lists below to view personal reading logs, tracked series, or community server indexes.
+        </p>
+
+        <div class="section-header">Select a List Directory</div>
+
+        <!-- 3-Column List Link Cards -->
+        <div class="list-grid">
+            
+            <!-- Anime List Card -->
+            <div class="list-card">
+                <div class="list-title">My Anime List</div>
+                <div class="list-desc">Personal watchlist, completed series logs, ratings, and active seasonal recommendations.</div>
+                <a href="myanimelist.html" class="btn-action">Open Anime List &rarr;</a>
+            </div>
+
+            <!-- Reading List Card -->
+            <div class="list-card">
+                <div class="list-title">My Reading List</div>
+                <div class="list-desc">Tracked novels, web fiction archives, manuscripts, and literary review logs.</div>
+                <a href="myreadinglist.html" class="btn-action">Open Reading List &rarr;</a>
+            </div>
+
+            <!-- MC Server List Card -->
+            <div class="list-card">
+                <div class="list-title">My MC Server List</div>
+                <div class="list-desc">Curated index of notable Minecraft servers, partner networks, and test environments.</div>
+                <a href="mymcserverlist.html" class="btn-action">Open Server List &rarr;</a>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            &copy; 2026 1O1C Anarchy Network. Independently managed. Not affiliated with Mojang Studios. Dedicated private host infrastructure.
+        </footer>
+
+    </div>
+
+</body>
+</html>
