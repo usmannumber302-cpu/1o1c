@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="https://1o1c.org/logo.png">
-
     <title>My Random List | 1O1C Network</title>
-    <meta name="description" content="Personal anime rating and watchlist database for 1O1C.">
+    <meta name="description" content="Personal media and anime watch list directory on 1O1C Network.">
 
     <style>
+        /* 2010 Era Balanced Base Styling */
         body { 
             background-color: #dce5ed; 
             color: #2c3e50; 
@@ -18,7 +18,7 @@
         }
 
         #wrapper {
-            width: 950px;
+            width: 900px;
             margin: 30px auto;
             background-color: #ffffff;
             border: 1px solid #b5c7d9;
@@ -47,6 +47,7 @@
             letter-spacing: 0.5px;
         }
 
+        /* Glossy Navigation Menu Bar */
         #nav-bar {
             border: 1px solid #a4b9cc;
             border-radius: 5px;
@@ -61,7 +62,7 @@
             color: #34495e;
             text-decoration: none;
             font-weight: bold;
-            padding: 6px 14px;
+            padding: 6px 18px;
             font-size: 14px;
             display: inline-block;
         }
@@ -79,103 +80,106 @@
             border-radius: 4px;
         }
 
-        .section-header {
-            background-color: #ebf2f7;
-            color: #2c3e50;
-            padding: 8px 12px;
-            font-weight: bold;
-            border-left: 4px solid #2980b9;
-            border-radius: 0 4px 4px 0;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-        }
-
+        /* Filter Controls Bar */
         .filter-container {
+            background-color: #f5f8fa;
+            border: 1px solid #d6e0ea;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
             display: flex;
-            justify-content: space-between;
+            gap: 15px;
             align-items: center;
-            margin-bottom: 15px;
-            gap: 10px;
+            justify-content: space-between;
         }
 
-        .search-input, .type-select {
-            padding: 8px 12px;
-            border: 1px solid #cccccc;
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-container input[type="text"], 
+        .filter-container select {
+            padding: 7px 10px;
+            border: 1px solid #b5c7d9;
             border-radius: 4px;
             font-size: 13px;
-            color: #2c3e50;
+            outline: none;
         }
 
-        .search-input {
-            width: 60%;
+        .filter-container input[type="text"]:focus, 
+        .filter-container select:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 4px rgba(52, 152, 219, 0.3);
         }
 
-        .type-select {
-            width: 35%;
-        }
-
-        .anime-table {
+        /* Data Table Styling */
+        table.data-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 13px;
-        }
-
-        .anime-table th {
-            background-color: #ebf2f7;
-            color: #2c3e50;
-            padding: 10px;
             border: 1px solid #d6e0ea;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        table.data-table th {
+            background-color: #eef3f7;
+            color: #2c3e50;
+            padding: 12px;
             text-align: left;
+            font-size: 13px;
+            border-bottom: 2px solid #d6e0ea;
         }
 
-        .anime-table td {
-            padding: 8px 10px;
-            border: 1px solid #eef3f7;
-            color: #556270;
+        table.data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #edf2f7;
+            font-size: 13px;
+            color: #4a5568;
         }
 
-        .anime-table tr:nth-child(even) {
-            background-color: #fafbfc;
+        table.data-table tr:nth-child(even) {
+            background-color: #fbfcfd;
         }
 
-        .anime-table tr:hover {
-            background-color: #f0f4f8;
+        table.data-table tr:hover {
+            background-color: #f1f5f9;
         }
 
+        /* Badges */
         .status-completed {
-            background-color: #e8f8f5;
-            color: #27ae60;
+            background-color: #e6fffa;
+            color: #234e52;
+            border: 1px solid #b2f5ea;
             padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 11px;
+            border-radius: 4px;
+            font-size: 12px;
             font-weight: bold;
-            display: inline-block;
         }
 
         .status-plan {
-            background-color: #ebf5fb;
-            color: #2980b9;
+            background-color: #fffaf0;
+            color: #744210;
+            border: 1px solid #feebc8;
             padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 11px;
+            border-radius: 4px;
+            font-size: 12px;
             font-weight: bold;
-            display: inline-block;
         }
 
         .rating-badge {
+            background-color: #edf2f7;
+            color: #2d3748;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
             font-weight: bold;
-            color: #d35400;
-            background-color: #fef5e7;
-            padding: 3px 6px;
-            border-radius: 4px;
-            border: 1px solid #fdebd0;
         }
 
         footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid #eef3f7;
             color: #95a5a6;
@@ -187,50 +191,54 @@
 
     <div id="wrapper">
 
+        <!-- Header -->
         <h1 class="logo">1O1C</h1>
-        <div class="subtitle">Personal Media Directories & Global Network Portal</div>
+        <div class="subtitle">The Elite One-Chunk Anarchy Network &bull; Lifesteal Hybrid</div>
 
+        <!-- Navigation Menu -->
         <div id="nav-bar">
             <a href="index.html">Home</a>
             <a href="rules.html">Rules</a>
             <a href="store.html">Server Shop</a>
             <a href="downloads.html">Downloads</a>
             <a href="myrandomlist.html" class="active">My Random List</a>
-            <a href="mymcserverlist.html">MC Server List</a>
             <a href="support.html">Support</a>
         </div>
 
-        <p style="line-height: 1.6; color: #556270; font-size: 14px; margin-bottom: 20px;">
-            Personal catalog of watched anime, movies, and planned watchlists with actual community/personal ratings assigned across all entries.
-        </p>
-
-        <div class="section-header">My Random Anime & Media Database</div>
-
+        <!-- Filter Controls -->
         <div class="filter-container">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search anime title..." onkeyup="filterAnime()">
-            <select id="statusFilter" class="type-select" onchange="filterAnime()">
-                <option value="All">All Statuses</option>
-                <option value="Completed">Watched / Completed</option>
-                <option value="Plan to Watch">Plan to Watch</option>
-            </select>
+            <div class="filter-group">
+                <label for="searchInput"><strong>Search Title:</strong></label>
+                <input type="text" id="searchInput" onkeyup="filterAnime()" placeholder="Type anime title...">
+            </div>
+            <div class="filter-group">
+                <label for="statusFilter"><strong>Status:</strong></label>
+                <select id="statusFilter" onchange="filterAnime()">
+                    <option value="All">All Statuses</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Plan to Watch">Plan to Watch</option>
+                </select>
+            </div>
         </div>
 
-        <table class="anime-table" id="animeTable">
+        <!-- List Table -->
+        <table class="data-table">
             <thead>
                 <tr>
-                    <th width="8%">#</th>
-                    <th width="52%">Anime Title</th>
-                    <th width="20%">Rating</th>
-                    <th width="20%">Status</th>
+                    <th style="width: 8%;">ID</th>
+                    <th style="width: 52%;">Title</th>
+                    <th style="width: 20%;">Rating</th>
+                    <th style="width: 20%;">Status</th>
                 </tr>
             </thead>
             <tbody id="animeBody">
-                <!-- Populated dynamically via JavaScript -->
+                <!-- Dynamically populated via JavaScript -->
             </tbody>
         </table>
 
+        <!-- Footer -->
         <footer>
-            &copy; 2026 1O1C Network. Curated Personal Media Log.
+            &copy; 2026 1O1C Anarchy Network. Personal Watchlist Archive.
         </footer>
 
     </div>
@@ -626,8 +634,8 @@
                 var tr = document.createElement('tr');
 
                 var statusBadge = item.status === 'Completed' 
-                    ? '<span class="status-completed">✓ Watched</span>' 
-                    : '<span class="status-plan">⏱ Plan to Watch</span>';
+                    ? '<span class="status-completed">&#10003; Watched</span>' 
+                    : '<span class="status-plan">&#9201; Plan to Watch</span>';
 
                 var ratingHTML = '<span class="rating-badge">' + item.rating + '</span>';
 
@@ -653,6 +661,7 @@
             renderAnime(filtered);
         }
 
+        // Initial render
         renderAnime(animeData);
     </script>
 </body>
