@@ -211,9 +211,7 @@
             <a href="rules.html">Rules</a>
             <a href="store.html">Server Shop</a>
             <a href="downloads.html">Downloads</a>
-            <a href="myrandomlist.html">My Anime List</a>
-            <a href="myreadinglist.html">My Reading List</a>
-            <a href="mymcserverlist.html" class="active">MC Server List</a>
+            <a href="myrandomlist.html">My Random List</a>
             <a href="support.html">Support</a>
         </div>
 
@@ -398,8 +396,8 @@
 
             var filtered = serversData.filter(function(server) {
                 var matchesSearch = server.name.toLowerCase().includes(searchText) || 
-                                  server.ip.toLowerCase().includes(searchText) ||
-                                  server.modes.toLowerCase().includes(searchText);
+                                   server.ip.toLowerCase().includes(searchText) ||
+                                   server.modes.toLowerCase().includes(searchText);
                 var matchesType = (selectedType === 'All') || (server.type === selectedType);
                 return matchesSearch && matchesType;
             });
