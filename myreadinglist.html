@@ -190,8 +190,7 @@
             <a href="rules.html">Rules</a>
             <a href="store.html">Server Shop</a>
             <a href="downloads.html">Downloads</a>
-            <a href="myrandomlist.html">My Anime List</a>
-            <a href="myreadinglist.html" class="active">My Reading List</a>
+            <a href="myrandomlist.html" class="active">My Random List</a>
             <a href="support.html">Support</a>
         </div>
 
@@ -400,7 +399,7 @@
 
             var filtered = booksData.filter(function(book) {
                 var matchesSearch = book.title.toLowerCase().includes(searchText) || 
-                                  book.author.toLowerCase().includes(searchText);
+                                   book.author.toLowerCase().includes(searchText);
                 var matchesCategory = (selectedCategory === 'All') || (book.category === selectedCategory);
                 return matchesSearch && matchesCategory;
             });
