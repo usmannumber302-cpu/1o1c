@@ -5,7 +5,7 @@
     <link rel="icon" type="image/png" href="https://1o1c.org/logo.png">
 
     <title>My Random List | 1O1C Anarchy Network</title>
-    <meta name="description" content="1O1C Directory and personal media tracking hubs including anime lists, reading lists, and Minecraft server lists.">
+    <meta name="description" content="1O1C Directory and personal media tracking hubs including server history, anime lists, reading lists, and Minecraft server lists.">
 
     <style>
         /* 2010 Era Balanced & Peaceful Base Styling */
@@ -97,24 +97,26 @@
             letter-spacing: 0.5px;
         }
 
-        /* Grid Layout for Hub Buttons */
+        /* 2x2 Layout Grid for Hub Cards */
         .list-grid {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-            border-spacing: 15px;
-            margin: -15px -15px 10px -15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 10px;
         }
 
         .list-card {
-            display: table-cell;
+            flex: 1 1 calc(50% - 15px);
+            box-sizing: border-box;
             background-color: #fafbfc;
             border: 1px solid #d6e0ea;
             border-radius: 6px;
             padding: 20px;
             text-align: center;
-            vertical-align: top;
             box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .list-card:hover {
@@ -186,33 +188,56 @@
         </div>
 
         <p style="line-height: 1.6; color: #556270; font-size: 14px; margin-bottom: 25px;">
-            Welcome to the central directory hub. Select any of the sub-lists below to view personal reading logs, tracked series, or community server indexes.
+            Welcome to the central directory hub. Select any of the sub-lists below to view server timelines, personal reading logs, tracked series, or community server indexes.
         </p>
 
         <div class="section-header">Select a List Directory</div>
 
-        <!-- 3-Column List Link Cards -->
+        <!-- 2x2 Grid Layout for Cards -->
         <div class="list-grid">
             
+            <!-- Server History Card -->
+            <div class="list-card">
+                <div>
+                    <div class="list-title">Official Server History</div>
+                    <div class="list-desc">Complete timeline of 1O1C, E1608, and Pandemonium—including key milestones, incidents, and world statistics.</div>
+                </div>
+                <div>
+                    <a href="history.html" class="btn-action">Open History Log &rarr;</a>
+                </div>
+            </div>
+
             <!-- Anime List Card -->
             <div class="list-card">
-                <div class="list-title">My Anime List</div>
-                <div class="list-desc">Personal watchlist, completed series logs, ratings, and active seasonal recommendations.</div>
-                <a href="myanimelist.html" class="btn-action">Open Anime List &rarr;</a>
+                <div>
+                    <div class="list-title">My Anime List</div>
+                    <div class="list-desc">Personal watchlist, completed series logs, ratings, and active seasonal recommendations.</div>
+                </div>
+                <div>
+                    <a href="myanimelist.html" class="btn-action">Open Anime List &rarr;</a>
+                </div>
             </div>
 
             <!-- Reading List Card -->
             <div class="list-card">
-                <div class="list-title">My Reading List</div>
-                <div class="list-desc">Tracked novels, web fiction archives, manuscripts, and literary review logs.</div>
-                <a href="myreadinglist.html" class="btn-action">Open Reading List &rarr;</a>
+                <div>
+                    <div class="list-title">My Reading List</div>
+                    <div class="list-desc">Tracked novels, web fiction archives, manuscripts, and literary review logs.</div>
+                </div>
+                <div>
+                    <a href="myreadinglist.html" class="btn-action">Open Reading List &rarr;</a>
+                </div>
             </div>
 
             <!-- MC Server List Card -->
             <div class="list-card">
-                <div class="list-title">My MC Server List</div>
-                <div class="list-desc">Curated index of notable Minecraft servers, partner networks, and test environments.</div>
-                <a href="mymcserverlist.html" class="btn-action">Open Server List &rarr;</a>
+                <div>
+                    <div class="list-title">My MC Server List</div>
+                    <div class="list-desc">Curated index of notable Minecraft servers, partner networks, and test environments.</div>
+                </div>
+                <div>
+                    <a href="mymcserverlist.html" class="btn-action">Open Server List &rarr;</a>
+                </div>
             </div>
 
         </div>
