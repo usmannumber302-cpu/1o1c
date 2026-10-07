@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1O1C Anarchy Lifesteal | My Random List (Official History)</title>
+    <style>
+        :root {
+            --page-bg: #e2e9ef;
+            --container-bg: #ffffff;
+            --card-bg: #f8fafc;
+            --primary-blue: #0284c7;
+            --text-dark: #334155;
+            --text-muted: #64748b;
+            --border-light: #e2e8f0;
+            --border-box: #cbd5e1;
+            --accent-red: #ef4444;
+            --accent-green: #10b981;
+            --accent-gold: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--page-bg);
+            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-card {
+            background-color: var(--container-bg);
+            width: 100%;
+            max-width: 960px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            border: 1px solid #dce4ec;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1.logo {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            letter-spacing: -1px;
+            margin-bottom: 6px;
+        }
+
+        p.tagline {
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Navigation Bar */
+        nav.navbar {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 8px 16px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav.navbar a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav.navbar a:hover {
+            background-color: #e2e8f0;
+            color: var(--primary-blue);
+        }
+
+        nav.navbar a.active {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+        }
+
+        /* Page Content Wrapper */
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .section-header {
+            background-color: #f1f5f9;
+            border: 1px solid var(--border-box);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .section-header h2 {
+            font-size: 1.15rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .section-header p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Timeline Item Cards */
+        .event-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--primary-blue);
+            border-radius: 6px;
+            padding: 16px 20px;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        .event-card:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .event-card.incident {
+            border-left-color: var(--accent-red);
+            background-color: #fef2f2;
+        }
+
+        .event-card.milestone {
+            border-left-color: var(--accent-green);
+        }
+
+        .event-date {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .event-card.incident .event-date {
+            color: var(--accent-red);
+        }
+
+        .event-card.milestone .event-date {
+            color: var(--accent-green);
+        }
+
+        .event-body {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .event-body ul {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+
+        .event-body li {
+            margin-bottom: 6px;
+        }
+
+        .event-body code {
+            background-color: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 35px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-card">
+    <!-- Header Logo & Tagline -->
+    <header>
+        <h1 class="logo">1O1C</h1>
+        <p class="tagline">The Elite One-Chunk Anarchy Network • Lifesteal Hybrid</p>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="rules.html">Rules</a>
+        <a href="shop.html">Server Shop</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="history.html" class="active">My Random List</a>
+        <a href="support.html">Support</a>
+    </nav>
+
+    <!-- Content Container -->
+    <div class="content-container">
+
+        <!-- Entry 1 -->
+        <div class="event-card milestone">
+            <div class="event-date">January 12, 2021</div>
+            <div class="event-body">
+                Pandemonium (pandemonium.space) is officially launched by Caveman-Lawyer as a fresh 100% Vanilla anarchy server, offering pure, unclaimable survival gameplay without Factions or Land Claim plugins.
+                <ul>
+                    <li><strong>Core Mechanics:</strong> Combined complete anarchy with a single non-negotiable rule: No Hacking.</li>
+                    <li><strong>Moderation & Anti-Cheat:</strong> Deployed active moderation and high-quality anti-cheat systems specifically to eliminate client hacks and shut down intentional lag machines.</li>
+                    <li><strong>Player Freedom:</strong> Aside from hack prevention, zero admin interference allowed players to freely build mega-structures, grief, steal, and wage unscripted faction wars.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Entry 2 -->
+        <div class="event-card">
+            <div class="event-date">July 31, 2021</div>
+            <div class="event-body">
+                Pandemonium establishes itself as a staple non-hacked anarchy server, updating to Minecraft 1.16.5 and securing a long-term foundation.
+                <ul>
+                    <li><strong>World Guarantee:</strong> Maintained a strict promise of zero map resets, fostering a dedicated player base and player-built infrastructure.</li>
+                    <li><strong>Expanded Rules:</strong> Strictly banned duplication glitches alongside client hacks to preserve the legitimate survival economy.</li>
+                    <li><strong>Active Hub:</strong> Utilized its official Discord community to coordinate faction alliances, trade, and mega-build projects.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section Banner for 2L2B -->
+        <div class="section-header">
+            <h2>The 2L2B Experiment (Short-Lived Parallel Event):</h2>
+            <p>During Pandemonium's multi-year run, a short-lived regional experiment named 2L2B (2l2b.mooo.com) launched as an unmoderated, Lebanon-hosted anarchy server providing offline-mode (cracked) access and low ADSL ping (~17ms).</p>
+        </div>
+
+        <!-- Event Cards Sequence -->
+        <div class="event-card incident">
+            <div class="event-body">
+                · Due to immediate legal complications in Lebanon regarding unmoderated public chat regulations, 2L2B closed after running for only 2 days.
+            </div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-body">
+                · Following its swift shutdown, its player base transitioned into Pandemonium's established community.
+            </div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">December 10, 2024</div>
+            <div class="event-body">The server is officially bought by an unknown server owner. The initial player base ranges between 4 and 15 concurrent players.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">December 28, 2024</div>
+            <div class="event-body">Construction of initial spawn structures begins.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">December 29, 2024</div>
+            <div class="event-body">Early players populate the area surrounding spawn, setting up temporary storage.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">December 30, 2024</div>
+            <div class="event-body">Spawn suffers initial structural damage, primarily caused by unmitigated Creeper explosions.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">January 1, 2025</div>
+            <div class="event-body">Players disperse into the wilderness to establish early bases.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">January 2, 2025</div>
+            <div class="event-body">Construction on early spawn settlements accelerates.</div>
+        </div>
+
+        <div class="event-card incident">
+            <div class="event-date">January 3, 2025</div>
+            <div class="event-body">Unpatched server exploits are weaponized by rogue players, leading to targeted attacks against player builds near spawn.</div>
+        </div>
+
+        <div class="event-card incident">
+            <div class="event-date">January 4, 2025</div>
+            <div class="event-body">Explosive griefing campaigns reduce major sections of spawn to bedrock and exposed stone.</div>
+        </div>
+
+        <div class="event-card milestone">
+            <div class="event-date">January 12, 2025</div>
+            <div class="event-body">The server reaches its official 4-year anniversary under current administration, triggering community celebrations.</div>
+        </div>
+
+        <div class="event-card incident">
+            <div class="event-date">January 15, 2025</div>
+            <div class="event-body">Spawn infrastructure is heavily destroyed by repeated griefing operations.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">March 10, 2025</div>
+            <div class="event-body">Server operations are shut down due to a lack of host hardware resources.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">March 20, 2025</div>
+            <div class="event-body">The server returns online after a 10-day outage; player retention drops dramatically (0–5 players).</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">June 15, 2025</div>
+            <div class="event-body">Critical chunk rendering bugs force administration to put the main world into maintenance and open a temporary map.</div>
+        </div>
+
+        <div class="event-card incident">
+            <div class="event-date">July 1, 2025</div>
+            <div class="event-body">The main hard drive suffers a critical hardware failure, forcing an immediate, unannounced offline state.</div>
+        </div>
+
+        <div class="event-card milestone">
+            <div class="event-date">July 2, 2025</div>
+            <div class="event-body">Founder Silent_Maker officially acquires the server project and renames it E1608 (Empire1608).</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">July 7, 2025</div>
+            <div class="event-body">Hard drive replacement operations complete, bringing the server back online.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">July 8, 2025</div>
+            <div class="event-body">System storage is upgraded to a high-speed SSD.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">July 9, 2025</div>
+            <div class="event-body">Spawn desertification accelerates as lava and sand are spread across thousands of blocks.</div>
+        </div>
+
+        <div class="event-card milestone">
+            <div class="event-date">July 20, 2025</div>
+            <div class="event-body">E1608 releases its Alpha version, transitioning off free hosting to a self-hosted physical PC.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">August 1, 2025</div>
+            <div class="event-body">The server maintains a steady base of 8-9 daily regular players.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">August 12, 2025</div>
+            <div class="event-body">Administration patches flight movement modifications.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">August 15, 2025</div>
+            <div class="event-body">Players encase the entire spawn zone inside a solid obsidian box.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">August 16, 2025</div>
+            <div class="event-body">Flight movement modifications are re-enabled following system adjustments.</div>
+        </div>
+
+        <div class="event-card milestone">
+            <div class="event-date">September 15, 2025</div>
+            <div class="event-body">Total unique logged accounts hit 30,000 unique players.</div>
+        </div>
+
+        <div class="event-card incident">
+            <div class="event-date">October 8, 2025</div>
+            <div class="event-body">Rogue players exploit a log-in coordinate vulnerability to track player locations and execute targeted teleports.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">October 11, 2025</div>
+            <div class="event-body">Hardware backend and server files update to modern Minecraft version 1.21.10.</div>
+        </div>
+
+        <div class="event-card incident">
+            <div class="event-date">December 19, 2025</div>
+            <div class="event-body">World drive storage reaches maximum capacity, forcing an emergency shutdown.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">December 23, 2025</div>
+            <div class="event-body">The server reopens under a new connection IP address.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">January 12, 2026</div>
+            <div class="event-body">Widespread abuse of illegal duplicated items forces administration to open a temporary map.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">February 23, 2026</div>
+            <div class="event-body">Server operations on E1608 are temporarily paused due to real-life personal commitments of Silent_Maker.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">March 15, 2026</div>
+            <div class="event-body">Offline maintenance and backend configuration updates are performed.</div>
+        </div>
+
+        <div class="event-card milestone">
+            <div class="event-date">April 1, 2026</div>
+            <div class="event-body">The server hosts its first official April Fools event. Silent_Maker resumes server operations, updating the server to version 1.21.11.</div>
+        </div>
+
+        <div class="event-card incident">
+            <div class="event-date">April 26, 2026 (03:23:45 AM GMT+5)</div>
+            <div class="event-body">Rogue player <code>+eyad3221</code> joins the server, pretends to offer administrative help, and convinces Silent_Maker to grant operator status (<code>/op</code>).</div>
+        </div>
+
+        <div class="event-card incident">
+            <div class="event-date">April 26, 2026 (03:25:00 AM GMT+5)</div>
+            <div class="event-body"><code>+eyad3221</code> uses <code>/op</code> privileges to destroy spawn and the surrounding overworld terrain.</div>
+        </div>
+
+        <div class="event-card incident">
+            <div class="event-date">April 26, 2026 (03:28:12 AM GMT+5)</div>
+            <div class="event-body"><code>+eyad3221</code> places an active repeating Command Block programmed to execute a continuous kick-and-ban loop against Silent_Maker.</div>
+        </div>
+
+        <div class="event-card incident">
+            <div class="event-date">April 26, 2026 (03:30:00 AM GMT+5)</div>
+            <div class="event-body">The processing overload crashes the host PC, causing $40 USD in physical hardware damage. Administration resets a few damaged chunks near spawn and establishes a strict policy permanently banning <code>/op</code> and Creative mode distribution.</div>
+        </div>
+
+        <div class="event-card milestone">
+            <div class="event-date">April 27, 2026</div>
+            <div class="event-body">Silent_Maker formally rebrands the server to 1O1C (One Owner One Chunk). Player Simon543215660 joins as co-owner, contributing upgraded server hardware and taking over infrastructure management.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">April 30, 2026</div>
+            <div class="event-body">The server suffers a massive bot attack involving 600+ automated accounts (using variations of <code>doulikep**n_[number]</code>). Security filters successfully mitigate the attack.</div>
+        </div>
+
+        <div class="event-card milestone">
+            <div class="event-date">May 5, 2026</div>
+            <div class="event-body">1O1C hits a milestone of 36,000 unique players, maintaining 4–5 daily regulars, climbing TopG server rankings, and indexing on Google.</div>
+        </div>
+
+        <div class="event-card incident">
+            <div class="event-date">May 7, 2026</div>
+            <div class="event-body">Player SLAYERMC (Discord: PAPER_OWNER) alongside FaiezE_Gamer, Lance_zer, and dark_hunt3r trick administration to gain <code>/op</code>. They spawn dozens of Ender Dragons and Withers, crashing performance. Owners Silent_Maker and Simon543215660 ban all involved players and clean the world map.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">May 13, 2026</div>
+            <div class="event-body">Administration enters into a promotional sponsorship deal with streamer synx.</div>
+        </div>
+
+        <div class="event-card incident">
+            <div class="event-date">May 18, 2026</div>
+            <div class="event-body">The partnership with synx is officially terminated after being identified as a scam.</div>
+        </div>
+
+        <div class="event-card milestone">
+            <div class="event-date">May 26, 2026</div>
+            <div class="event-body">Owners purchase and secure the official domain 1o1c.org, establishing it as the network's main web hub.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">June 1, 2026</div>
+            <div class="event-body">Host hardware stability adjustments begin following late-May power and thermal issues.</div>
+        </div>
+
+        <div class="event-card milestone">
+            <div class="event-date">June 13, 2026</div>
+            <div class="event-body">1o1c.org restores full 24/7 uptime, resolving all prior host hardware stability issues and completing the transition into the modern 1o1c.org Anarchy SMP network.</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">June 24, 2026</div>
+            <div class="event-body">The server owner expands the network's domain holdings by purchasing 2p2t.uk.</div>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2026 1O1C Network (1o1c.org). All rights reserved.
+    </footer>
+</div>
+
+</body>
+</html>
